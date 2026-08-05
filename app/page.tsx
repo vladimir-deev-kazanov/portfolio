@@ -7,11 +7,11 @@ export default function Home() {
   return (
     <main id="main-content">
       <section className="home-hero shell">
-        <div className="availability reveal"><span /> Product Designer · Paphos, Cyprus</div>
-        <h1 className="display reveal delay-1">I make complex products<br/><em>understandable and trustworthy.</em></h1>
+        <div className="availability reveal"><span /> Product Designer</div>
+        <h1 className="display reveal delay-1">I make complex products<br/><em>clear and trustworthy.</em></h1>
         <div className="hero-bottom reveal delay-2">
           <div className="hero-copy">
-            <p>I design Marketing SaaS, Fintech, and B2B SaaS products—from Local SEO automation for small businesses to high-stakes banking workflows for entrepreneurs.</p>
+            <p>I design Fintech and B2B SaaS products—from Local SEO automation for small businesses to high-stakes banking workflows for entrepreneurs.</p>
             <div className="hero-actions"><a href="#work">View selected work</a><Link href="/cv">View CV</Link></div>
             <span className="proof-line">7+ years · Semrush · Raiffeisen Bank</span>
           </div>
@@ -28,7 +28,7 @@ export default function Home() {
       </section>
 
       <section className="work-section shell section-pad" id="work">
-        <div className="section-head"><div><p className="kicker">Selected work</p><p className="section-intro">Three projects across AI-enabled Marketing SaaS and financial products, selected for the decisions and constraints behind the interfaces.</p></div><span>03 projects</span></div>
+        <div className="section-head"><div><p className="kicker">Selected work</p><p className="section-intro">Three projects across B2B SaaS and financial products, selected for the decisions and constraints behind the interfaces.</p></div><span>03 projects</span></div>
         <div className="project-list">
           <Link href="/work/ai-agent" className="project-card">
             <div className="project-copy"><div><span className="project-no">01</span><span className="tag">LOCAL SEO</span></div><h2>Local SEO AI Agent</h2><p>Designing the autonomy boundaries of an agent that maintains a small business’s Google Business Profile—under a four-week MVP deadline.</p><span className="role-line">Semrush · 2025–2026<br/>Sole Product Designer</span><span className="text-link">Read the Local SEO AI Agent case <b>↗</b></span></div>
@@ -53,13 +53,13 @@ export default function Home() {
       <section className="about shell section-pad" id="about">
         <p className="kicker">About</p>
         <div className="about-grid">
-          <h2>Complexity is part of the product.<br/><em>Confusion does not have to be.</em></h2>
-          <div><p>I’m a Product Designer with 7+ years of experience across Marketing SaaS, Fintech, and B2B SaaS. At Semrush, I design Local SEO tools that help small businesses manage their online presence. Previously, at Raiffeisen Bank, I designed web and mobile banking for entrepreneurs and a corporate CRM for relationship managers.</p><p>I work from problem framing and research through flows, prototypes, product analytics, and implementation review. I’m most useful where the product has difficult rules, high-stakes actions, or automation that people need to understand before they can trust it.</p><Link className="button-link" href="/cv">See experience and education <span>↗</span></Link></div>
+          <h2>Complex products need clear decisions.<br/><em>Not more confusion.</em></h2>
+          <div><p>I’m a Product Designer with 7+ years of experience in Fintech and B2B SaaS. At Semrush, I design Local SEO tools that help small businesses manage their online presence. Previously, at Raiffeisen Bank, I designed web and mobile banking for entrepreneurs and a CRM for relationship managers.</p><p>I work from problem framing and research through flows, prototypes, product analytics, and implementation review. I’m most useful when difficult rules, high-stakes actions, or automation must feel clear before people can trust the product.</p><Link className="button-link" href="/cv">See experience and education <span>↗</span></Link></div>
         </div>
       </section>
 
       <section className="contact shell section-pad" id="contact">
-        <p className="kicker">Contact · Paphos, Cyprus</p>
+        <p className="kicker">Contact</p>
         <a href="mailto:vladimirdeev0@gmail.com" className="contact-link">Let’s make a complex product easier to use. <span>↗</span></a>
         <div className="contact-meta"><a href="mailto:vladimirdeev0@gmail.com">vladimirdeev0@gmail.com</a><a href="https://www.linkedin.com/in/vladimir-deev-kazanov-449a2459/" target="_blank" rel="noreferrer">LinkedIn ↗</a><Link href="/cv">View CV ↗</Link></div>
       </section>
