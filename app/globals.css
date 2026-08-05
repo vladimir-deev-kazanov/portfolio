@@ -31,3 +31,21 @@
 .qr-project-visual{background:#ffed00}
 .qr-project-visual:before{content:none}
 @media(max-width:800px){.hero-bottom{gap:20px}.hero-bottom p{max-width:none}.circle-link{width:48px;height:48px;min-width:48px}}
+
+/* AI Agent case-study refinements */
+.wordmark{font-family:Georgia,serif;font-style:italic;font-weight:700}
+.case-back{display:inline-flex;align-items:center;min-height:44px;margin-bottom:28px;font:600 12px var(--font-mono);letter-spacing:.06em;text-transform:uppercase}
+.case-back:hover{color:var(--violet)}
+.case-hero h1{line-height:.86}
+.snapshot-section h2,.orientation h2{font-size:clamp(34px,4vw,56px);line-height:1}
+.decision-body{align-items:start}
+.decision-body>.kicker{padding-top:5px}
+.case-stage-mvp{background:#eef0f3}
+.big-number{font-size:clamp(92px,14vw,210px)}
+.decision-screens{display:grid;grid-template-columns:1.35fr .65fr;gap:24px;margin-top:70px;align-items:start}
+.decision-screens>div,.post-edit-screen{display:grid;gap:14px}
+.decision-screens .case-stage,.post-edit-screen .case-stage{margin-top:0}
+.decision-screens .case-stage-setup img{max-height:720px;width:auto}
+.post-edit-screen{margin-top:70px}
+.post-edit-screen .case-stage-editor img{max-height:720px}
+@media(max-width:800px){.case-hero h1{line-height:.9}.decision-screens{grid-template-columns:1fr}.decision-screens .case-stage-setup img,.post-edit-screen .case-stage-editor img{max-height:620px}.snapshot-section h2,.orientation h2{font-size:clamp(34px,10vw,48px)}}

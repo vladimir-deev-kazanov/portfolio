@@ -14,6 +14,8 @@ const images = {
   later: { src: "/work/ai-agent/dashboard-later.png", width: 1020, height: 1288 },
   editor: { src: "/work/ai-agent/post-editor.png", width: 450, height: 882 },
   settings: { src: "/work/ai-agent/settings.png", width: 570, height: 648 },
+  landing: { src: "/work/ai-agent/landing-hero.png", width: 1025, height: 552 },
+  setup: { src: "/work/ai-agent/setup.png", width: 1200, height: 1920 },
 };
 
 type ProductImageProps = {
@@ -50,6 +52,7 @@ function Alternatives({ rejected, chosen }: { rejected: string; chosen: string }
 export default function CaseStudy() {
   return <main id="main-content" className="case-page"><article>
     <header className="case-hero shell">
+      <Link className="case-back reveal" href="/#work">← Back to work</Link>
       <div className="case-meta reveal"><span>Semrush · 2025</span><span>4-week MVP</span><span>Sole Product Designer</span></div>
       <h1 className="reveal delay-1">Turning an AI mandate into an agent owners could <em>control.</em></h1>
       <p className="reveal delay-2">With one week to design before a conference, I defined the smallest useful boundary for an agent acting publicly on a business owner’s behalf.</p>
@@ -97,6 +100,7 @@ export default function CaseStudy() {
       <blockquote><b>Trade-off accepted:</b> we could measure activation, but not trust in individual outputs.</blockquote>
       <p><strong>Validation status.</strong> The product shipped, but the MVP did not let an owner repair successfully published bad or repetitive content inside Semrush. They had to correct it directly in Google. Technical publication failures followed a separate path: automatic retry, a service-status message if the retry failed, then later resumption without owner action.</p>
       <div className="failure-grid"><p><b>Technical failure</b><span>Retry → service status → resume.</span></p><p><b>Wrong public result</b><span>No in-product MVP recovery → correct in Google.</span></p></div>
+      <div className="decision-screens"><div><span className="image-label">Landing page · entry point</span><ProductImage image="landing" alt="Local SEO AI Agent landing page introducing the product and its value" /></div><div><span className="image-label">Agent setup · control boundary</span><ProductImage image="setup" alt="AI Agent setup screen for configuring automated Local SEO activity" /></div></div>
     </Decision>
 
     <Decision no="02" title="Make the dashboard answer ‘What did the agent do?’" eyebrow="Operational visibility" tone>
@@ -121,6 +125,7 @@ export default function CaseStudy() {
       <p><strong>Validation status.</strong> We did not establish a causal link between changing frequency and improved Google ranking.</p>
       <ProductImage image="settings" className="narrow-stage" alt="Post-MVP AI Agent settings with controls for posts, photos, reviews, and keywords" />
       <p className="evidence-note"><b>Visual boundary:</b> this is a post-MVP settings state. Its example frequencies do not prove the original seven-day default.</p>
+      <div className="post-edit-screen"><span className="image-label">Post-MVP · preview and edit</span><ProductImage image="editor" alt="Post-MVP scheduled post editor with generated image, editable copy, link, and save action" /></div>
     </Decision>
 
     <section className="case-section shell measure" aria-labelledby="measure-title">
@@ -135,7 +140,7 @@ export default function CaseStudy() {
       <p className="kicker">Post-launch evolution</p><h2 id="after-title">The evidence brought the missing controls back.</h2>
       <p>After several months of analytics, visible user growth, and qualitative feedback, the team prioritised a broader improvement scope.</p>
       <div className="ownership-grid"><p><b>I owned</b><span>Post-editing interface, growth task, and agent-setup onboarding step.</span></p><p><b>I contributed</b><span>Redesigning the agent’s list output and performance metrics.</span></p><p><b>Not claimed</b><span>All later photo, keyword, instruction, and activation work.</span></p></div>
-      <div className="image-pair"><div><span className="image-label">Initial state · execution status</span><ProductImage image="mvp" alt="Initial dashboard showing completed agent actions without generated content preview" /></div><div><span className="image-label">Later state · preview and edit</span><ProductImage image="editor" alt="Post-MVP scheduled post editor with generated image, editable copy, link, and save action" /></div></div>
+      <div className="image-pair"><div><span className="image-label">Initial state · execution status</span><ProductImage image="mvp" alt="Initial dashboard showing completed agent actions without generated content preview" /></div><div><span className="image-label">After MVP · planned and recent work</span><ProductImage image="later" alt="Post-MVP dashboard showing upcoming content previews and recent completed actions" /></div></div>
     </div></section>
 
     <section className="reflection shell" aria-labelledby="reflection-title"><p className="kicker">Reflection</p><h2 id="reflection-title">Control cannot exist only at setup.</h2><div className="reflection-copy">
