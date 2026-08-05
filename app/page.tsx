@@ -7,7 +7,7 @@ export default function Home() {
         <div className="availability reveal"><span /> Senior Product Designer · Paphos, Cyprus</div>
         <h1 className="display reveal delay-1">Hi, I’m Vladimir.<br />I design clarity<br/><em>into complexity.</em></h1>
         <div className="hero-bottom reveal delay-2">
-          <p>For 7+ years, I’ve made AI and financial products easier to understand, trust, and use—from first idea to shipped experience.</p>
+          <p>For 7+ years, I’ve made Marketing SaaS and financial products easier to understand, trust, and use—from first idea to shipped experience.</p>
           <a className="circle-link" href="#work" aria-label="Scroll to selected work">↓</a>
         </div>
       </section>
@@ -24,24 +24,36 @@ export default function Home() {
         <p className="kicker">What I do</p>
         <p className="statement">I turn tangled systems into products people can understand—and decisions teams can stand behind.</p>
         <div className="manifesto-meta">
-          <span>7+ years in product design</span><span>AI · Fintech · B2B</span><span>Research → shipped product</span>
+          <span>7+ years in product design</span><span>B2B SaaS · Fintech</span><span>Research → shipped product</span>
         </div>
       </section>
 
       <section className="work-section shell section-pad" id="work">
-        <div className="section-head"><p className="kicker">Selected work</p><span>01 project / more soon</span></div>
+        <div className="section-head"><p className="kicker">Selected work</p><span>02 projects</span></div>
+        <div className="project-list">
         <Link href="/work/ai-agent" className="project-card">
           <div className="project-copy">
             <div><span className="project-no">01</span><span className="tag">AI PRODUCT</span></div>
             <h2>Making invisible AI work feel visible</h2>
-            <p>From mandate to shipped MVP in four weeks—designing an autonomous Local SEO agent that small-business owners could understand and control.</p>
+            <p>Local SEO AI Agent</p>
             <span className="text-link">Read case study <b>↗</b></span>
           </div>
           <div className="project-visual">
             <img src="/work/ai-agent/dashboard-mvp.png" alt="Semrush AI Agent product dashboard" />
-            <span className="metric-stamp"><b>8%</b> landing → configured agent</span>
           </div>
         </Link>
+        <Link href="/work/raiffeisen-mobile" className="project-card">
+          <div className="project-copy">
+            <div><span className="project-no">02</span><span className="tag">MOBILE FINTECH</span></div>
+            <h2>Making QR payments speak the merchant’s language</h2>
+            <p>How UX tests turned SBP C2B’s technical QR types into task-based payment modes—and a safer cashier experience.</p>
+            <span className="text-link">Read case study <b>↗</b></span>
+          </div>
+          <div className="project-visual qr-project-visual" aria-hidden="true">
+            <div className="qr-card-stack"><div className="qr-card qr-card-back"><span>Reusable</span><b>Same price, many payments</b></div><div className="qr-card qr-card-front"><span>Cashier QR</span><b>Set amount → create code</b><i>Payment received</i></div></div>
+          </div>
+        </Link>
+        </div>
       </section>
 
       <section className="about shell section-pad">
