@@ -49,3 +49,10 @@
 .post-edit-screen{margin-top:70px}
 .post-edit-screen .case-stage-editor img{max-height:720px}
 @media(max-width:800px){.case-hero h1{line-height:.9}.decision-screens{grid-template-columns:1fr}.decision-screens .case-stage-setup img,.post-edit-screen .case-stage-editor img{max-height:620px}.snapshot-section h2,.orientation h2{font-size:clamp(34px,10vw,48px)}}
+
+/* CV layout refinements */
+.cv-hero{grid-template-columns:minmax(0,1fr) minmax(280px,.65fr);column-gap:clamp(40px,6vw,100px)}
+.cv-hero h1{font-size:clamp(64px,7.2vw,112px)}
+.cv-intro{padding-bottom:0;align-self:end}
+.role-title{align-items:end}
+@media(max-width:800px){.cv-hero{grid-template-columns:1fr;row-gap:38px}.cv-hero h1{font-size:clamp(58px,15vw,78px)}.cv-intro{padding-top:8px}.role-title{align-items:start}}
