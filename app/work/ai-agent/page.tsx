@@ -75,7 +75,7 @@ export default function CaseStudy() {
       <div className="glance-grid">
         <p><b>The problem</b><span>The mandate was fixed, but the safe and useful boundary was not.</span></p>
         <p><b>My decisions</b><span>Prioritise execution proof, focus the dashboard, and keep cadence controllable.</span></p>
-        <p><b>The result</b><span>8% reached a configured dashboard; useful as an activation signal, not a success benchmark.</span></p>
+        <p><b>The result</b><span>8% reached the dashboard; useful as an activation signal, not a success benchmark.</span></p>
       </div>
     </div></section>
 
@@ -125,8 +125,8 @@ export default function CaseStudy() {
 
     <section className="case-section shell measure" aria-labelledby="measure-title">
       <div><p className="kicker">Outcome and limitations</p><h2 id="measure-title">What 8% does—and does not—prove</h2></div>
-      <div><div className="big-number">8%</div><p className="case-lede">of people who saw the landing page later reached a configured agent dashboard during the initial measurement.</p>
-        <dl><dt>Definition</dt><dd>Landing page seen → configured dashboard seen</dd><dt>Baseline</dt><dd>None; this was a new product</dd><dt>Target</dt><dd>None set</dd><dt>Source</dt><dd>GA4 and a SQL query run by me because the team had no analyst</dd></dl>
+      <div><div className="big-number">8%</div><p className="case-lede">of people who saw the landing page later reached the dashboard during the initial measurement.</p>
+        <dl><dt>Definition</dt><dd>Landing page seen → dashboard seen</dd><dt>Baseline</dt><dd>None; this was a new product</dd><dt>Target</dt><dd>None set</dd><dt>Source</dt><dd>GA4 and a SQL query run by me because the team had no analyst</dd></dl>
         <p className="measure-limit">This validates arrival at an operating agent, not trust in generated content, ranking improvement, retention, or a causal pricing effect.</p>
       </div>
     </section>
@@ -145,7 +145,7 @@ export default function CaseStudy() {
     </div></section>
 
     <section className="appendix shell" aria-labelledby="appendix-title"><p className="kicker">Appendix</p><h2 id="appendix-title">Evidence boundaries</h2>
-      <details><summary>How activation was measured</summary><p>I defined activation as reaching a configured agent dashboard after seeing the landing page. With no analyst on the team, I combined GA4 events with my own SQL query. I use the result as an early activation signal, not a comparative success benchmark.</p></details>
+      <details><summary>How activation was measured</summary><p>I defined activation as reaching the dashboard after seeing the landing page. With no analyst on the team, I combined GA4 events with my own SQL query. I use the result as an early activation signal, not a comparative success benchmark.</p></details>
       <details><summary>MVP capability boundary</summary><p>The MVP showed completed post, photo, and review work; it did not expose generated post content, provide in-product content editing, or accept custom AI instructions. Cadence control and technical publication retry were included.</p></details>
       <details><summary>Ownership boundary</summary><p>The negative-review draft/edit/publish flow existed before this project and was integrated into the agent ecosystem. A separate model team owned model training and content-quality improvements.</p></details>
     </section>

@@ -15,7 +15,7 @@ async function render(pathname) {
   );
 }
 
-for (const route of ["/", "/cv", "/work/ai-agent"]) {
+for (const route of ["/", "/cv", "/work/ai-agent", "/work/raiffeisen-mobile"]) {
   test(`${route} renders the portfolio shell`, async () => {
     const response = await render(route);
     assert.equal(response.status, 200);
