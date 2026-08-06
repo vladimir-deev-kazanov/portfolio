@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Geist, Geist_Mono } from "next/font/google";
+import SiteNav from "./SiteNav";
 import "./globals.css";
 
 const geist = Geist({ variable: "--font-geist", subsets: ["latin"] });
@@ -21,7 +22,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <a className="skip-link" href="#main-content">Skip to content</a>
       <header className="site-nav shell">
         <Link href="/" className="wordmark">V/DK</Link>
-        <nav aria-label="Primary navigation"><Link href="/#work">Work</Link><Link href="/#about">About</Link><Link href="/cv">CV</Link><Link href="/#contact">Contact</Link></nav>
+        <SiteNav />
       </header>
       {children}
       <footer className="site-footer shell"><span>© 2026 Vladimir Deev-Kazanov</span><div><a href="mailto:vladimirdeev0@gmail.com">Email</a><a href="https://www.linkedin.com/in/vladimir-deev-kazanov-449a2459/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://www.behance.net/gallery/157977921/Vova-Deev-Kazanov" target="_blank" rel="noreferrer">Behance ↗</a><Link href="/cv">CV</Link></div></footer>

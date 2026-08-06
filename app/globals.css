@@ -56,3 +56,10 @@
 .cv-intro{padding-bottom:0;align-self:end}
 .role-title{align-items:end}
 @media(max-width:800px){.cv-hero{grid-template-columns:1fr;row-gap:38px}.cv-hero h1{font-size:clamp(58px,15vw,78px)}.cv-intro{padding-top:8px}.role-title{align-items:start}}
+
+/* Persistent navigation and CV link refinements */
+.site-nav{position:sticky;top:0;background:#f7f6f2d9;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid #d6d4cd99}
+.site-nav nav a.active,.site-nav nav a[aria-current="page"]{background:var(--ink);color:#fff}
+.role li:before{color:#9b9994}
+.cv-intro>div a{color:var(--acid);transition:opacity .2s}
+.cv-intro>div a:hover{opacity:.68;text-decoration:underline;text-underline-offset:4px}
