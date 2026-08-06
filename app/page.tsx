@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main id="main-content">
       <section className="home-hero shell">
-        <div className="availability reveal"><span /> Product Designer</div>
+        <div className="availability reveal"><span /> Vladimir Deev-Kazanov · Product Designer</div>
         <h1 className="display reveal delay-1">I make complex products<br/><em>clear and trustworthy.</em></h1>
         <div className="hero-bottom reveal delay-2">
           <div className="hero-copy">
