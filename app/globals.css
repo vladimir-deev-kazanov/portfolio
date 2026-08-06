@@ -96,3 +96,65 @@
   .about-hero h1{font-size:clamp(49px,14vw,72px)}
   .about-story{grid-template-columns:1fr;gap:40px}
 }
+
+/* Unified case-study palette and full-grid product evidence */
+.qr-case .case-hero h1 em{color:var(--violet);font-style:italic;background:none}
+.qr-case .qr-hero-stage{background:transparent}
+.qr-case .qr-option.active{background:var(--soft-violet)}
+.qr-case .case-punch{background:var(--violet);color:#fff}
+.qr-case .case-punch .kicker{color:#fff}
+.qr-case .punch-grid{border-top-color:#ffffff44}
+.qr-case .punch-grid span{color:#e1ddff}
+.qr-case .decision-section.tone{background:#f0edff;color:var(--ink)}
+.qr-case .decision-section.tone .decision-head{border-top-color:var(--ink)}
+.qr-case .decision-section.tone .decision-head>span,
+.qr-case .decision-section.tone .kicker,
+.qr-case .decision-head>span,
+.qr-case .flow-list li span,
+.qr-case .term-shift span,
+.qr-case .access-model span,
+.qr-case .chooser-compare>div>span,
+.qr-case .product-evidence figcaption span,
+.qr-case .screen-flow figcaption span{color:var(--violet)}
+.qr-case .decision-section.tone .decision-copy>p,
+.qr-case .decision-section.tone blockquote{color:var(--ink)}
+.qr-case .decision-copy blockquote,
+.qr-case .evidence-limit{border-left-color:var(--violet)}
+.qr-case .fake-tabs b:first-child{border-bottom-color:var(--violet)}
+.qr-case .term-shift>i,
+.qr-case .access-model>i{color:var(--violet);background:transparent}
+.qr-case .decision-section.tone .chooser-compare{border-top-color:#d4d0e8}
+.qr-case .decision-section.tone .chooser-compare span{color:var(--violet)}
+.qr-case .decision-section.tone .chooser-compare p{color:#64625e}
+.qr-case .decision-section.tone .screen-flow>div{background:#f1f1ed}
+.qr-case .decision-section.tone .flow-screen>span,
+.qr-case .decision-section.tone .screen-flow figcaption{color:#5f5b55}
+.qr-case .decision-section.tone .screen-flow figcaption span{color:var(--violet)}
+.flow-screen i{background:var(--violet);color:#fff}
+
+@media(min-width:801px){
+  .decision-copy>.case-stage,
+  .decision-copy>.decision-screens,
+  .decision-copy>.post-edit-screen,
+  .decision-copy>.screen-flow,
+  .decision-copy>.product-evidence{
+    width:calc(100% + 420px);
+    margin-left:-420px;
+  }
+  .operations-section>div:last-child>.product-evidence{
+    width:calc(100% + 420px);
+    margin-left:-420px;
+  }
+}
+
+@media(max-width:800px){
+  .decision-copy>.case-stage,
+  .decision-copy>.decision-screens,
+  .decision-copy>.post-edit-screen,
+  .decision-copy>.screen-flow,
+  .decision-copy>.product-evidence,
+  .operations-section>div:last-child>.product-evidence{
+    width:100%;
+    margin-left:0;
+  }
+}
