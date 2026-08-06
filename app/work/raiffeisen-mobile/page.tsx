@@ -52,9 +52,10 @@ export default function RaiffeisenMobileCaseStudy() {
 
     <section className="reflection shell"><p className="kicker">Reflection</p><h2>System language is not a user mental model.</h2><p>The redesign preserved SBP’s underlying capabilities but moved the choice closer to merchant work: use once, reuse at a stable price, or delegate changing totals to a cashier. The unresolved question was when the explicit chooser could be simplified. I wanted usage data—not intuition—to decide.</p></section>
     <section className="next-case shell" aria-label="Next case study">
+      <p className="kicker">Next case study</p>
       <Link className="next-case-card" href="/work/ai-agent">
-        <span className="next-case-copy"><small>Next case study</small><b>Local SEO AI Agent</b><em>How the autonomy boundary made invisible AI work legible.</em></span>
         <span className="next-case-visual next-case-visual-wide"><img src="/work/ai-agent/dashboard-mvp.png" alt="Local SEO AI Agent dashboard" loading="lazy" /></span>
+        <b>Local SEO AI Agent</b>
       </Link>
     </section>
   </main>;

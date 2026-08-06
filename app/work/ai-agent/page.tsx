@@ -156,9 +156,10 @@ export default function CaseStudy() {
     </section>
 
     <section className="next-case shell" aria-label="Next case study">
+      <p className="kicker">Next case study</p>
       <Link className="next-case-card" href="/work/raiffeisen-mobile">
-        <span className="next-case-copy"><small>Next case study</small><b>Mobile banking for entrepreneurs</b><em>How task-based language made QR payment modes easier to choose.</em></span>
         <span className="next-case-visual"><img src="/work/raiffeisen-mobile/screens/cashier-created.jpg" alt="Cashier QR payment interface" loading="lazy" /></span>
+        <b>Mobile banking for entrepreneurs</b>
       </Link>
     </section>
   </article></main>;
