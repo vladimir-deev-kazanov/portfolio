@@ -31,7 +31,7 @@ export default function Home() {
         <div className="section-head"><div><p className="kicker">Selected work</p><p className="section-intro">Three projects across B2B SaaS and financial products, selected for the decisions and constraints behind the interfaces.</p></div><span>03 projects</span></div>
         <div className="project-list">
           <Link href="/work/ai-agent" className="project-card">
-            <div className="project-copy"><div><span className="project-no">01</span><span className="tag">LOCAL SEO</span></div><h2>Local SEO AI Agent</h2><p>Designing the autonomy boundaries of an agent that maintains a small business’s Google Business Profile—under a four-week MVP deadline.</p><span className="role-line">Semrush · 2025–2026<br/>Sole Product Designer</span><span className="text-link">Read the Local SEO AI Agent case <b>↗</b></span></div>
+            <div className="project-copy"><div><span className="project-no">01</span><span className="tag">LOCAL SEO</span></div><h2>Local SEO AI Agent</h2><p>Designing the autonomy boundaries of an agent that maintains a small business’s Google Business Profile—under a four-week MVP deadline.</p><span className="role-line">Semrush · 2025–2026<br/>Product Designer</span><span className="text-link">Read the Local SEO AI Agent case <b>↗</b></span></div>
             <div className="project-visual"><img src="/work/ai-agent/dashboard-mvp.png" width="1020" height="552" loading="lazy" alt="Semrush Local SEO AI Agent MVP dashboard" /></div>
           </Link>
           <a href="https://volodyalovesyou.tilda.ws/web-banking" className="project-card text-project web-project" target="_blank" rel="noreferrer">
@@ -50,18 +50,9 @@ export default function Home() {
         <a href="https://volodyalovesyou.tilda.ws/open-self-employed" target="_blank" rel="noreferrer" className="work-row"><span>Banking for self-employed workers<small>Otkritie Bank · Research and product concepts</small></span><p>Research and mobile-banking concepts shaped around the financial realities of self-employed people.</p><b>↗</b></a>
       </section>
 
-      <section className="about shell section-pad" id="about">
-        <p className="kicker">About</p>
-        <div className="about-grid">
-          <h2>Complex products need clear decisions.<br/><em>Not more confusion.</em></h2>
-          <div><p>I’m a Product Designer with 7+ years of experience in Fintech and B2B SaaS. At Semrush, I design Local SEO tools that help small businesses manage their online presence. Previously, at Raiffeisen Bank, I designed web and mobile banking for entrepreneurs and a CRM for relationship managers.</p><p>I work from problem framing and research through flows, prototypes, product analytics, and implementation review. I’m most useful when difficult rules, high-stakes actions, or automation must feel clear before people can trust the product.</p><Link className="button-link" href="/cv">See experience and education <span>↗</span></Link></div>
-        </div>
-      </section>
-
       <section className="contact shell section-pad" id="contact">
         <p className="kicker">Contact</p>
-        <a href="mailto:vladimirdeev0@gmail.com" className="contact-link">Let’s make a complex product easier to use. <span>↗</span></a>
-        <div className="contact-meta"><a href="mailto:vladimirdeev0@gmail.com">vladimirdeev0@gmail.com</a><a href="https://www.linkedin.com/in/vladimir-deev-kazanov-449a2459/" target="_blank" rel="noreferrer">LinkedIn ↗</a><Link href="/cv">View CV ↗</Link></div>
+        <h2 className="contact-link">Let’s make a complex product easier to use.</h2>
       </section>
     </main>
   );

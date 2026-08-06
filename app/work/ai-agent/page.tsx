@@ -53,7 +53,7 @@ export default function CaseStudy() {
   return <main id="main-content" className="case-page"><article>
     <header className="case-hero shell">
       <Link className="case-back reveal" href="/#work">← Back to work</Link>
-      <div className="case-meta reveal"><span>Semrush · 2025</span><span>4-week MVP</span><span>Sole Product Designer</span></div>
+      <div className="case-meta reveal"><span>Semrush · 2025</span><span>4-week MVP</span><span>Product Designer</span></div>
       <h1 className="reveal delay-1">Turning an AI mandate into an agent owners could <em>control.</em></h1>
       <p className="reveal delay-2">With one week to design before a conference, I defined the smallest useful boundary for an agent acting publicly on a business owner’s behalf.</p>
       <ProductImage image="later" priority alt="Later GBP AI Agent dashboard showing performance, upcoming posts and photos, and recently completed actions" />

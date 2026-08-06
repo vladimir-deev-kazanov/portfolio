@@ -20,9 +20,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en"><body className={`${geist.variable} ${mono.variable}`}>
       <a className="skip-link" href="#main-content">Skip to content</a>
-      <header className="site-nav shell">
-        <Link href="/" className="wordmark">V/DK</Link>
-        <SiteNav />
+      <header className="site-header">
+        <div className="site-nav shell">
+          <Link href="/" className="wordmark">V/DK</Link>
+          <SiteNav />
+        </div>
       </header>
       {children}
       <footer className="site-footer shell"><span>© 2026 Vladimir Deev-Kazanov</span><div><a href="mailto:vladimirdeev0@gmail.com">Email</a><a href="https://www.linkedin.com/in/vladimir-deev-kazanov-449a2459/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://www.behance.net/gallery/157977921/Vova-Deev-Kazanov" target="_blank" rel="noreferrer">Behance ↗</a><Link href="/cv">CV</Link></div></footer>
