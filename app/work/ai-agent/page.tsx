@@ -14,7 +14,7 @@ const images = {
   later: { src: "/work/ai-agent/dashboard-later.png", width: 1020, height: 1288 },
   editor: { src: "/work/ai-agent/post-editor.png", width: 450, height: 882 },
   settings: { src: "/work/ai-agent/settings.png", width: 570, height: 648 },
-  landing: { src: "/work/ai-agent/landing-hero.png", width: 1025, height: 552 },
+  landing: { src: "/work/ai-agent/landing-page.png", width: 1025, height: 4522 },
   setup: { src: "/work/ai-agent/setup.png", width: 1200, height: 1920 },
 };
 
@@ -52,7 +52,7 @@ function Alternatives({ rejected, chosen }: { rejected: string; chosen: string }
 export default function CaseStudy() {
   return <main id="main-content" className="case-page"><article>
     <header className="case-hero shell">
-      <Link className="case-back reveal" href="/#work">← Back to work</Link>
+      <Link className="case-back reveal" href="/#work">← Back to projects</Link>
       <div className="case-meta reveal"><span>Semrush · 2025</span><span>4-week MVP</span><span>Product Designer</span></div>
       <h1 className="reveal delay-1">Turning an AI mandate into an agent owners could <em>control.</em></h1>
       <p className="reveal delay-2">With one week to design before a conference, I defined the smallest useful boundary for an agent acting publicly on a business owner’s behalf.</p>
@@ -155,6 +155,11 @@ export default function CaseStudy() {
       <details><summary>Ownership boundary</summary><p>The negative-review draft/edit/publish flow existed before this project and was integrated into the agent ecosystem. A separate model team owned model training and content-quality improvements.</p></details>
     </section>
 
-    <Link className="next-project shell" href="/cv"><span>Next</span><b>Experience and background</b><i>CV ↗</i></Link>
+    <section className="next-case shell" aria-label="Next case study">
+      <Link className="next-case-card" href="/work/raiffeisen-mobile">
+        <span className="next-case-copy"><small>Next case study</small><b>Mobile banking for entrepreneurs</b><em>How task-based language made QR payment modes easier to choose.</em></span>
+        <span className="next-case-visual"><img src="/work/raiffeisen-mobile/screens/cashier-created.jpg" alt="Cashier QR payment interface" loading="lazy" /></span>
+      </Link>
+    </section>
   </article></main>;
 }
