@@ -123,7 +123,20 @@ export default function CaseStudy() {
       <p><strong>Why.</strong> Frequency had to remain part of the owner’s control boundary. The initial rhythm drew on Google Business Profile community best-practice guidance, not a formal Google frequency rule.</p>
       <blockquote><b>Trade-off accepted:</b> adjustable settings added product complexity, but prevented a single default from pretending every business had the same content supply.</blockquote>
       <p><strong>Validation status.</strong> We did not establish a causal link between changing frequency and improved Google ranking.</p>
-      <ProductImage image="settings" className="narrow-stage" alt="Post-MVP AI Agent settings with controls for posts, photos, reviews, and keywords" />
+      <div className="state-toggle">
+        <input className="state-radio" type="radio" name="settings-state" id="settings-on" defaultChecked />
+        <input className="state-radio" type="radio" name="settings-state" id="settings-off" />
+        <div className="state-tabs" role="group" aria-label="Settings states">
+          <label htmlFor="settings-on">Activities on</label>
+          <label htmlFor="settings-off">All activities off</label>
+        </div>
+        <div className="case-stage case-stage-settings state-stage">
+          <img className="state-on" src="/work/ai-agent/settings-enabled.png" width={570} height={648} loading="lazy" alt="AI Agent settings with posts, photos, and review replies switched on, each with its own cadence control" />
+          <img className="state-off" src="/work/ai-agent/settings-disabled.png" width={570} height={600} loading="lazy" alt="AI Agent settings with every activity switched off, cadence controls greyed out, and a red Disable AI Agent action" />
+        </div>
+        <p className="state-caption state-on">Cadence is set per activity, not once for the whole agent: posts and photos carry separate schedules, and review replies expand into their own tone and language controls.</p>
+        <p className="state-caption state-off">Switching everything off is treated as a decision, not a side effect. The cadence controls grey out, the review sub-settings collapse, and the primary action changes from <b>Save changes</b> to <b>Disable AI Agent</b>—so an owner cannot end up with a silently dormant agent.</p>
+      </div>
       <p className="evidence-note"><b>Visual boundary:</b> this is a post-MVP settings state. Its example frequencies do not prove the original seven-day default.</p>
       <div className="post-edit-screen"><span className="image-label">Post-MVP · preview and edit</span><ProductImage image="editor" alt="Post-MVP scheduled post editor with generated image, editable copy, link, and save action" /></div>
     </Decision>

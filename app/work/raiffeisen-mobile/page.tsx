@@ -12,13 +12,18 @@ export default function RaiffeisenMobileCaseStudy() {
       <div className="case-meta"><span>Raiffeisen Bank · 2023</span><span>Mobile banking</span><span>Product Designer</span></div>
       <h1>Turning SBP’s QR types into payment modes merchants could <em>understand.</em></h1>
       <p>When acquiring was too expensive, QR payments gave businesses another option. My job was to make the payment system usable—not merely reproduce Central Bank terminology.</p>
-      <div className="case-stage qr-hero-stage" aria-label="Three task-based QR payment modes">
-        <div className="qr-phone"><div className="qr-phone-top"><span>‹</span><b>Accept payment by QR</b><i>•••</i></div><p>What do you need the QR for?</p>
-          <QrOption no="01" title="One-time QR" detail="For a single payment with a set amount" />
-          <QrOption no="02" title="Reusable QR" detail="For repeated payments at the same price" />
-          <QrOption no="03" title="Cashier QR" detail="Reuse the code and change the amount" active />
+      <div className="case-stage qr-hero-stage">
+        <div className="qr-phone">
+          <div className="qr-phone-top"><span>‹</span><b>Accept payment by QR</b><i>•••</i></div>
+          <fieldset className="qr-chooser">
+            <legend>What do you need the QR for?</legend>
+            <QrOption id="one" no="01" title="One-time QR" detail="For a single payment with a set amount" why="Use once. The amount is fixed when the code is created." />
+            <QrOption id="reusable" no="02" title="Reusable QR" detail="For repeated payments at the same price" why="Reuse at a stable price. A fixed-price service can show the same code every time." />
+            <QrOption id="cashier" no="03" title="Cashier QR" detail="Reuse the code and change the amount" why="Delegate changing totals to an employee, without giving them the owner’s banking." />
+          </fieldset>
         </div>
       </div>
+      <p className="stage-note">The chooser above is interactive. Nothing is preselected—that is the decision this case argues for.</p>
     </header>
 
     <section className="case-section shell snapshot-section"><div><p className="kicker">Snapshot</p><h2>Scope and ownership</h2></div><dl><dt>Period</dt><dd>2023</dd><dt>Team</dt><dd>PM/PO, system analyst, developers, QA, and me as product designer</dd><dt>I owned</dt><dd>Product design and the proposed terminology, selection model, and cashier experience</dd><dt>We delivered</dt><dd>Implementation and production launch as an agile team</dd><dt>Not mine</dt><dd>SBP C2B payment rail, Central Bank rules, and engineering implementation</dd><dt>Status</dt><dd>Shipped to production</dd></dl></section>
@@ -61,7 +66,13 @@ export default function RaiffeisenMobileCaseStudy() {
   </main>;
 }
 
-function QrOption({no,title,detail,active=false}:{no:string,title:string,detail:string,active?:boolean}) { return <div className={`qr-option ${active?"active":""}`}><span>{no}</span><div><b>{title}</b><small>{detail}</small></div><i>›</i></div>; }
+function QrOption({id,no,title,detail,why}:{id:string,no:string,title:string,detail:string,why:string}) {
+  return <>
+    <input className="qr-radio" type="radio" name="qr-mode" id={`qr-${id}`} />
+    <label className="qr-option" htmlFor={`qr-${id}`}><span>{no}</span><div><b>{title}</b><small>{detail}</small></div><i aria-hidden="true">›</i></label>
+    <p className="qr-why">{why}</p>
+  </>;
+}
 function FactCard({label,title,detail}:{label:string,title:string,detail:string}) { return <div><span>{label}</span><b>{title}</b><small>{detail}</small></div>; }
 function ScreenFlow({caption,screens}:{caption:string,screens:Array<[string,string]>}) { return <figure className="screen-flow"><div>{screens.map(([file,label],index)=><div className="flow-screen" key={file}><span>{String(index+1).padStart(2,'0')} · {label}</span><img src={`/work/raiffeisen-mobile/screens/${file}.jpg`} alt={label} loading="lazy"/>{index<screens.length-1&&<i aria-hidden="true">→</i>}</div>)}</div><figcaption>{caption}<span>Production design source</span></figcaption></figure>; }
 function EvidenceVisual({src,alt,caption,portrait=false}:{src:string,alt:string,caption:string,portrait?:boolean}) { return <figure className={`product-evidence ${portrait?"portrait":""}`}><div><img src={src} alt={alt} loading="lazy"/></div><figcaption>{caption}<span>Production design source</span></figcaption></figure>; }
