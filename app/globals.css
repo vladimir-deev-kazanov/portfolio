@@ -556,7 +556,7 @@ summary:focus-visible {
   background: var(--soft-violet);
   border-radius: 24px 24px 0 0;
   padding-bottom: 0;
-  max-height: 700px;
+  max-height: min(700px, 72vh);
   overflow: hidden;
 }
 .case-section {
@@ -967,14 +967,14 @@ summary:focus-visible {
   gap: 24px;
 }
 .qr-project-visual {
-  background: #ffed00;
-  height: 700px;
+  background: #fef6e1;
+  height: min(700px, 72vh);
 }
 .qr-project-visual img {
   width: auto;
   height: 88%;
   max-width: 90%;
-  border-radius: 24px;
+  border-radius: 48px;
   box-shadow: 0 30px 70px #392d7540;
 }
 .punch-grid {
@@ -1006,6 +1006,17 @@ summary:focus-visible {
 }
 .qr-hero-stage img {
   max-width: min(380px, 92%);
+}
+.qr-hero-prototype-wrap {
+  max-width: 100%;
+  overflow: hidden;
+}
+.qr-hero-prototype {
+  transform-origin: top left;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 16px 60px #17151f22;
+  background: #fff;
 }
 .term-shift,
 .access-model {
@@ -1226,11 +1237,13 @@ summary:focus-visible {
 .screen-flow > div {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 46px;
+  gap: 88px;
   background: #f1f1ed;
   border-radius: 20px;
   padding: 38px;
   overflow: hidden;
+  max-width: calc(83vh + 252px);
+  margin: 0 auto;
 }
 .flow-screen {
   position: relative;
@@ -1246,7 +1259,8 @@ summary:focus-visible {
 .flow-screen img {
   display: block;
   width: 100%;
-  aspect-ratio: 10/18;
+  height: auto;
+  aspect-ratio: 375/812;
   object-fit: cover;
   object-position: top;
   border-radius: 18px;
@@ -1317,7 +1331,7 @@ summary:focus-visible {
   color: var(--violet);
 }
 .product-evidence.portrait > div {
-  max-height: 760px;
+  max-height: min(760px, 78vh);
   overflow: hidden;
 }
 .product-evidence.portrait img {
@@ -1626,6 +1640,7 @@ summary:focus-visible {
   }
   .term-shift > i,
   .access-model > i {
+    justify-self: start;
     padding: 0 32px;
     text-align: left;
     transform: rotate(90deg);
@@ -1655,7 +1670,7 @@ summary:focus-visible {
     max-width: none;
   }
   .product-evidence.portrait > div {
-    max-height: 580px;
+    max-height: min(580px, 65vh);
   }
   .product-evidence.portrait img {
     width: 900px;
@@ -1670,6 +1685,7 @@ summary:focus-visible {
 }
 @media (max-width: 800px) {
   .qr-case .term-shift > i {
+    justify-self: start;
     padding: 5px 32px;
     transform: rotate(90deg);
   }
@@ -1745,14 +1761,14 @@ summary:focus-visible {
   margin-top: 0;
 }
 .decision-screens .case-stage-setup img {
-  max-height: 720px;
+  max-height: min(720px, 75vh);
   width: auto;
 }
 .post-edit-screen {
   margin-top: 70px;
 }
 .post-edit-screen .case-stage-editor img {
-  max-height: 720px;
+  max-height: min(720px, 75vh);
 }
 @media (max-width: 800px) {
   .case-hero h1 {
@@ -1933,7 +1949,7 @@ summary:focus-visible {
   min-width: 0;
 }
 .decision-screens .case-stage {
-  height: 720px;
+  height: min(720px, 75vh);
   overflow: auto;
   display: block;
   scrollbar-width: thin;
