@@ -171,7 +171,7 @@ export default function CaseStudy() {
     <section className="next-case shell" aria-label="Next case study">
       <p className="kicker">Next case study</p>
       <Link className="next-case-card" href="/work/raiffeisen-mobile">
-        <span className="next-case-visual"><img src="/work/raiffeisen-mobile/screens/cashier-created.jpg" alt="Cashier QR payment interface" loading="lazy" /></span>
+        <span className="next-case-visual"><img src="/work/raiffeisen-mobile/screens/cashier-payment-en.jpg" alt="Cashier QR payment interface" loading="lazy" /></span>
         <b>Mobile banking for entrepreneurs</b>
       </Link>
     </section>
