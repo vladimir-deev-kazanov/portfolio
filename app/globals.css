@@ -288,7 +288,7 @@ summary:focus-visible {
   display: grid;
   place-items: center;
   overflow: hidden;
-  background: transparent;
+  background: #f4efff;
 }
 .project-visual img {
   position: relative;

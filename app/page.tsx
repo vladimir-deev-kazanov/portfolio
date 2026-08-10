@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main id="main-content">
       <section className="home-hero shell">
-        <div className="availability reveal"><span /> Vladimir Deev-Kazanov · Product Designer</div>
+        <div className="availability reveal"><span /> Vladimir Deev-Kazanov · Senior Product Designer</div>
         <h1 className="display reveal delay-1">I turn complex systems into<br/><em>decisions people can understand.</em></h1>
         <div className="hero-bottom reveal delay-2">
           <div className="hero-copy">
@@ -28,21 +28,15 @@ export default function Home() {
           </Link>
           <Link href="/work/raiffeisen-mobile" className="project-card">
             <div className="project-copy"><div><span className="project-no">02</span><span className="tag">MOBILE FINTECH</span></div><h2>QR payments for merchants and cashiers</h2><p>I replaced technical QR terms with task-based choices and limited cashier access to payment work.</p><span className="role-line">Raiffeisen Bank · 2023<br/>Sole Product Designer</span><span className="text-link">Read the QR payments case study <b>↗</b></span></div>
-            <div className="project-visual qr-project-visual"><img src="/work/raiffeisen-mobile/home.png" width="563" height="2076" loading="lazy" alt="Raiffeisen QR merchant app home screen listing one-time, cashier, and reusable QR codes" /></div>
+            <div className="project-visual qr-project-visual"><img src="/work/raiffeisen-mobile/home.png" width="750" height="2918" loading="lazy" alt="Raiffeisen QR merchant app home screen listing one-time, cashier, and reusable QR codes" /></div>
           </Link>
         </div>
-      </section>
-
-      <section className="additional shell section-pad">
-        <p className="kicker">Additional work</p>
-        <a href="https://volodyalovesyou.tilda.ws/crm" target="_blank" rel="noreferrer" className="work-row" aria-label="View CRM project"><span>Corporate CRM for relationship managers<small>Raiffeisen Bank · B2B SaaS · 2019–2021</small></span><p>A workspace for client portfolios, product opportunities, tasks, goals, and profitability.</p><b>↗</b></a>
-        <a href="https://volodyalovesyou.tilda.ws/open-self-employed" target="_blank" rel="noreferrer" className="work-row" aria-label="View research project"><span>Banking concepts for self-employed workers<small>Otkritie Bank · Research and product concepts</small></span><p>Research and mobile-banking concepts based on the financial needs described by self-employed participants.</p><b>↗</b></a>
       </section>
 
       <section className="contact shell section-pad" id="contact">
         <p className="kicker">Contact</p>
         <h2 className="contact-link">Looking for a Product Designer for a complex B2B product?</h2>
-        <p className="contact-note">I'm based in Paphos, Cyprus, and open to Product Designer opportunities.</p>
+        <p className="contact-note">I'm based in Cyprus and open to Product Designer opportunities.</p>
       </section>
     </main>
   );
