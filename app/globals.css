@@ -547,11 +547,8 @@ summary:focus-visible {
   border-radius: 8px;
   box-shadow: 0 16px 60px #17151f22;
 }
-.case-stage-settings img {
-  max-width: 570px;
-}
 .case-stage-editor img {
-  max-width: 450px;
+  max-width: min(1020px, 100%);
 }
 .case-hero > .case-stage {
   background: var(--soft-violet);
@@ -1764,7 +1761,8 @@ summary:focus-visible {
   gap: 14px;
 }
 .decision-screens .case-stage,
-.post-edit-screen .case-stage {
+.post-edit-screen .case-stage,
+.state-toggle .case-stage {
   margin-top: 0;
 }
 .decision-screens .case-stage-setup img {
@@ -1774,9 +1772,6 @@ summary:focus-visible {
 .post-edit-screen {
   margin-top: 70px;
 }
-.post-edit-screen .case-stage-editor img {
-  max-height: min(720px, 75vh);
-}
 @media (max-width: 800px) {
   .case-hero h1 {
     line-height: 0.9;
@@ -1784,8 +1779,7 @@ summary:focus-visible {
   .decision-screens {
     grid-template-columns: 1fr;
   }
-  .decision-screens .case-stage-setup img,
-  .post-edit-screen .case-stage-editor img {
+  .decision-screens .case-stage-setup img {
     max-height: 620px;
   }
   .snapshot-section h2,
@@ -2122,6 +2116,7 @@ summary:focus-visible {
 /* Two-state evidence toggle (AI Agent settings) */
 .state-toggle {
   margin-top: 65px;
+  text-align: center;
 }
 .state-radio {
   position: absolute;
@@ -2137,7 +2132,7 @@ summary:focus-visible {
   padding: 6px;
   border: 1px solid var(--line);
   border-radius: 100px;
-  margin-bottom: 22px;
+  margin-bottom: 40px;
 }
 .state-tabs label {
   padding: 10px 18px;
@@ -2161,11 +2156,10 @@ summary:focus-visible {
   color: #fff;
 }
 .state-stage {
-  min-height: clamp(470px, 52vw, 740px);
   align-content: center;
 }
 .state-stage img {
-  width: min(570px, 100%);
+  width: 100%;
   height: auto;
 }
 .state-stage .state-on,

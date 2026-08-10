@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const images = {
   mvp: { src: "/work/ai-agent/dashboard-mvp.png", width: 1020, height: 552 },
   later: { src: "/work/ai-agent/dashboard-later.png", width: 1020, height: 900 },
-  editor: { src: "/work/ai-agent/post-editor.png", width: 450, height: 882 },
+  editor: { src: "/work/ai-agent/post-editor.png", width: 2000, height: 1616 },
   settings: { src: "/work/ai-agent/settings.png", width: 570, height: 648 },
   landing: { src: "/work/ai-agent/landing-page.png", width: 1025, height: 4522 },
   setup: { src: "/work/ai-agent/setup.png", width: 1200, height: 1920 },
@@ -127,12 +127,12 @@ export default function CaseStudy() {
         <input className="state-radio" type="radio" name="settings-state" id="settings-on" defaultChecked />
         <input className="state-radio" type="radio" name="settings-state" id="settings-off" />
         <div className="state-tabs" role="group" aria-label="Settings states">
-          <label htmlFor="settings-on">Activities on</label>
-          <label htmlFor="settings-off">All activities off</label>
+          <label htmlFor="settings-on">Automations on</label>
+          <label htmlFor="settings-off">Automations off</label>
         </div>
         <div className="case-stage case-stage-settings state-stage">
-          <img className="state-on" src="/work/ai-agent/settings-enabled.png" width={570} height={648} loading="lazy" alt="AI Agent settings with posts, photos, and review replies switched on, each with its own cadence control" />
-          <img className="state-off" src="/work/ai-agent/settings-disabled.png" width={570} height={600} loading="lazy" alt="AI Agent settings with every activity switched off, cadence controls greyed out, and a red Disable AI Agent action" />
+          <img className="state-on" src="/work/ai-agent/settings-enabled.png" width={2000} height={1408} loading="lazy" alt="AI Agent settings with posts, photos, and review replies switched on, each with its own cadence control" />
+          <img className="state-off" src="/work/ai-agent/settings-disabled.png" width={2000} height={1408} loading="lazy" alt="AI Agent settings with every activity switched off, cadence controls greyed out, and a red Disable AI Agent action" />
         </div>
         <p className="state-caption state-on">Cadence is set per activity, not once for the whole agent: posts and photos carry separate schedules, and review replies expand into their own tone and language controls.</p>
         <p className="state-caption state-off">Switching everything off is treated as a decision, not a side effect. The cadence controls grey out, the review sub-settings collapse, and the primary action changes from <b>Save changes</b> to <b>Disable AI Agent</b>—so an owner cannot end up with a silently dormant agent.</p>
