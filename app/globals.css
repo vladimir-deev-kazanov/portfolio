@@ -117,7 +117,7 @@ summary:focus-visible {
   border: 1px solid #ddd9cf;
   border-radius: 100px;
   display: grid;
-  grid-template-columns: repeat(3, 84px);
+  grid-template-columns: repeat(2, 84px);
 }
 .site-nav nav a {
   padding: 9px 17px;
@@ -963,45 +963,14 @@ summary:focus-visible {
 }
 .qr-project-visual {
   background: #ffed00;
+  height: 700px;
 }
-.qr-card-stack {
-  position: relative;
-  width: min(360px, 70%);
-  height: 430px;
-}
-.qr-card {
-  position: absolute;
-  width: 100%;
-  min-height: 250px;
-  background: #fff;
-  border: 1px solid #d4d0e8;
+.qr-project-visual img {
+  width: auto;
+  height: 88%;
+  max-width: 90%;
   border-radius: 24px;
-  padding: 30px;
   box-shadow: 0 30px 70px #392d7540;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-.qr-card span {
-  font: 650 11px var(--font-mono);
-  text-transform: uppercase;
-  color: var(--violet);
-}
-.qr-card b {
-  font-size: 28px;
-  letter-spacing: -0.04em;
-}
-.qr-card i {
-  margin-top: auto;
-  font: 12px var(--font-mono);
-  color: #14834f;
-}
-.qr-card-back {
-  transform: rotate(-8deg) translate(-32px, 20px);
-  opacity: 0.72;
-}
-.qr-card-front {
-  transform: rotate(4deg) translate(34px, 120px);
 }
 .punch-grid {
   display: grid;
@@ -1026,76 +995,12 @@ summary:focus-visible {
 .qr-hero-stage {
   display: grid;
   place-items: center;
-  min-height: 650px;
 }
-.qr-phone {
-  width: min(430px, 92%);
-  background: #fff;
-  border: 1px solid #d4d0e8;
-  border-radius: 28px 28px 0 0;
-  padding: 25px 22px 38px;
-  box-shadow: 0 28px 80px #30266c26;
+.case-hero > .qr-hero-stage {
+  max-height: none;
 }
-.qr-phone-top {
-  display: grid;
-  grid-template-columns: 30px 1fr 30px;
-  align-items: center;
-  margin-bottom: 50px;
-}
-.qr-phone-top b {
-  text-align: center;
-  font-size: 15px;
-}
-.qr-phone-top i {
-  text-align: right;
-  font-style: normal;
-}
-.qr-phone > p {
-  font-size: 27px;
-  line-height: 1.1;
-  font-weight: 600;
-  letter-spacing: -0.04em;
-  margin-bottom: 24px;
-}
-.qr-option {
-  display: grid;
-  grid-template-columns: 36px 1fr 20px;
-  gap: 14px;
-  align-items: center;
-  border-top: 1px solid #ddd;
-  padding: 20px 4px;
-  cursor: pointer;
-  transition:
-    background 0.2s ease,
-    padding 0.2s ease;
-}
-.qr-option > span {
-  font: 11px var(--font-mono);
-  color: var(--violet);
-}
-.qr-option div {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.qr-option div b {
-  font-size: 17px;
-}
-.qr-option small {
-  color: #6f6c66;
-  line-height: 1.35;
-}
-.qr-option > i {
-  font-size: 22px;
-  font-style: normal;
-  display: inline-block;
-  transition: transform 0.2s ease;
-}
-.qr-option.active {
-  background: var(--soft-violet);
-  border-radius: 12px;
-  padding-inline: 12px;
-  border-top-color: transparent;
+.qr-hero-stage img {
+  max-width: min(380px, 92%);
 }
 .term-shift,
 .access-model {
@@ -1205,9 +1110,6 @@ summary:focus-visible {
 }
 .qr-case .qr-hero-stage {
   background: transparent;
-}
-.qr-case .qr-option.active {
-  background: var(--soft-violet);
 }
 .qr-case .case-punch {
   background: var(--violet);
@@ -1737,12 +1639,6 @@ summary:focus-visible {
   .qr-hero-stage {
     min-height: 560px;
   }
-  .qr-phone > p {
-    font-size: 23px;
-  }
-  .qr-card-stack {
-    height: 390px;
-  }
   .qr-evidence dl {
     grid-template-columns: 1fr;
   }
@@ -1973,7 +1869,7 @@ summary:focus-visible {
   .site-nav nav {
     gap: 3px;
     padding: 4px;
-    grid-template-columns: repeat(3, minmax(58px, 1fr));
+    grid-template-columns: repeat(2, minmax(58px, 1fr));
   }
   .about-page {
     min-height: calc(100vh - 72px);
