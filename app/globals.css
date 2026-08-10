@@ -1248,18 +1248,7 @@ summary:focus-visible {
   box-shadow: 0 18px 40px #0002;
 }
 .flow-screen i {
-  position: absolute;
-  right: -35px;
-  top: 50%;
-  width: 24px;
-  height: 24px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  font-style: normal;
-  z-index: 2;
-  background: var(--violet);
-  color: #fff;
+  display: none;
 }
 .screen-flow figcaption {
   display: flex;
@@ -1695,9 +1684,6 @@ summary:focus-visible {
   .flow-screen {
     flex: 0 0 76%;
     scroll-snap-align: center;
-  }
-  .flow-screen i {
-    right: -12px;
   }
   .screen-flow figcaption {
     flex-direction: column;
