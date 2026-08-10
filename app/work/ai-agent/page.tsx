@@ -5,8 +5,8 @@ import Link from "next/link";
 /* eslint-disable @next/next/no-img-element */
 
 export const metadata: Metadata = {
-  title: "AI Agent case study",
-  description: "How Vladimir Deev-Kazanov turned an AI mandate into a controllable Local SEO agent MVP at Semrush.",
+  title: "Google Business Profile AI Agent case study",
+  description: "How I scoped a Google Business Profile agent, made its work visible, measured activation, and designed the controls deferred from the MVP.",
 };
 
 const images = {
@@ -53,10 +53,10 @@ export default function CaseStudy() {
   return <main id="main-content" className="case-page"><article>
     <header className="case-hero shell">
       <Link className="case-back reveal" href="/#work">← Back to projects</Link>
-      <div className="case-meta reveal"><span>Semrush · 2025</span><span>4-week MVP</span><span>Product Designer</span></div>
-      <h1 className="reveal delay-1">Turning an AI mandate into an agent owners could <em>control.</em></h1>
-      <p className="reveal delay-2">With one week to design before a conference, I defined the smallest useful boundary for an agent acting publicly on a business owner’s behalf.</p>
-      <ProductImage image="later" priority alt="Later GBP AI Agent dashboard showing performance, upcoming posts and photos, and recently completed actions" />
+      <div className="case-meta reveal"><span>Semrush · 2025</span><span>1 week design · 4 weeks to MVP</span><span>Sole Product Designer</span></div>
+      <h1 className="reveal delay-1">I cut an AI agent to one useful loop—and <em>exposed its limits.</em></h1>
+      <p className="reveal delay-2">With one week to design, I helped define what the MVP would do, what owners could see, and which controls had to wait.</p>
+      <ProductImage image="mvp" priority alt="MVP Google Business Profile AI Agent dashboard showing Views, Interactions, Average Rating, and a Recent Actions list" />
     </header>
 
     <section className="case-section shell snapshot-section" aria-labelledby="snapshot-title">
@@ -66,63 +66,63 @@ export default function CaseStudy() {
         <dt>Duration</dt><dd>4 weeks: 1 week of design, followed by build and iteration</dd>
         <dt>Team</dt><dd>Product owner, 2 frontend engineers, 2 backend engineers, QA, and me; no dedicated analyst</dd>
         <dt>I owned</dt><dd>Product design, user flows, interactions, and user-facing feature behaviour</dd>
-        <dt>We decided together</dt><dd>Minimum valuable scope and launch cuts, with the product owner</dd>
-        <dt>Not mine</dt><dd>The AI initiative, model architecture, and model-quality training</dd>
-        <dt>System</dt><dd>Desktop web using the Semrush UI kit</dd>
-        <dt>Status</dt><dd>Shipped, measured, and expanded after the MVP</dd>
+        <dt>We decided together</dt><dd>The product owner and I agreed on the minimum valuable scope and launch cuts</dd>
+        <dt>Not mine</dt><dd>The AI initiative, model architecture, model-quality training, pricing, and landing-page copy</dd>
+        <dt>System</dt><dd>Desktop web, built with the Semrush UI kit</dd>
+        <dt>Status</dt><dd>Shipped; activation measured; product expanded after the MVP</dd>
       </dl>
     </section>
 
     <section className="case-punch" aria-labelledby="glance-title"><div className="shell">
-      <p className="kicker">At a glance</p><h2 id="glance-title">Make autonomous work legible without making an owner learn Local SEO.</h2>
+      <p className="kicker">At a glance</p><h2 id="glance-title">Make the agent's work visible without teaching owners Local SEO.</h2>
       <div className="glance-grid">
-        <p><b>The problem</b><span>The mandate was fixed, but the safe and useful boundary was not.</span></p>
-        <p><b>My decisions</b><span>Prioritise execution proof, focus the dashboard, and keep cadence controllable.</span></p>
-        <p><b>The result</b><span>8% reached the dashboard; useful as an activation signal, not a success benchmark.</span></p>
+        <p><b>The problem</b><span>Leadership had chosen an AI agent, but the first useful MVP boundary was still open.</span></p>
+        <p><b>My decisions</b><span>Show completed work, focus the dashboard on understandable signals, and let owners change the publishing schedule.</span></p>
+        <p><b>The result</b><span>8% of landing-page viewers reached a configured dashboard. This measured activation only; no target or absolute sample is preserved.</span></p>
       </div>
     </div></section>
 
     <section className="case-section shell orientation" aria-labelledby="brief-title">
-      <div><p className="kicker">Brief and orientation</p><h2 id="brief-title">The mandate was fixed. The useful product was not.</h2></div>
+      <div><p className="kicker">Brief and orientation</p><h2 id="brief-title">Leadership chose the agent. We still had to define the first useful release.</h2></div>
       <div className="reading-copy">
-        <p className="case-lede">Top management had already decided that Semrush would pursue an AI agent. The product owner outlined the direction and initial MVP capabilities; my job was to turn the mandate into something a small-business owner could let operate.</p>
-        <p>The agent would maintain a Google Business Profile through public actions: publishing posts and photos and preparing review responses. If we did nothing beyond automating those tasks, owners would have no clear way to understand whether the agent was active, useful, or producing the right public result.</p>
-        <p>The subscription launched at half the price of the full Local SEO product. That is commercial positioning, not evidence that price caused activation or later growth.</p>
-        <ol className="flow-list" aria-label="Product flow">{["Landing", "Google authentication", "Profile analysis", "Personalised audit", "Payment", "Agent setup", "Configured dashboard"].map((step, index) => <li key={step}><span>0{index + 1}</span>{step}</li>)}</ol>
+        <p className="case-lede">Top management had already decided that Semrush would build an AI agent. The product owner set the direction and outlined the first capabilities. We did not compare an agent with checklists, templates, or a managed service.</p>
+        <p>My job was to turn that mandate into a product a small-business owner could operate. The agent maintained the owner's Google business listing by publishing posts and photos and preparing review replies. Because these actions appeared publicly under the business's name, owners needed to know what the agent had done and where their control ended.</p>
+        <p>The product launched at half the price of the full Local SEO subscription. This was commercial positioning, not evidence that price caused activation or later growth.</p>
+        <ol className="flow-list" aria-label="Product flow">{["Landing", "Google sign-in", "Profile analysis", "Audit", "Payment", "Setup", "Dashboard"].map((step, index) => <li key={step}><span>0{index + 1}</span>{step}</li>)}</ol>
       </div>
     </section>
 
-    <Decision no="01" title="Ship proof of execution before full control" eyebrow="Minimum valuable boundary">
-      <p><strong>The challenge.</strong> A complete agent would let owners inspect and edit generated content and provide custom instructions. The conference deadline left one design week, so we could not ship that complete control surface safely.</p>
-      <Alternatives rejected="Include content preview, editing, and user-authored instructions in the first release—more control, but a larger scope that put the deadline at risk." chosen="Connect a profile, configure the agent, and make completed posts, photos, and review tasks visible." />
+    <Decision no="01" title="Ship proof of execution before full control" eyebrow="Cut scope without hiding the agent's work">
+      <p><strong>The challenge.</strong> A more complete release would let owners preview and edit generated content and give the agent custom instructions. The conference deadline left one design week. Preview, editing, and custom instructions would put the launch scope at risk, so the product owner and I deferred them.</p>
+      <Alternatives rejected="Include preview, editing, and user instructions in the MVP. This offered more control but increased scope before a fixed launch." chosen="Connect a profile, configure the agent, and see completed posts, photos, and review tasks on the dashboard." />
       <p><strong>What I owned.</strong> I designed the flow and worked with the product owner to separate the minimum useful loop from the features we would defer.</p>
       <p><strong>Why.</strong> The shorter loop could establish whether people activated an autonomous workflow and reached the operating dashboard. It protected the fixed launch while still giving the agent a visible job to perform.</p>
-      <blockquote><b>Trade-off accepted:</b> we could measure activation, but not trust in individual outputs.</blockquote>
+      <blockquote><b>Trade-off accepted:</b> owners could confirm that the agent had acted, but they could not inspect or fix its output inside Semrush.</blockquote>
       <p><strong>Validation status.</strong> The product shipped, but the MVP did not let an owner repair successfully published bad or repetitive content inside Semrush. They had to correct it directly in Google. Technical publication failures followed a separate path: automatic retry, a service-status message if the retry failed, then later resumption without owner action.</p>
       <div className="failure-grid"><p><b>Technical failure</b><span>Retry → service status → resume.</span></p><p><b>Wrong public result</b><span>No in-product MVP recovery → correct in Google.</span></p></div>
       <div className="decision-screens"><div><span className="image-label">Landing page · entry point</span><ProductImage image="landing" alt="Local SEO AI Agent landing page introducing the product and its value" /></div><div><span className="image-label">Agent setup · control boundary</span><ProductImage image="setup" alt="AI Agent setup screen for configuring automated Local SEO activity" /></div></div>
     </Decision>
 
-    <Decision no="02" title="Make the dashboard answer ‘What did the agent do?’" eyebrow="Operational visibility" tone>
-      <p><strong>The challenge.</strong> Simple activation moved complexity out of the setup flow, but left the agent working invisibly in the background. The owner needed proof of useful activity without inheriting the complexity of a professional Local SEO interface.</p>
-      <Alternatives rejected="Expose a broader SEO control panel with more specialist data and controls." chosen="Use three familiar Google metrics and a chronological record of completed automations." />
+    <Decision no="02" title="Make the dashboard answer ‘What did the agent do?’" eyebrow="Show completed and planned work" tone>
+      <p><strong>The challenge.</strong> The short setup kept activation manageable, but it moved complexity into the background. After setup, owners needed proof that the agent was working, without inheriting a professional Local SEO dashboard.</p>
+      <Alternatives rejected="Expose a broader SEO control panel with more specialist measures and controls." chosen="Use three familiar Google measures—views, interactions, and average rating—and a chronological list of completed actions." />
       <p><strong>What I owned.</strong> I designed the post-activation dashboard, its metric hierarchy, activity model, and interactions.</p>
       <p><strong>Why.</strong> Small-business owners already had operational work to do. The AI would handle the specialist tasks; the owner would monitor Views, Interactions, Average Rating, and concrete agent actions instead of operating another toolkit.</p>
-      <blockquote><b>Trade-off accepted:</b> analytical depth was reduced so the agent’s work could be understood quickly.</blockquote>
+      <blockquote><b>Trade-off accepted:</b> the focused version reduced analytical depth. In return, owners could see what changed without learning another marketing toolkit.</blockquote>
       <ProductImage image="mvp" alt="MVP AI Agent dashboard showing Views, Interactions, Average Rating, and a Recent Actions list" />
       <div className="annotations"><p><b>Outcomes</b>Three familiar Google metrics instead of an SEO control panel.</p><p><b>Proof</b>Recent Actions made background execution visible.</p><p><b>Limit</b>Owners saw content only after the action happened.</p></div>
       <h3>The next iteration needed foresight, not more metrics.</h3>
-      <p>After the MVP, Average Rating was removed because it changed too slowly to justify permanent space. Feedback instead asked to see planned AI content before publication. The later dashboard added upcoming work and previews above recent actions.</p>
-      <p><strong>Validation status.</strong> The metric set itself did not trigger negative feedback. I treat the later preview and editing work as a product iteration, not as a quantified trust improvement.</p>
+      <p>After launch, Average Rating was removed because it changed too slowly to justify permanent space. Later feedback asked to see planned content before publication rather than add more metrics. The later dashboard added upcoming work and previews above recent actions.</p>
+      <p><strong>Validation status.</strong> Later feedback asked for previews of planned content rather than more metrics; the feedback method and sample are not preserved. I treat the later preview and editing work as a product iteration, not as a quantified trust improvement.</p>
     </Decision>
 
-    <Decision no="03" title="Keep cadence adjustable instead of treating every business the same" eyebrow="Autonomy over time">
+    <Decision no="03" title="Keep publishing cadence adjustable" eyebrow="Let businesses change the schedule">
       <p><strong>The challenge.</strong> Defaults were necessary because many owners would never open settings, but business rhythms differ. A café may have frequent events; a watchmaker or plumber may have few meaningful updates.</p>
-      <Alternatives rejected="Use one fixed schedule for every business—simpler to operate, but more likely to produce repetitive content for low-frequency businesses." chosen="Start with defaults and let the owner adjust the publication cadence." />
+      <Alternatives rejected="Use one fixed schedule for every business. It reduced interface and operational complexity but increased the risk of repetitive content for businesses with fewer updates." chosen="Start with defaults and let the owner adjust the publication cadence." />
       <p><strong>What I owned.</strong> I designed the cadence controls and how owners managed automated activity. Routine publication types initially ran every seven days; review drafts were prepared within an hour.</p>
       <p><strong>Why.</strong> Frequency had to remain part of the owner’s control boundary. The initial rhythm drew on Google Business Profile community best-practice guidance, not a formal Google frequency rule.</p>
-      <blockquote><b>Trade-off accepted:</b> adjustable settings added product complexity, but prevented a single default from pretending every business had the same content supply.</blockquote>
-      <p><strong>Validation status.</strong> We did not establish a causal link between changing frequency and improved Google ranking.</p>
+      <blockquote><b>Trade-off accepted:</b> adjustable settings increased product complexity. In return, the schedule stayed inside the owner's control boundary.</blockquote>
+      <p><strong>Validation status.</strong> We did not establish that changing frequency improved Google ranking or reduced repetitive content.</p>
       <div className="state-toggle">
         <input className="state-radio" type="radio" name="settings-state" id="settings-on" defaultChecked />
         <input className="state-radio" type="radio" name="settings-state" id="settings-off" />
@@ -150,21 +150,22 @@ export default function CaseStudy() {
     </section>
 
     <section className="case-after" aria-labelledby="after-title"><div className="shell">
-      <p className="kicker">Post-launch evolution</p><h2 id="after-title">The evidence brought the missing controls back.</h2>
-      <p>After several months of analytics, visible user growth, and qualitative feedback, the team prioritised a broader improvement scope.</p>
-      <div className="ownership-grid"><p><b>I owned</b><span>Post-editing interface, growth task, and agent-setup onboarding step.</span></p><p><b>I contributed</b><span>Redesigning the agent’s list output and performance metrics.</span></p><p><b>Not claimed</b><span>All later photo, keyword, instruction, and activation work.</span></p></div>
-      <div className="image-pair"><div><span className="image-label">Initial state · execution status</span><ProductImage image="mvp" alt="Initial dashboard showing completed agent actions without generated content preview" /></div><div><span className="image-label">After MVP · planned and recent work</span><ProductImage image="later" alt="Post-MVP dashboard showing upcoming content previews and recent completed actions" /></div></div>
+      <p className="kicker">Post-MVP evolution</p><h2 id="after-title">Later evidence moved the product from execution status to preview and editing.</h2>
+      <p>After several months, the team used analytics, reported user growth, and qualitative feedback to prioritise an improvement scope. Exact growth numbers, dates, and feedback sample are unavailable.</p>
+      <div className="ownership-grid"><p><b>I owned</b><span>The post-editing interface, a growth task that surfaced a scheduled post for review, and an agent-setup onboarding step.</span></p><p><b>I contributed</b><span>The redesign of the agent’s list output and performance metrics.</span></p><p><b>Not claimed</b><span>All later photo, keyword, instruction, and activation work.</span></p></div>
+      <div className="image-pair"><div><span className="image-label">MVP · execution status after publication</span><ProductImage image="mvp" alt="Initial dashboard showing completed agent actions without generated content preview" /></div><div><span className="image-label">Post-MVP · planned work and content preview</span><ProductImage image="later" alt="Post-MVP dashboard showing upcoming content previews and recent completed actions" /></div></div>
     </div></section>
 
     <section className="reflection shell" aria-labelledby="reflection-title"><p className="kicker">Reflection</p><h2 id="reflection-title">Control cannot exist only at setup.</h2><div className="reflection-copy">
-      <p><b>What I would change.</b> I would still protect the deadline, but describe the release precisely: it validated activation of an autonomous workflow, not trust in output quality.</p>
-      <p><b>What remained unresolved.</b> We recovered failed publication, but not a successfully published wrong result inside the MVP.</p>
-      <p><b>What I would measure next.</b> Preview, edit, approval, and correction behaviour—linked to retention—rather than treating dashboard arrival as a proxy for trust.</p>
+      <p><b>What I would change.</b> I would still protect the deadline, but describe the MVP precisely: it measured activation of an autonomous workflow, not trust in output quality.</p>
+      <p><b>What remained unresolved.</b> The largest gap sat between technical success and a correct public result. The product could recover from a failed publication, but it could not repair successfully published bad content inside Semrush.</p>
+      <p><b>What I would measure next.</b> Preview, edit, approval, and correction behaviour, connected to retention—rather than treating dashboard arrival as a proxy for trust.</p>
     </div></section>
 
     <section className="appendix shell" aria-labelledby="appendix-title"><p className="kicker">Appendix</p><h2 id="appendix-title">Evidence boundaries</h2>
       <details><summary>How activation was measured</summary><p>I defined activation as reaching the dashboard after seeing the landing page. With no analyst on the team, I combined GA4 events with my own SQL query. I use the result as an early activation signal, not a comparative success benchmark.</p></details>
-      <details><summary>MVP capability boundary</summary><p>The MVP showed completed post, photo, and review work; it did not expose generated post content, provide in-product content editing, or accept custom AI instructions. Cadence control and technical publication retry were included.</p></details>
+      <details><summary>What the MVP included</summary><p>Completed post, photo, and review work; cadence controls; and automatic retry for technical publication failures.</p></details>
+      <details><summary>What the MVP deferred</summary><p>Content preview, in-product editing, custom AI instructions, and in-product recovery for successfully published bad content.</p></details>
       <details><summary>Ownership boundary</summary><p>The negative-review draft/edit/publish flow existed before this project and was integrated into the agent ecosystem. A separate model team owned model training and content-quality improvements.</p></details>
     </section>
 
@@ -172,7 +173,7 @@ export default function CaseStudy() {
       <p className="kicker">Next case study</p>
       <Link className="next-case-card" href="/work/raiffeisen-mobile">
         <span className="next-case-visual"><img src="/work/raiffeisen-mobile/screens/cashier-payment-en.jpg" alt="Cashier QR payment interface" loading="lazy" /></span>
-        <b>Mobile banking for entrepreneurs</b>
+        <b>QR payments for merchants and cashiers</b>
       </Link>
     </section>
   </article></main>;

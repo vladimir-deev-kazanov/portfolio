@@ -10,7 +10,7 @@ const mono = Geist_Mono({ variable: "--font-mono", subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL("https://vladimir-deev-kazanov.vladimirdeev0.chatgpt.site"),
   title: { default: "Vladimir Deev-Kazanov — Product Designer", template: "%s — Vladimir Deev-Kazanov" },
-  description: "Product Designer with 7+ years of experience making complex Marketing SaaS, Fintech, and B2B SaaS products understandable and trustworthy.",
+  description: "Product Designer with 7+ years of experience in B2B SaaS and fintech, working on AI automation, business banking, and complex user decisions.",
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
   openGraph: { title: "Vladimir Deev-Kazanov — Product Designer", description: "I design clarity into complexity.", images: [{ url: "/og.png", width: 1200, height: 630 }] },
   twitter: { card: "summary_large_image", title: "Vladimir Deev-Kazanov — Product Designer", description: "I design clarity into complexity.", images: ["/og.png"] },

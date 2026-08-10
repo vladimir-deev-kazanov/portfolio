@@ -382,6 +382,11 @@ summary:focus-visible {
 .contact-link:hover span {
   transform: rotate(45deg);
 }
+.contact-note {
+  margin-top: 20px;
+  font: 13px var(--font-mono);
+  color: #a9a9a9;
+}
 
 .cv-page {
   padding-top: 80px;
