@@ -8,14 +8,13 @@ export default function Home() {
     <main id="main-content">
       <section className="home-hero shell">
         <div className="availability reveal"><span /> Vladimir Deev-Kazanov · Senior Product Designer</div>
-        <h1 className="display reveal delay-1">I turn complex systems into<br/><em>decisions people can understand.</em></h1>
+        <h1 className="display reveal delay-1">I turn complex systems into <em>decisions people can understand.</em></h1>
         <div className="hero-bottom reveal delay-2">
           <div className="hero-copy">
             <p>I design B2B SaaS and fintech products—from automation that maintains a business's Google listing to payment tools for merchants and cashiers.</p>
             <div className="hero-actions"><a href="#work">See selected work</a><Link href="/cv">View CV</Link></div>
             <span className="proof-line">7+ years · Semrush · Raiffeisen Bank</span>
           </div>
-          <a className="circle-link" href="#work" aria-label="Scroll to selected work">↓</a>
         </div>
       </section>
 
