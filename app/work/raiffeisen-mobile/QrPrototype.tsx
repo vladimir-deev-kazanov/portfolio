@@ -25,61 +25,42 @@ export default function QrPrototype() {
   }, []);
 
   useEffect(() => {
-    // The prototype's autoplay demo focuses its rename input (autofocus in
-    // the served HTML), which makes the browser scroll this iframe into
-    // view whenever that happens — including on load and again on later
-    // autoplay loops, each time an inner element re-focuses. The guard used
-    // to key off `document.activeElement === iframe`, but the iframe stays
-    // focused indefinitely once the demo starts, which reverted every
-    // scroll attempt (even a plain wheel scroll) for as long as the page
-    // was open. Instead, arm a short-lived window right when an inner focus
-    // happens (caught via a listener on the iframe's own contentWindow, so
-    // it fires on every loop, not just the first outer focus transition),
-    // and only correct scroll jumps that land inside that window.
-    let lastOwnScrollY = window.scrollY;
-    let guardUntil = 0;
-    let frame = 0;
+    // The browser scrolls this iframe into view once it becomes the
+    // outer document's focused element — confirmed the trigger is that
+    // outer transition, not any specific element focused inside it (the
+    // inner document's own activeElement stays "body" throughout; nothing
+    // inside ever visibly focuses). That transition fires exactly once,
+    // reliably, but the resulting scroll doesn't land immediately — logged
+    // timestamps show scrollY still untouched 2 frames (~30ms) after the
+    // transition, with the actual jump landing sometime after that. So:
+    // detect the one-time transition, then keep correcting for a bounded
+    // window afterward (not from mount, and not re-armed by anything later)
+    // long enough to catch wherever the browser's own scroll actually lands.
+    let lastGoodY = window.scrollY;
+    let wasFocused = false;
+    let correctUntil = 0;
+    let rafId = 0;
 
-    function armGuard() {
-      guardUntil = performance.now() + 200;
-    }
+    function tick() {
+      const isFocused = document.activeElement === iframeRef.current;
+      const now = performance.now();
 
-    function onScroll() {
-      if (performance.now() < guardUntil) {
-        cancelAnimationFrame(frame);
-        frame = requestAnimationFrame(() => {
-          window.scrollTo({ top: lastOwnScrollY, left: 0, behavior: "instant" });
-        });
-      } else {
-        lastOwnScrollY = window.scrollY;
+      if (isFocused && !wasFocused) {
+        correctUntil = now + 1000;
       }
-    }
 
-    function attachInnerFocusGuard() {
-      try {
-        iframeRef.current?.contentWindow?.addEventListener("focus", armGuard, true);
-      } catch {
-        // Cross-origin (shouldn't happen for a same-origin prototype path);
-        // nothing more we can do, guard just won't re-arm on later loops.
+      if (now < correctUntil && window.scrollY !== lastGoodY) {
+        window.scrollTo({ top: lastGoodY, left: 0, behavior: "instant" });
       }
+
+      if (!isFocused) lastGoodY = window.scrollY;
+      wasFocused = isFocused;
+      rafId = requestAnimationFrame(tick);
     }
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    const iframeEl = iframeRef.current;
-    iframeEl?.addEventListener("load", attachInnerFocusGuard);
-    // The inner document's autofocus fires while it parses, which is before
-    // this outer `load` event — so the very first jump would otherwise land
-    // before attachInnerFocusGuard has a listener to catch it, and gets
-    // silently accepted as the new "real" scroll position. Arm a generous
-    // window up front to cover that first jump regardless of inner-load
-    // timing; attachInnerFocusGuard above only needs to handle later loops.
-    guardUntil = performance.now() + 2500;
-    if (iframeEl) iframeEl.src = PROTOTYPE_SRC;
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      iframeEl?.removeEventListener("load", attachInnerFocusGuard);
-      cancelAnimationFrame(frame);
-    };
+    rafId = requestAnimationFrame(tick);
+    if (iframeRef.current) iframeRef.current.src = PROTOTYPE_SRC;
+    return () => cancelAnimationFrame(rafId);
   }, []);
 
   return (
