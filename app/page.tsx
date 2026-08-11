@@ -21,11 +21,11 @@ export default function Home() {
       <section className="work-section shell section-pad" id="work">
         <div className="section-head"><div><p className="kicker">Selected work</p><p className="section-intro">Two projects showing how I set product boundaries, explain technical choices, and work with incomplete evidence.</p></div></div>
         <div className="project-list">
-          <Link href="/work/ai-agent" className="project-card">
+          <Link href="/work/ai-agent" className="project-card" data-analytics-event="case_open_ai_agent">
             <div className="project-copy"><div><span className="project-no">01</span><span className="tag">AI PRODUCT</span></div><h2>Google Business Profile AI Agent</h2><p>With one week to design, I scoped the agent's first useful loop, made completed work visible, and documented the controls the MVP deferred.</p><span className="role-line">Semrush · MVP launched in 2025<br/>Sole Product Designer</span><span className="text-link">Read the AI Agent case study <b>↗</b></span></div>
             <div className="project-visual"><img src="/work/ai-agent/dashboard-mvp.png" width="1020" height="552" loading="lazy" alt="Semrush Google Business Profile AI Agent MVP dashboard" /></div>
           </Link>
-          <Link href="/work/raiffeisen-mobile" className="project-card">
+          <Link href="/work/raiffeisen-mobile" className="project-card" data-analytics-event="case_open_raiffeisen">
             <div className="project-copy"><div><span className="project-no">02</span><span className="tag">MOBILE FINTECH</span></div><h2>QR payments for merchants and cashiers</h2><p>I replaced technical QR terms with task-based choices and limited cashier access to payment work.</p><span className="role-line">Raiffeisen Bank · 2023<br/>Sole Product Designer</span><span className="text-link">Read the QR payments case study <b>↗</b></span></div>
             <div className="project-visual qr-project-visual"><img src="/work/raiffeisen-mobile/home.png" width="750" height="2918" loading="lazy" alt="Raiffeisen QR merchant app home screen listing one-time, cashier, and reusable QR codes" /></div>
           </Link>

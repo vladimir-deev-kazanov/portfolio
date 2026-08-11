@@ -36,7 +36,7 @@ function ProductImage({ image, alt, className = "", priority = false }: ProductI
 
 function Decision({ no, title, eyebrow, tone = false, children }: { no: string; title: string; eyebrow: string; tone?: boolean; children: React.ReactNode }) {
   return (
-    <section className={`decision-section ${tone ? "tone" : ""}`} aria-labelledby={`decision-${no}`}>
+    <section className={`decision-section ${tone ? "tone" : ""}`} aria-labelledby={`decision-${no}`} {...(no === "01" ? { "data-analytics-event": "case_decision_ai_agent", "data-analytics-observe": true } : {})}>
       <div className="shell">
         <div className="decision-head"><span>Decision {no}</span><h2 id={`decision-${no}`}>{title}</h2></div>
         <div className="decision-body"><p className="kicker">{eyebrow}</p><div className="decision-copy">{children}</div></div>
@@ -141,7 +141,7 @@ export default function CaseStudy() {
       <div className="post-edit-screen"><span className="image-label">Post-MVP · preview and edit</span><ProductImage image="editor" alt="Post-MVP scheduled post editor with generated image, editable copy, link, and save action" /></div>
     </Decision>
 
-    <section className="case-section shell measure" aria-labelledby="measure-title">
+    <section className="case-section shell measure" aria-labelledby="measure-title" data-analytics-event="case_evidence_ai_agent" data-analytics-observe>
       <div><p className="kicker">Outcome and limitations</p><h2 id="measure-title">What 8% does—and does not—prove</h2></div>
       <div><div className="big-number">8%</div><p className="case-lede">of people who saw the landing page later reached the dashboard during the initial measurement.</p>
         <dl><dt>Definition</dt><dd>Landing page seen → dashboard seen</dd><dt>Baseline</dt><dd>None; this was a new product</dd><dt>Target</dt><dd>None set</dd><dt>Source</dt><dd>GA4 and a SQL query run by me because the team had no analyst</dd></dl>
@@ -149,7 +149,7 @@ export default function CaseStudy() {
       </div>
     </section>
 
-    <section className="case-after" aria-labelledby="after-title"><div className="shell">
+    <section className="case-after" aria-labelledby="after-title" data-analytics-event="case_result_ai_agent" data-analytics-observe><div className="shell">
       <p className="kicker">Post-MVP evolution</p><h2 id="after-title">Later evidence moved the product from execution status to preview and editing.</h2>
       <p>After several months, the team used analytics, reported user growth, and qualitative feedback to prioritise an improvement scope. Exact growth numbers, dates, and feedback sample are unavailable.</p>
       <div className="ownership-grid"><p><b>I owned</b><span>The post-editing interface, a growth task that surfaced a scheduled post for review, and an agent-setup onboarding step.</span></p><p><b>I contributed</b><span>The redesign of the agent’s list output and performance metrics.</span></p><p><b>Not claimed</b><span>All later photo, keyword, instruction, and activation work.</span></p></div>
@@ -171,7 +171,7 @@ export default function CaseStudy() {
 
     <section className="next-case shell" aria-label="Next case study">
       <p className="kicker">Next case study</p>
-      <Link className="next-case-card" href="/work/raiffeisen-mobile">
+      <Link className="next-case-card" href="/work/raiffeisen-mobile" data-analytics-event="case_open_raiffeisen">
         <span className="next-case-visual"><img src="/work/raiffeisen-mobile/screens/cashier-payment-en.jpg" alt="Cashier QR payment interface" loading="lazy" /></span>
         <b>QR payments for merchants and cashiers</b>
       </Link>

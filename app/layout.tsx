@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import { Geist, Geist_Mono } from "next/font/google";
 import SiteNav from "./SiteNav";
+import AnalyticsClient from "./AnalyticsClient";
 import "./globals.css";
 
 const geist = Geist({ variable: "--font-geist", subsets: ["latin"] });
@@ -34,15 +35,6 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <head>
-        <script async src="https://plausible.io/js/pa-qOMVN1oKS74qpZWxCVTVD.js"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()`,
-          }}
-        />
-      </head>
       <body className={`${geist.variable} ${mono.variable}`}>
       <a className="skip-link" href="#main-content">Skip to content</a>
       <header className="site-header">
@@ -52,7 +44,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         </div>
       </header>
       {children}
-      <footer className="site-footer shell"><span>© 2026 Vladimir Deev-Kazanov</span><div><a href="mailto:vladimirdeev0@gmail.com">Email</a><a href="https://www.linkedin.com/in/vladimir-deev-kazanov-449a2459/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://www.behance.net/gallery/157977921/Vova-Deev-Kazanov" target="_blank" rel="noreferrer">Behance ↗</a><Link href="/cv">CV</Link></div></footer>
+      <footer className="site-footer shell"><span>© 2026 Vladimir Deev-Kazanov</span><div><a href="mailto:vladimirdeev0@gmail.com" data-analytics-event="contact_email">Email</a><a href="https://www.linkedin.com/in/vladimir-deev-kazanov-449a2459/" target="_blank" rel="noreferrer" data-analytics-event="contact_linkedin">LinkedIn ↗</a><a href="https://www.behance.net/gallery/157977921/Vova-Deev-Kazanov" target="_blank" rel="noreferrer" data-analytics-event="external_project_open">Behance ↗</a><Link href="/cv">CV</Link><Link href="/privacy">Privacy</Link></div></footer>
+      <AnalyticsClient />
     </body></html>
   );
 }
