@@ -9,7 +9,7 @@ const geist = Geist({ variable: "--font-geist", subsets: ["latin"] });
 const mono = Geist_Mono({ variable: "--font-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://vladimir-deev-kazanov.vladimirdeev0.chatgpt.site"),
+  metadataBase: new URL("https://vladimirdeev.com"),
   title: { default: "Vladimir Deev-Kazanov — Product Designer", template: "%s — Vladimir Deev-Kazanov" },
   description: "Product Designer with 7+ years of experience in B2B SaaS and fintech, working on AI automation, business banking, and complex user decisions.",
   manifest: "/site.webmanifest?v=1",
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-touch-icon.png?v=1", sizes: "180x180", type: "image/png" }],
     other: [{ rel: "mask-icon", url: "/mask-icon.svg?v=1", color: "#171717" }],
   },
-  openGraph: { title: "Vladimir Deev-Kazanov — Product Designer", description: "I design clarity into complexity.", images: [{ url: "/og.png", width: 1200, height: 630 }] },
-  twitter: { card: "summary_large_image", title: "Vladimir Deev-Kazanov — Product Designer", description: "I design clarity into complexity.", images: ["/og.png"] },
+  openGraph: { title: "Vladimir Deev-Kazanov — Product Designer", description: "I turn product insights into clear decisions.", images: [{ url: "/og.png", width: 1200, height: 630 }] },
+  twitter: { card: "summary_large_image", title: "Vladimir Deev-Kazanov — Product Designer", description: "I turn product insights into clear decisions.", images: ["/og.png"] },
 };
 
 export const viewport: Viewport = {
