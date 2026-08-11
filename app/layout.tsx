@@ -33,7 +33,17 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en"><body className={`${geist.variable} ${mono.variable}`}>
+    <html lang="en">
+      <head>
+        <script async src="https://plausible.io/js/pa-qOMVN1oKS74qpZWxCVTVD.js"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()`,
+          }}
+        />
+      </head>
+      <body className={`${geist.variable} ${mono.variable}`}>
       <a className="skip-link" href="#main-content">Skip to content</a>
       <header className="site-header">
         <div className="site-nav shell">

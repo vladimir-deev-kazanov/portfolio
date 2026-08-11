@@ -1935,6 +1935,9 @@ summary:focus-visible {
     width: calc(100% + 420px);
     margin-left: -420px;
   }
+  .decision-copy > .state-toggle + .evidence-note {
+    margin-left: -420px;
+  }
   .operations-section > div:last-child > .product-evidence {
     width: calc(100% + 420px);
     margin-left: -420px;
@@ -2198,7 +2201,7 @@ summary:focus-visible {
 }
 .state-caption {
   margin-top: 18px !important;
-  margin-inline: auto;
+  margin-inline: 0;
   max-width: 760px;
   font-size: 15px;
   line-height: 1.55;
