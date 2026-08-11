@@ -7,11 +7,11 @@ export default function Home() {
   return (
     <main id="main-content">
       <section className="home-hero shell">
-        <div className="availability reveal"><span /> Vladimir Deev-Kazanov · Senior Product Designer</div>
-        <h1 className="display reveal delay-1">I turn complex systems into <em>decisions people can understand.</em></h1>
+        <div className="availability reveal"><span className="availability-dot" /><span><span className="availability-nowrap">Vladimir Deev-Kazanov</span> <span className="availability-nowrap">· Senior Product Designer</span></span></div>
+        <h1 className="display reveal delay-1">I turn product insights into <em>clear decisions.</em></h1>
         <div className="hero-bottom reveal delay-2">
           <div className="hero-copy">
-            <p>I design B2B SaaS and fintech products—from automation that maintains a business's Google listing to payment tools for merchants and cashiers.</p>
+            <p>I design B2C, B2B SaaS and fintech—from AI tools for small businesses to payment products for merchants.</p>
             <div className="hero-actions"><a href="#work">See selected work</a><Link href="/cv">View CV</Link></div>
             <span className="proof-line">7+ years · Semrush · Raiffeisen Bank</span>
           </div>
@@ -33,9 +33,8 @@ export default function Home() {
       </section>
 
       <section className="contact shell section-pad" id="contact">
-        <p className="kicker">Contact</p>
-        <h2 className="contact-link">Looking for a Product Designer for a complex B2B product?</h2>
-        <p className="contact-note">I'm based in Cyprus and open to Product Designer opportunities.</p>
+        <h2 className="contact-link">Looking for a Product Designer for a complex product?</h2>
+        <p className="contact-note">I'm based in Cyprus and open to Senior product designer opportunities.</p>
       </section>
     </main>
   );
