@@ -27,7 +27,7 @@ export default function Home() {
           </Link>
           <Link href="/work/raiffeisen-mobile" className="project-card" data-analytics-event="case_open_raiffeisen">
             <div className="project-copy"><div><span className="project-no">02</span><span className="tag">MOBILE FINTECH</span></div><h2>QR payments for merchants and cashiers</h2><p>I replaced technical QR terms with task-based choices and limited cashier access to payment work.</p><span className="role-line">Raiffeisen Bank · 2023<br/>Sole Product Designer</span><span className="text-link">Read the QR payments case study <b>↗</b></span></div>
-            <div className="project-visual qr-project-visual"><img src="/work/raiffeisen-mobile/home.png" width="750" height="2918" loading="lazy" alt="Raiffeisen QR merchant app home screen listing one-time, cashier, and reusable QR codes" /></div>
+            <div className="project-visual qr-project-visual"><img src="/work/raiffeisen-mobile/home.png" width="750" height="1298" loading="lazy" alt="Raiffeisen QR merchant app home screen listing one-time, cashier, and reusable QR codes" /></div>
           </Link>
         </div>
       </section>
