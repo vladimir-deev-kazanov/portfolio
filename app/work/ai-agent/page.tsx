@@ -14,7 +14,7 @@ const images = {
   later: { src: "/work/ai-agent/dashboard-later.png", width: 1020, height: 900 },
   editor: { src: "/work/ai-agent/post-editor.png", width: 2000, height: 1616 },
   settings: { src: "/work/ai-agent/settings.png", width: 570, height: 648 },
-  landing: { src: "/work/ai-agent/landing-page.png", width: 1025, height: 4522 },
+  landing: { src: "/work/ai-agent/landing-page.png", width: 2564, height: 1617 },
   setup: { src: "/work/ai-agent/setup.png", width: 1200, height: 1920 },
 };
 
