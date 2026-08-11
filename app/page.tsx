@@ -19,7 +19,7 @@ export default function Home() {
       </section>
 
       <section className="work-section shell section-pad" id="work">
-        <div className="section-head"><div><p className="kicker">Selected work</p><p className="section-intro">Two projects showing how I set product boundaries, explain technical choices, and work with incomplete evidence.</p></div><span>02 projects</span></div>
+        <div className="section-head"><div><p className="kicker">Selected work</p><p className="section-intro">Two projects showing how I set product boundaries, explain technical choices, and work with incomplete evidence.</p></div></div>
         <div className="project-list">
           <Link href="/work/ai-agent" className="project-card">
             <div className="project-copy"><div><span className="project-no">01</span><span className="tag">AI PRODUCT</span></div><h2>Google Business Profile AI Agent</h2><p>With one week to design, I scoped the agent's first useful loop, made completed work visible, and documented the controls the MVP deferred.</p><span className="role-line">Semrush · MVP launched in 2025<br/>Sole Product Designer</span><span className="text-link">Read the AI Agent case study <b>↗</b></span></div>

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 const images = {
-  mvp: { src: "/work/ai-agent/dashboard-mvp.png", width: 1020, height: 552 },
+  mvp: { src: "/work/ai-agent/dashboard-mvp-full.png", width: 2040, height: 1232 },
   later: { src: "/work/ai-agent/dashboard-later.png", width: 1020, height: 900 },
   editor: { src: "/work/ai-agent/post-editor.png", width: 2000, height: 1616 },
   settings: { src: "/work/ai-agent/settings.png", width: 570, height: 648 },
