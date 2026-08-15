@@ -59,9 +59,9 @@ export default function RaiffeisenMobileCaseStudy() {
     </section>
     <section className="next-case shell" aria-label="Next case study">
       <p className="kicker">Next case study</p>
-      <Link className="next-case-card" href="/work/ai-agent" data-analytics-event="case_open_ai_agent">
-        <span className="next-case-visual next-case-visual-wide"><img src="/work/ai-agent/dashboard-mvp.png" alt="Google Business Profile AI Agent dashboard" loading="lazy" /></span>
-        <b>Google Business Profile AI Agent</b>
+      <Link className="next-case-card" href="/work/semrush-locations" data-analytics-event="case_open_semrush_locations">
+        <span className="next-case-visual next-case-visual-wide"><img src="/work/semrush-locations/after-2025.png" alt="Semrush Locations Expansion panel" loading="lazy" /></span>
+        <b>Semrush Locations Expansion</b>
       </Link>
     </section>
   </main>;

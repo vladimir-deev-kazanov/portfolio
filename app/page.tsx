@@ -19,7 +19,7 @@ export default function Home() {
       </section>
 
       <section className="work-section shell section-pad" id="work">
-        <div className="section-head"><div><p className="kicker">Selected work</p><p className="section-intro">Two projects showing how I set product boundaries, explain technical choices, and work with incomplete evidence.</p></div></div>
+        <div className="section-head"><div><p className="kicker">Selected work</p><p className="section-intro">Three projects showing how I set product boundaries, explain technical choices, and work with incomplete evidence.</p></div></div>
         <div className="project-list">
           <Link href="/work/ai-agent" className="project-card" data-analytics-event="case_open_ai_agent">
             <div className="project-copy"><div><span className="project-no">01</span><span className="tag">AI PRODUCT</span></div><h2>Google Business Profile AI Agent</h2><p>With one week to design, I scoped the agent's first useful loop, made completed work visible, and documented the controls the MVP deferred.</p><span className="role-line">Semrush · MVP launched in 2025<br/>Sole Product Designer</span><span className="text-link">Read the AI Agent case study <b>↗</b></span></div>
@@ -28,6 +28,10 @@ export default function Home() {
           <Link href="/work/raiffeisen-mobile" className="project-card" data-analytics-event="case_open_raiffeisen">
             <div className="project-copy"><div><span className="project-no">02</span><span className="tag">MOBILE FINTECH</span></div><h2>QR payments for merchants and cashiers</h2><p>I replaced technical QR terms with task-based choices and limited cashier access to payment work.</p><span className="role-line">Raiffeisen Bank · 2023<br/>Sole Product Designer</span><span className="text-link">Read the QR payments case study <b>↗</b></span></div>
             <div className="project-visual qr-project-visual"><img src="/work/raiffeisen-mobile/home.png" width="750" height="1298" loading="lazy" alt="Raiffeisen QR merchant app home screen listing one-time, cashier, and reusable QR codes" /></div>
+          </Link>
+          <Link href="/work/semrush-locations" className="project-card" data-analytics-event="case_open_semrush_locations">
+            <div className="project-copy"><div><span className="project-no">03</span><span className="tag">LOCAL SEO</span></div><h2>Semrush Locations Expansion</h2><p>I moved known Google Business Profile opportunities into the Locations list and replaced repeated setup with one bulk action.</p><span className="role-line">Semrush · Bulk release 2025<br/>Sole Product Designer</span><span className="text-link">Read the Locations Expansion case study <b>↗</b></span></div>
+            <div className="project-visual"><img src="/work/semrush-locations/after-2025.png" width="1020" height="1058" loading="lazy" alt="Semrush Locations dashboard with an Expand your local visibility panel" /></div>
           </Link>
         </div>
       </section>
