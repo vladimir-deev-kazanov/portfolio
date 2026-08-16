@@ -417,6 +417,7 @@ summary:focus-visible {
 }
 .contact.section-pad {
   padding-top: clamp(60px, 8vw, 110px);
+  padding-bottom: clamp(60px, 6vw, 100px);
 }
 .contact-headline {
   letter-spacing: -0.06em;
@@ -427,7 +428,9 @@ summary:focus-visible {
 }
 .contact-note {
   margin-top: 20px;
-  font: 13px var(--font-mono);
+  font-size: clamp(18px, 2vw, 20px);
+  line-height: 1.4;
+  max-width: 620px;
   color: #a9a9a9;
 }
 .contact-actions {
