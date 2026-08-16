@@ -381,24 +381,54 @@ summary:focus-visible {
   background: var(--ink);
   color: #fff;
 }
-.contact-link {
-  justify-content: space-between;
+.contact.section-pad {
+  padding-top: clamp(60px, 8vw, 110px);
+}
+.contact-headline {
   letter-spacing: -0.06em;
   line-height: 1;
   font-size: clamp(38px, 6.1vw, 90px);
   display: block;
   max-width: 1200px;
 }
-.contact-link span {
-  transition: 0.3s;
-}
-.contact-link:hover span {
-  transform: rotate(45deg);
-}
 .contact-note {
   margin-top: 20px;
   font: 13px var(--font-mono);
   color: #a9a9a9;
+}
+.contact-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 44px;
+}
+.contact-cta-primary,
+.contact-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 99px;
+  transition: 0.25s;
+}
+.contact-cta-primary {
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--paper);
+  padding: 16px 28px;
+  font: 600 16px var(--font-mono);
+}
+.contact-cta-primary:hover {
+  background: var(--white);
+}
+.contact-cta-secondary {
+  color: #fff;
+  border: 1px solid #ffffff55;
+  padding: 15px 24px;
+  font: 600 14px var(--font-mono);
+}
+.contact-cta-secondary:hover {
+  border-color: #fff;
+  background: #ffffff14;
 }
 
 .cv-page {

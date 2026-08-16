@@ -37,8 +37,12 @@ export default function Home() {
       </section>
 
       <section className="contact shell section-pad" id="contact">
-        <h2 className="contact-link">Looking for a Product Designer for a complex product?</h2>
+        <h2 className="contact-headline">Looking for a Product Designer for a complex product?</h2>
         <p className="contact-note">I'm based in Cyprus and open to Senior product designer opportunities.</p>
+        <div className="contact-actions">
+          <a className="contact-cta-primary" href="mailto:vladimirdeev0@gmail.com" data-analytics-event="contact_email">vladimirdeev0@gmail.com</a>
+          <a className="contact-cta-secondary" href="https://www.linkedin.com/in/vladimir-deev-kazanov-449a2459/" target="_blank" rel="noreferrer" data-analytics-event="contact_linkedin">LinkedIn ↗</a>
+        </div>
       </section>
     </main>
   );
