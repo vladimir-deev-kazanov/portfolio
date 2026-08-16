@@ -133,6 +133,7 @@ summary:focus-visible {
   justify-content: center;
   text-align: center;
   padding-inline: 12px;
+  min-height: 44px;
 }
 .site-nav nav a:hover {
   background: var(--line);
@@ -395,6 +396,9 @@ summary:focus-visible {
   max-width: none !important;
   background: var(--ink);
   color: #fff;
+}
+.contact a:focus-visible {
+  outline-color: #fff;
 }
 .contact.section-pad {
   padding-top: clamp(60px, 8vw, 110px);
@@ -1450,6 +1454,11 @@ summary:focus-visible {
   display: flex;
   gap: 24px;
 }
+.site-footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
 .hero-copy {
   max-width: 720px;
   margin-inline: auto;
@@ -1473,7 +1482,7 @@ summary:focus-visible {
 .proof-line {
   display: block;
   margin-top: 12px;
-  font: 11px var(--font-mono);
+  font: 12px var(--font-mono);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: #6f6c66;
@@ -1487,7 +1496,7 @@ summary:focus-visible {
   margin-top: 18px;
 }
 .role-line {
-  font: 11px/1.6 var(--font-mono);
+  font: 12px/1.6 var(--font-mono);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-top: 22px;
