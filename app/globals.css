@@ -276,6 +276,7 @@ summary:focus-visible {
   flex-direction: column;
   position: relative;
   z-index: 2;
+  align-self: start;
 }
 .project-copy > div {
   display: flex;
@@ -292,7 +293,7 @@ summary:focus-visible {
   border-radius: 100px;
   border-color: var(--line);
 }
-.project-copy h2 {
+.project-copy h3 {
   font-size: clamp(36px, 6vw, 64px);
   margin-top: clamp(48px, 6vw, 90px);
 }
@@ -307,8 +308,7 @@ summary:focus-visible {
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.07em;
-  margin-top: auto;
-  padding-top: 40px;
+  margin-top: 24px;
   display: inline-flex;
   align-items: center;
   width: fit-content;
