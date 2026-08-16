@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Geist, Geist_Mono, Lora } from "next/font/google";
 import SiteNav from "./SiteNav";
 import AnalyticsClient from "./AnalyticsClient";
+import Arrow from "./Arrow";
 import "./globals.css";
 
 const geist = Geist({ variable: "--font-geist", subsets: ["latin"] });
@@ -45,7 +46,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         </div>
       </header>
       {children}
-      <footer className="site-footer shell"><span>© 2026 Vladimir Deev-Kazanov</span><div><a href="mailto:vladimirdeev0@gmail.com" data-analytics-event="contact_email">Email</a><a href="https://www.linkedin.com/in/vladimir-deev-kazanov-449a2459/" target="_blank" rel="noreferrer" aria-label="LinkedIn (opens in new tab)" data-analytics-event="contact_linkedin">LinkedIn <span aria-hidden="true">↗</span></a><a href="https://www.behance.net/gallery/157977921/Vova-Deev-Kazanov" target="_blank" rel="noreferrer" aria-label="Behance (opens in new tab)" data-analytics-event="external_project_open">Behance <span aria-hidden="true">↗</span></a><Link href="/cv">CV</Link><Link href="/privacy">Privacy</Link></div></footer>
+      <footer className="site-footer shell"><span>© 2026 Vladimir Deev-Kazanov</span><div><a href="mailto:vladimirdeev0@gmail.com" data-analytics-event="contact_email">Email</a><a href="https://www.linkedin.com/in/vladimir-deev-kazanov-449a2459/" target="_blank" rel="noreferrer" aria-label="LinkedIn (opens in new tab)" data-analytics-event="contact_linkedin">LinkedIn<Arrow /></a><a href="https://www.behance.net/gallery/157977921/Vova-Deev-Kazanov" target="_blank" rel="noreferrer" aria-label="Behance (opens in new tab)" data-analytics-event="external_project_open">Behance<Arrow /></a><Link href="/cv">CV</Link><Link href="/privacy">Privacy</Link></div></footer>
       <AnalyticsClient />
     </body></html>
   );

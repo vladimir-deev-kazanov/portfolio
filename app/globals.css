@@ -305,6 +305,10 @@ summary:focus-visible {
   margin-top: 30px;
   color: #64625e;
 }
+.arrow-icon {
+  display: inline-block;
+  margin-left: 0.35em;
+}
 .text-link {
   font-size: 14px;
   text-transform: uppercase;
@@ -317,15 +321,15 @@ summary:focus-visible {
   padding-bottom: 4px;
   transition: 0.25s;
 }
-.text-link b {
-  margin-left: 10px;
+.text-link .arrow-icon {
+  font-weight: 700;
   transition: 0.25s;
 }
 .project-card:hover .text-link {
   color: var(--acid);
   border-bottom-color: var(--acid);
 }
-.project-card:hover .text-link b {
+.project-card:hover .text-link .arrow-icon {
   transform: translateX(4px);
 }
 .project-visual {

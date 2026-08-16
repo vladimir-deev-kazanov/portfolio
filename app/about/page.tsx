@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Arrow from "../Arrow";
 
 export const metadata: Metadata = {
   title: "About",
@@ -18,7 +19,7 @@ export default function AboutPage() {
           <p>I’m a Product Designer with 7+ years of experience in Fintech and B2B SaaS. At Semrush, I design Local SEO tools that help small businesses manage their online presence. Previously, at Raiffeisen Bank, I designed web and mobile banking for entrepreneurs and a CRM for relationship managers.</p>
           <p>I work from problem framing and research through flows, prototypes, product analytics, and implementation review. I’m most useful when difficult rules, high-stakes actions, or automation must feel clear before people can trust the product.</p>
         </div>
-        <Link className="button-link" href="/cv">See experience and education <span>↗</span></Link>
+        <Link className="button-link" href="/cv">See experience and education<Arrow /></Link>
       </section>
     </main>
   );
