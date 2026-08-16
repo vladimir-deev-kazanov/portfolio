@@ -10,6 +10,8 @@
   --soft-violet: #e8e3ff;
   --max: 1200px;
   --header-height: 88px;
+  --text-label: 11px;
+  --text-meta: 12px;
 }
 * {
   box-sizing: border-box;
@@ -52,7 +54,7 @@ em {
   padding-inline: clamp(20px, 4vw, 64px);
 }
 .kicker {
-  font: 650 11px/1.2 var(--font-mono);
+  font: 650 var(--text-label)/1.2 var(--font-mono);
   letter-spacing: 0.11em;
   text-transform: uppercase;
   color: #6C6E79;
@@ -159,7 +161,7 @@ summary:focus-visible {
   padding-bottom: clamp(36px, 6vh, 70px);
 }
 .availability {
-  font: 600 11px var(--font-mono);
+  font: 600 var(--text-label) var(--font-mono);
   text-transform: uppercase;
   letter-spacing: 0.07em;
   margin-bottom: clamp(16px, 2.6vw, 32px);
@@ -272,7 +274,7 @@ summary:focus-visible {
   font: 12px var(--font-mono);
 }
 .tag {
-  font: 11px var(--font-mono);
+  font: var(--text-label) var(--font-mono);
   padding: 7px 10px;
   border: 1px solid #ffffff55;
   border-radius: 100px;
@@ -1482,7 +1484,7 @@ summary:focus-visible {
 .proof-line {
   display: block;
   margin-top: 12px;
-  font: 12px var(--font-mono);
+  font: var(--text-meta) var(--font-mono);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: #6f6c66;
@@ -1496,7 +1498,7 @@ summary:focus-visible {
   margin-top: 18px;
 }
 .role-line {
-  font: 12px/1.6 var(--font-mono);
+  font: var(--text-meta)/1.6 var(--font-mono);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-top: 22px;
