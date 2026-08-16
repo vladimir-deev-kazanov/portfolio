@@ -132,11 +132,11 @@ summary:focus-visible {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-inline: 8px;
+  padding-inline: 12px;
 }
 .site-nav nav a:hover {
-  background: var(--ink);
-  color: white;
+  background: var(--line);
+  color: var(--ink);
 }
 .site-footer {
   min-height: 120px;
@@ -1544,7 +1544,7 @@ summary:focus-visible {
     min-height: 44px;
     display: flex;
     align-items: center;
-    padding-inline: 5px;
+    padding-inline: 12px;
     font-size: 12px;
   }
   .site-footer {
@@ -1911,8 +1911,6 @@ summary:focus-visible {
   background: var(--soft-violet);
   color: var(--ink);
   font-weight: 650;
-  text-decoration: underline;
-  text-underline-offset: 3px;
 }
 .cv-intro > div a {
   color: var(--acid);
