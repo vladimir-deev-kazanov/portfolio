@@ -629,7 +629,7 @@ summary:focus-visible {
   gap: 90px;
 }
 .case-section h2 {
-  font-size: clamp(42px, 5vw, 72px);
+  font-size: clamp(32px, 5vw, 64px);
 }
 .snapshot-section dl {
   margin: 0;
@@ -733,7 +733,7 @@ summary:focus-visible {
   text-transform: uppercase;
 }
 .decision-head h2 {
-  font-size: clamp(46px, 6vw, 86px);
+  font-size: clamp(32px, 6vw, 64px);
   max-width: 1050px;
 }
 .decision-body {
@@ -1249,7 +1249,7 @@ summary:focus-visible {
   padding-left: 18px;
 }
 .qr-case .decision-head h2 {
-  font-size: clamp(42px, 5vw, 70px);
+  font-size: clamp(32px, 5vw, 64px);
   line-height: 0.98;
 }
 .qr-case .term-shift {
