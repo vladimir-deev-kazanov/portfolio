@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 const links = [
   { href: "/#work", label: "Work", section: "work" },
   { href: "/cv", label: "CV", section: "cv" },
+  { href: "/#contact", label: "Contact", section: "contact" },
 ];
 
 export default function SiteNav() {
