@@ -45,7 +45,7 @@ h3 {
   line-height: 0.96;
 }
 em {
-  font-family: Georgia, serif;
+  font-family: var(--font-lora), Georgia, serif;
   font-weight: 400;
 }
 .shell {
@@ -109,7 +109,7 @@ summary:focus-visible {
 .wordmark {
   font-size: 21px;
   letter-spacing: -0.06em;
-  font-family: Georgia, serif;
+  font-family: var(--font-lora), Georgia, serif;
   font-style: italic;
   font-weight: 700;
 }

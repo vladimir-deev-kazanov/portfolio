@@ -1,12 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Lora } from "next/font/google";
 import SiteNav from "./SiteNav";
 import AnalyticsClient from "./AnalyticsClient";
 import "./globals.css";
 
 const geist = Geist({ variable: "--font-geist", subsets: ["latin"] });
 const mono = Geist_Mono({ variable: "--font-mono", subsets: ["latin"] });
+const lora = Lora({ variable: "--font-lora", subsets: ["latin"], weight: ["400", "500", "600", "700"], style: ["normal", "italic"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vladimirdeev.com"),
@@ -35,7 +36,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${geist.variable} ${mono.variable}`}>
+      <body className={`${geist.variable} ${mono.variable} ${lora.variable}`}>
       <a className="skip-link" href="#main-content">Skip to content</a>
       <header className="site-header">
         <div className="site-nav shell">
