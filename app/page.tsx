@@ -12,7 +12,7 @@ export default function Home() {
         <div className="hero-bottom reveal delay-2">
           <div className="hero-copy">
             <p>I design B2C, B2B SaaS and fintech—from AI tools for small businesses to payment products for merchants.</p>
-            <div className="hero-actions"><a href="#work">See selected work</a><Link href="/cv">View CV</Link></div>
+            <div className="hero-actions"><a href="#work">View selected works</a><Link href="/cv">View CV</Link></div>
             <span className="proof-line">7+ years · Semrush · Raiffeisen Bank</span>
           </div>
         </div>
