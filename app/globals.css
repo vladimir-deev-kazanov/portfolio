@@ -178,6 +178,18 @@ summary:focus-visible {
   border-radius: 50%;
   box-shadow: 0 0 0 5px #19a05a17;
   flex: 0 0 auto;
+  animation: availability-pulse 2.4s ease-in-out infinite;
+}
+@keyframes availability-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 5px #19a05a17;
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 0 0 0 8px #19a05a08;
+    opacity: 0.7;
+  }
 }
 .availability-nowrap {
   white-space: nowrap;
