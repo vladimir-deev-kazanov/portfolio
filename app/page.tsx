@@ -31,7 +31,7 @@ export default function Home() {
           </Link>
           <Link href="/work/semrush-locations" className="project-card" data-analytics-event="case_open_semrush_locations">
             <div className="project-copy"><div><span className="project-no">03</span><span className="tag">LOCAL SEO</span></div><h2>Semrush Locations Expansion</h2><p>I moved known Google Business Profile opportunities into the Locations list and replaced repeated setup with one bulk action.</p><span className="role-line">Semrush · Bulk release 2025<br/>Sole Product Designer</span><span className="text-link">Read case study <b>↗</b></span></div>
-            <div className="project-visual"><img src="/work/semrush-locations/after-2025.png" width="1020" height="1058" loading="lazy" alt="Semrush Locations dashboard with an Expand your local visibility panel" /></div>
+            <div className="project-visual"><img src="/work/semrush-locations/bulk-expansion.png" width="1020" height="816" loading="lazy" alt="Semrush Locations dashboard with an Expand your local visibility panel" /></div>
           </Link>
         </div>
       </section>

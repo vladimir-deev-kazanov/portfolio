@@ -60,7 +60,7 @@ export default function RaiffeisenMobileCaseStudy() {
     <section className="next-case shell" aria-label="Next case study">
       <p className="kicker">Next case study</p>
       <Link className="next-case-card" href="/work/semrush-locations" data-analytics-event="case_open_semrush_locations">
-        <span className="next-case-visual next-case-visual-wide"><img src="/work/semrush-locations/after-2025.png" alt="Semrush Locations Expansion panel" loading="lazy" /></span>
+        <span className="next-case-visual next-case-visual-wide"><img src="/work/semrush-locations/bulk-expansion.png" alt="Semrush Locations Expansion panel" loading="lazy" /></span>
         <b>Semrush Locations Expansion</b>
       </Link>
     </section>
