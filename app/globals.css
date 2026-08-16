@@ -262,7 +262,7 @@ summary:focus-visible {
   text-transform: uppercase;
 }
 .project-card {
-  min-height: 675px;
+  min-height: 400px;
   display: grid;
   grid-template-columns: 0.86fr 1.14fr;
   overflow: hidden;
