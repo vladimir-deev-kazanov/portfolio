@@ -1908,8 +1908,11 @@ summary:focus-visible {
 /* Persistent navigation and CV link refinements */
 .site-nav nav a.active,
 .site-nav nav a[aria-current="page"] {
-  background: var(--ink);
-  color: #fff;
+  background: var(--soft-violet);
+  color: var(--ink);
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 .cv-intro > div a {
   color: var(--acid);
