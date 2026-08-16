@@ -449,7 +449,7 @@ summary:focus-visible {
   color: var(--ink);
   border: 1px solid var(--paper);
   padding: 16px 28px;
-  font: 600 16px var(--font-mono);
+  font: 600 16px var(--font-geist);
 }
 .contact-cta-primary:hover {
   background: var(--white);
@@ -458,7 +458,7 @@ summary:focus-visible {
   color: #fff;
   border: 1px solid #ffffff55;
   padding: 15px 24px;
-  font: 600 14px var(--font-mono);
+  font: 600 14px var(--font-geist);
 }
 .contact-cta-secondary:hover {
   border-color: #fff;
