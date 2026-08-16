@@ -290,7 +290,7 @@ summary:focus-visible {
   align-items: center;
 }
 .project-no {
-  font: 12px var(--font-mono);
+  font: var(--text-meta) var(--font-mono);
 }
 .tag {
   font: var(--text-label) var(--font-mono);
