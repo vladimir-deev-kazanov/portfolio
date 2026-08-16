@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main id="main-content">
       <section className="home-hero shell">
-        <div className="availability reveal"><span className="availability-dot" aria-hidden="true" /><span><span className="availability-nowrap">Open to roles</span> <span className="availability-nowrap">· Vladimir Deev-Kazanov</span> <span className="availability-nowrap">· Senior Product Designer</span></span></div>
+        <p className="availability reveal"><span className="availability-status"><span className="availability-dot" aria-hidden="true" />Open to roles ·</span> <span className="availability-nowrap">Vladimir Deev-Kazanov ·</span> <span className="availability-nowrap">Senior Product Designer</span></p>
         <h1 className="display reveal delay-1">I turn product insights into <em>clear decisions.</em></h1>
         <div className="hero-bottom reveal delay-2">
           <div className="hero-copy">
