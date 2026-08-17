@@ -19,7 +19,6 @@ type AnalyticsEvent =
   | "cv_download"
   | "contact_email"
   | "contact_linkedin"
-  | "external_project_open"
   | "not_found";
 
 declare global {
