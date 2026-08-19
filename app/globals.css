@@ -107,14 +107,18 @@ summary:focus-visible {
   -webkit-backdrop-filter: none;
 }
 .wordmark {
-  font-size: 21px;
-  letter-spacing: -0.06em;
-  font-family: var(--font-lora), Georgia, serif;
-  font-style: italic;
-  font-weight: 700;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   min-height: 44px;
+  min-width: 44px;
+}
+.wordmark-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
 }
 .site-nav nav {
   gap: 8px;
