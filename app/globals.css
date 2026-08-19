@@ -23,7 +23,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--font-geist), Arial, sans-serif;
+  font-family: var(--font-chivo), Arial, sans-serif;
 }
 a {
   color: inherit;
@@ -40,13 +40,16 @@ h1,
 h2,
 h3 {
   margin: 0;
-  font-weight: 520;
-  letter-spacing: -0.055em;
+  font-family: var(--font-alfa), "Arial Black", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.01em;
   line-height: 0.96;
 }
 em {
-  font-family: var(--font-lora), Georgia, serif;
-  font-weight: 400;
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: normal;
 }
 .shell {
   width: min(var(--max), 100%);
@@ -114,8 +117,8 @@ summary:focus-visible {
   min-width: 44px;
 }
 .wordmark-avatar {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   object-fit: cover;
   display: block;
@@ -398,7 +401,7 @@ summary:focus-visible {
   transform: rotate(8deg);
 }
 .metric-stamp b {
-  font: 600 48px/1 var(--font-geist);
+  font: 600 48px/1 var(--font-chivo);
   letter-spacing: -0.06em;
 }
 .about {
@@ -443,7 +446,7 @@ summary:focus-visible {
   padding-bottom: clamp(60px, 6vw, 100px);
 }
 .contact-headline {
-  letter-spacing: -0.06em;
+  letter-spacing: -0.02em;
   line-height: 1;
   font-size: clamp(38px, 6.1vw, 90px);
   display: block;
@@ -475,7 +478,7 @@ summary:focus-visible {
   color: var(--ink);
   border: 1px solid var(--paper);
   padding: 16px 28px;
-  font: 600 16px var(--font-geist);
+  font: 600 16px var(--font-chivo);
 }
 .contact-cta-primary:hover {
   background: var(--white);
@@ -484,7 +487,7 @@ summary:focus-visible {
   color: #fff;
   border: 1px solid #ffffff55;
   padding: 15px 24px;
-  font: 600 14px var(--font-geist);
+  font: 600 14px var(--font-chivo);
 }
 .contact-cta-secondary:hover {
   border-color: #fff;
@@ -1239,7 +1242,6 @@ summary:focus-visible {
 }
 .qr-case .case-hero h1 em {
   color: var(--violet);
-  font-style: italic;
   background: none;
 }
 .qr-case .qr-hero-stage {
