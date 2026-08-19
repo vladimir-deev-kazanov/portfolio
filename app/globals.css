@@ -761,7 +761,7 @@ summary:focus-visible {
   border-top: 1px solid #ddd;
 }
 .decision-section.tone {
-  background: #f0edff;
+  background: var(--soft-violet);
 }
 .decision-head {
   display: grid;
@@ -1261,7 +1261,7 @@ summary:focus-visible {
   color: #e1ddff;
 }
 .qr-case .decision-section.tone {
-  background: #f0edff;
+  background: var(--soft-violet);
   color: var(--ink);
 }
 .qr-case .decision-head > span,
@@ -1660,7 +1660,6 @@ summary:focus-visible {
     min-height: 0;
   }
   .project-copy {
-    min-height: 560px;
     order: 2;
   }
   .project-visual {
@@ -2150,7 +2149,8 @@ summary:focus-visible {
   box-shadow: none;
 }
 .decision-screens .case-stage-landing,
-.decision-screens .case-stage-after {
+.decision-screens .case-stage-after,
+.decision-screens .case-stage-progress {
   height: auto !important;
   overflow: visible;
 }
@@ -2209,7 +2209,7 @@ summary:focus-visible {
 }
 .next-case-visual {
   height: 250px;
-  background: #f0edff;
+  background: var(--soft-violet);
   display: grid;
   place-items: center;
   overflow: hidden;

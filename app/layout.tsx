@@ -1,14 +1,27 @@
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
-import { Chivo, Geist_Mono, Alfa_Slab_One } from "next/font/google";
+import { Chivo, Geist_Mono, Alfa_Slab_One, Manrope, Oswald, IBM_Plex_Mono } from "next/font/google";
 import SiteNav from "./SiteNav";
 import AnalyticsClient from "./AnalyticsClient";
 import Arrow from "./Arrow";
 import "./globals.css";
+// Quiet Weight is a second, toggleable theme layered ON TOP of globals.css
+// (it only redefines the CSS custom properties globals.css already reads —
+// it is not a full stylesheet on its own). Uncomment the next line to turn
+// it on; comment it out to go back to the default theme. Keep the
+// globals.css import above active either way.
+import "./globals-quiet-weight.css";
 
 const chivo = Chivo({ variable: "--font-chivo", subsets: ["latin"] });
 const mono = Geist_Mono({ variable: "--font-mono", subsets: ["latin"] });
 const alfaSlab = Alfa_Slab_One({ variable: "--font-alfa", subsets: ["latin"], weight: "400" });
+// Quiet Weight typeface trio — only consumed when globals-quiet-weight.css
+// is active (it remaps --font-chivo/--font-alfa/--font-mono to these).
+// Loaded unconditionally so next/font can generate them at build time, but
+// their font files aren't fetched by the browser unless actually referenced.
+const manrope = Manrope({ variable: "--font-manrope", subsets: ["latin"], weight: ["400", "500", "600", "700"] });
+const oswald = Oswald({ variable: "--font-oswald", subsets: ["latin"], weight: ["600", "700"] });
+const plexMono = IBM_Plex_Mono({ variable: "--font-plex-mono", subsets: ["latin"], weight: ["400", "500"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vladimirdeev.com"),
@@ -37,7 +50,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${chivo.variable} ${mono.variable} ${alfaSlab.variable}`}>
+      <body className={`${chivo.variable} ${mono.variable} ${alfaSlab.variable} ${manrope.variable} ${oswald.variable} ${plexMono.variable}`}>
       <a className="skip-link" href="#main-content">Skip to content</a>
       <header className="site-header">
         <div className="site-nav shell">

@@ -16,7 +16,7 @@ const images = {
   beforeExpansion: { src: "/work/semrush-locations/before-expansion.png", width: 2040, height: 1552 },
   select: { src: "/work/semrush-locations/bulk-select.png", width: 2880, height: 1630 },
   verify: { src: "/work/semrush-locations/bulk-verify.png", width: 2880, height: 2354 },
-  progress: { src: "/work/semrush-locations/bulk-progress.png", width: 2880, height: 1542 },
+  progress: { src: "/work/semrush-locations/bulk-progress.png", width: 2880, height: 1646 },
   partial: { src: "/work/semrush-locations/bulk-partial.png", width: 1440, height: 823 },
   discountEntry: { src: "/work/semrush-locations/discount-entry.png", width: 2880, height: 2570 },
   discountSelect: { src: "/work/semrush-locations/discount-selection.png", width: 2880, height: 2570 },

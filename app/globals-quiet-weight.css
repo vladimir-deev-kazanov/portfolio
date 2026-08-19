@@ -1,0 +1,220 @@
+/* =========================================================
+   QUIET WEIGHT — alternate theme
+   =========================================================
+   This file is a TOKEN OVERRIDE layer, not a rewrite of globals.css.
+   globals.css already routes almost all color through --ink / --paper /
+   --white / --line / --acid / --violet / --soft-violet, and almost all
+   type through --font-chivo (body) / --font-alfa (display) / --font-mono
+   (mono/meta). Redefining those custom properties here is enough to
+   reskin the whole site with no structural changes.
+
+   HOW TO ENABLE
+   This file is layered ON TOP of globals.css, not a replacement for it —
+   it only redefines the custom properties globals.css already reads.
+   In app/layout.tsx, keep `import "./globals.css"` active and toggle the
+   second import right below it:
+     import "./globals-quiet-weight.css";   // uncommented = Quiet Weight on
+   Comment that one line out to go back to the default theme. Restart the
+   dev server after switching (Next.js doesn't hot-reload a changed import
+   statement in RootLayout).
+
+   Palette: warm linen ground, deep teal for links, one burnt-henna accent.
+   Type: Manrope (body/interface/h2/h3), Oswald (hero/H1 only), IBM Plex
+   Mono (metadata, project numbers, technical captions). All three are
+   already loaded via next/font/google in layout.tsx (manrope/oswald/
+   plexMono) — this file only points the existing --font-* variables at
+   them, so no separate @import or <link> is added.
+   ========================================================= */
+
+:root {
+  /* ---- Core palette (same custom properties globals.css already reads) ---- */
+  --ink: #241b17;
+  --paper: #f2eee3;
+  --white: #ffffff;
+  --line: #b9b2a5;
+  --acid: #a55f49;
+  --violet: #a55f49;
+  --soft-violet: color-mix(in srgb, var(--acid) 14%, var(--paper));
+
+  /* ---- Quiet Weight additions not present in the default theme ---- */
+  --color-text-secondary: #5f584f;
+  --color-link: #235453;
+  --color-link-hover: #8a4938;
+  --color-link-visited: #5a3f56;
+  --color-accent-hover: #8a4938;
+  --color-focus: #a55f49;
+  --color-selection: #235453;
+  --letter-spacing-heading: -0.02em;
+  --letter-spacing-label: 0.06em;
+
+}
+
+/* ---- Font redirection: point the EXISTING variables at new families ----
+   Every rule in globals.css that does font-family: var(--font-chivo) /
+   var(--font-alfa) / var(--font-mono) picks this up automatically.
+   This has to target `body` (not :root): next/font/google sets these same
+   custom properties directly on <body> via its own generated class, and
+   for the body element itself that class rule is the only declaration
+   that matches — a :root rule never "competes" for body's own specified
+   value, so overriding it there has no effect no matter the source order
+   or !important. Redeclaring on `body` with !important is what wins. */
+body {
+  --font-chivo: var(--font-manrope), "Helvetica Neue", Arial, sans-serif !important;
+  --font-alfa: var(--font-oswald), "Arial Narrow", "Roboto Condensed", Arial, sans-serif !important;
+  --font-mono: var(--font-plex-mono), "SFMono-Regular", Consolas, monospace !important;
+}
+
+/* h1,h2,h3 in globals.css share one rule pointed at --font-alfa (display).
+   Quiet Weight reserves the display face for hero/H1 only — h2/h3 (case
+   decision headlines, section titles) move to the interface face with a
+   readable line-height instead of the display's tight 0.96. */
+h2,
+h3 {
+  font-family: var(--font-chivo), Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: var(--letter-spacing-heading);
+  line-height: 1.15;
+}
+
+/* Oswald's line-height must not go below 0.94 desktop / 0.98 mobile.
+   .case-hero h1 (0.86) and .big-number (0.7, not Oswald but equally
+   cramped for a mono numeral) are the only rules in globals.css that
+   violate that floor at their respective sizes. */
+.case-hero h1 {
+  line-height: 0.96;
+}
+
+/* Big stat numerals and the metric-stamp figure read as data, not as a
+   heading — move them to the mono face ("project numbers" per spec) and
+   relax the extreme tracking that was tuned for the display face. */
+.big-number {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 0.92;
+}
+.metric-stamp b {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+/* Manrope is noticeably wider than Alfa Slab One at the same pixel size,
+   so h2/h3 sized for the old display face was wrapping down to one or two
+   words per line. Scale that heading-scale font-size down by 25% —
+   wrapping calc() around each original clamp() instead of manually
+   recomputing its three numbers, so this can't drift from the source
+   values in globals.css if they ever change. Scoped to Quiet Weight only:
+   the default theme's Alfa Slab One sizes were never a wrapping problem.
+   h1 stays at its original size (kept on the Oswald display face, which
+   is narrow enough not to have the wrapping problem h2/h3 had). */
+.statement {
+  font-size: calc(clamp(35px, 5.3vw, 77px) * 0.75);
+}
+.project-copy h3 {
+  font-size: calc(clamp(36px, 4vw, 48px) * 0.75);
+}
+.about h2,
+.appendix h2 {
+  font-size: calc(clamp(48px, 6.3vw, 94px) * 0.75);
+}
+.cv-intro h2 {
+  font-size: 21px;
+}
+.role-title h2 {
+  font-size: calc(clamp(40px, 5vw, 72px) * 0.75);
+}
+.case-section h2,
+.decision-head h2,
+.qr-case .decision-head h2 {
+  font-size: calc(clamp(32px, 5vw, 64px) * 0.75);
+}
+.case-punch h2 {
+  font-size: calc(clamp(45px, 6vw, 88px) * 0.75);
+}
+.decision-copy h3 {
+  font-size: calc(clamp(32px, 4vw, 55px) * 0.75);
+}
+.case-after h2 {
+  font-size: calc(clamp(48px, 7vw, 100px) * 0.75);
+}
+.reflection h2 {
+  font-size: calc(clamp(56px, 8vw, 116px) * 0.75);
+}
+.snapshot-section h2,
+.orientation h2 {
+  font-size: calc(clamp(34px, 4vw, 56px) * 0.75);
+}
+.semrush-case .metric-band h2 {
+  font-size: calc(clamp(42px, 6vw, 76px) * 0.75);
+}
+.contact-headline {
+  font-size: calc(clamp(38px, 6.1vw, 90px) * 0.75);
+}
+
+/* globals.css re-tunes .snapshot-section/.orientation h2 with its own
+   mobile-only clamp() below 800px — scale that the same way, in the same
+   breakpoint, so this file's mobile number wins instead of silently
+   falling back to the (now oversized) desktop formula on small screens.
+   .case-hero h1 and .cv-hero h1 keep their original mobile size (h1 is
+   unscaled per the note above) but .case-hero h1's mobile line-height
+   still needed raising from 0.9 to the 0.98 floor Oswald requires on
+   mobile — that's a legibility floor, independent of the size revert. */
+@media (max-width: 800px) {
+  .case-hero h1 {
+    line-height: 0.98;
+  }
+  .snapshot-section h2,
+  .orientation h2 {
+    font-size: calc(clamp(34px, 10vw, 48px) * 0.75);
+  }
+}
+
+/* .case-punch sections (glance-grid on ai-agent/semrush, punch-grid on
+   raiffeisen) put secondary copy in a light lavender tint (#e1ddff /
+   #d2ccfa) tuned for the old saturated --violet purple. On --violet's new
+   henna value that tint is nearly illegible (low contrast, muddy hue
+   clash) — flatten it to white, which is what .case-punch's own primary
+   text already uses. */
+.glance-grid span,
+.punch-grid span,
+.qr-case .punch-grid span {
+  color: #ffffff;
+}
+
+/* Same family of bug on the semrush metric band (--ink background, so
+   contrast never actually failed there, but the leftover lavender tint
+   reads as an off-brand accent now) — flatten those to white too. */
+.semrush-case .metric span,
+.semrush-case .metric-band .limit {
+  color: #ffffff;
+}
+
+/* .cv-intro > div a (Email / LinkedIn / Download CV) sets color directly
+   to --acid, which now fails AA at that text size on --paper. Route it
+   through the link color instead; --color-accent-hover stays reserved for
+   places that specifically need accent-as-text. */
+.cv-intro > div a {
+  color: var(--color-link);
+}
+.cv-intro > div a:hover {
+  color: var(--color-link-hover);
+}
+
+/* Focus and selection: the accent ring already inherits from --violet, so
+   only add a visible ::selection (globals.css has none). */
+::selection {
+  background: var(--color-selection);
+  color: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * ,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
