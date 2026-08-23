@@ -1,25 +1,86 @@
 import Link from "next/link";
 import Arrow from "./Arrow";
+import "./home-alt/hero-surface-depth.css";
 
 /* Product screenshots remain uncompressed for UI-text fidelity. */
 /* eslint-disable @next/next/no-img-element */
 
+/*
+ * Header + hero ported from the /home-alt "Hero Surface Depth" draft
+ * (identity block, real portrait, Cyprus, spacing rhythm). Everything
+ * below the hero (work-section, contact, footer) is untouched production
+ * content — only hero-surface-depth.css's nav/hero rules are consumed
+ * here; its project-card and contact overrides never match anything on
+ * this page, since .hsd-page wraps only the nav, not the whole page.
+ */
 export default function Home() {
   return (
-    <main id="main-content">
-      <section className="home-hero shell">
-        <p className="availability reveal"><span className="availability-status"><span className="availability-dot" aria-hidden="true" />Vladimir Deev-Kazanov ·</span> <span className="availability-nowrap">Senior Product Designer ·</span> <span className="availability-nowrap">Open to roles</span></p>
-        <h1 className="display reveal delay-1">I turn product insights into <em>clear decisions.</em></h1>
-        <div className="hero-bottom reveal delay-2">
-          <div className="hero-copy">
-            <p>I design B2C, B2B SaaS and fintech—from AI tools for small businesses to payment products for merchants.</p>
-            <div className="hero-actions"><a href="#work">See selected work</a><Link href="/cv">View CV</Link></div>
-            <span className="proof-line">7+ years · Semrush · Raiffeisen Bank</span>
-          </div>
+    <>
+      <div className="hsd-page hsd-nav-wrap">
+        <div className="hsd-nav-inner">
+          <a href="#top" aria-label="Vladimir Deev-Kazanov — home" className="hsd-mark-link">
+            <span className="hsd-mark">V/DK</span>
+          </a>
+          <nav aria-label="Primary navigation" className="hsd-nav">
+            <a href="#work" aria-current="page" className="hsd-nav-link is-active">Work</a>
+            <Link href="/cv" className="hsd-nav-link">CV</Link>
+            <a href="#contact" className="hsd-nav-link">Contact</a>
+          </nav>
         </div>
-      </section>
+      </div>
 
-      <section className="work-section shell section-pad" id="work">
+      <main id="main-content">
+        <section id="top" aria-labelledby="hero-title" className="hsd-hero">
+          <div className="hsd-meta-row">
+            <span className="hsd-meta-left">
+              <span aria-hidden="true" className="hsd-meta-dot" />
+              Available for product design roles
+            </span>
+            <span className="hsd-meta-right">Cyprus</span>
+          </div>
+
+          <div className="hsd-hero-grid">
+            <div className="hsd-identity">
+              <p className="hsd-name">Vladimir Deev-Kazanov</p>
+              <p className="hsd-role">Senior Product Designer</p>
+            </div>
+
+            <div className="hsd-portrait-wrap">
+              <img
+                src="/avatar.png"
+                width="240"
+                height="240"
+                fetchPriority="high"
+                decoding="async"
+                alt="Portrait of Vladimir Deev-Kazanov"
+                className="hsd-portrait"
+              />
+            </div>
+
+            <h1 id="hero-title" className="hsd-title">I turn difficult systems into products people can act on.</h1>
+
+            <div className="hsd-hero-copy-col">
+              <p className="hsd-hero-desc hsd-decision-cut">
+                Product Designer with 7+ years across fintech, SaaS and AI. I turn technical rules into clear choices, show users what the system is doing, and help them recover when something goes wrong.
+              </p>
+
+              <div className="hsd-hero-actions">
+                <a href="#work" className="hsd-cta-primary">
+                  See selected work
+                  <span aria-hidden="true">&#8594;</span>
+                </a>
+                <Link href="/cv" className="hsd-cta-secondary">View CV</Link>
+              </div>
+
+              <ul className="hsd-fact-row">
+                <li className="hsd-fact-item">7+ YEARS &middot; SEMRUSH &middot; RAIFFEISEN</li>
+                <li className="hsd-fact-item">SELF-SERVICE &middot; FINTECH &middot; SaaS &middot; AI</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section className="work-section shell section-pad" id="work">
         <div className="section-head"><div><p className="kicker">Selected work</p><p className="section-intro">Three projects showing how I set product boundaries, explain technical choices, and work with incomplete evidence.</p></div></div>
         <div className="project-list">
           <Link href="/work/ai-agent" className="project-card" data-analytics-event="case_open_ai_agent">
@@ -37,14 +98,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="contact shell section-pad" id="contact">
-        <h2 className="contact-headline">Looking for a Product Designer for a complex product?</h2>
-        <p className="contact-note">I'm based in Cyprus and open to Senior product designer opportunities.</p>
-        <div className="contact-actions">
-          <a className="contact-cta-primary" href="mailto:vladimirdeev0@gmail.com" data-analytics-event="contact_email">vladimirdeev0@gmail.com</a>
-          <a className="contact-cta-secondary" href="https://www.linkedin.com/in/vladimir-deev-kazanov/" target="_blank" rel="noreferrer" aria-label="LinkedIn (opens in new tab)" data-analytics-event="contact_linkedin">LinkedIn<Arrow /></a>
-        </div>
-      </section>
-    </main>
+        <section className="contact shell section-pad" id="contact">
+          <h2 className="contact-headline">Looking for a Product Designer for a complex product?</h2>
+          <p className="contact-note">I'm based in Cyprus and open to Senior product designer opportunities.</p>
+          <div className="contact-actions">
+            <a className="contact-cta-primary" href="mailto:vladimirdeev0@gmail.com" data-analytics-event="contact_email">vladimirdeev0@gmail.com</a>
+            <a className="contact-cta-secondary" href="https://www.linkedin.com/in/vladimir-deev-kazanov/" target="_blank" rel="noreferrer" aria-label="LinkedIn (opens in new tab)" data-analytics-event="contact_linkedin">LinkedIn<Arrow /></a>
+          </div>
+        </section>
+      </main>
+    </>
   );
 }
