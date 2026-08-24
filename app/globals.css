@@ -630,7 +630,7 @@ summary:focus-visible {
   line-height: 0.86;
 }
 .case-hero h1 em {
-  color: var(--violet);
+  color: inherit;
 }
 .case-hero > p {
   font-size: clamp(20px, 2.4vw, 34px);
@@ -1241,7 +1241,7 @@ summary:focus-visible {
   max-width: 960px;
 }
 .qr-case .case-hero h1 em {
-  color: var(--violet);
+  color: inherit;
   background: none;
 }
 .qr-case .qr-hero-stage {

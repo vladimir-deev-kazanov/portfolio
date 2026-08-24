@@ -201,6 +201,21 @@ h3 {
   color: var(--color-link-hover);
 }
 
+/* Next-case-study card (bottom of every case study): two hardcoded
+   pre-Quiet-Weight leftovers. The hover shadow was a saturated violet
+   (#30266c1c) tuned for the old purple accent — clashes with the new
+   warm henna palette, so it's routed through --ink instead. The label
+   ("Next case study", via the shared .kicker utility) was a cool grey
+   (#6C6E79) that doesn't match the rest of the site's warm secondary
+   text — scoped to .next-case only, not a global .kicker change, since
+   .kicker is used in many places this session hasn't audited. */
+.next-case-card:hover {
+  box-shadow: 0 24px 70px color-mix(in srgb, var(--ink) 14%, transparent);
+}
+.next-case > .kicker {
+  color: var(--color-text-secondary);
+}
+
 /* Focus and selection: the accent ring already inherits from --violet, so
    only add a visible ::selection (globals.css has none). */
 ::selection {
