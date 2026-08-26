@@ -53,9 +53,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className={`${chivo.variable} ${mono.variable} ${alfaSlab.variable} ${manrope.variable} ${oswald.variable} ${plexMono.variable}`}>
       <a className="skip-link" href="#main-content">Skip to content</a>
       <header className="site-header">
-        <div className="site-nav shell">
-          <Link href="/" className="wordmark" aria-label="Vladimir Deev-Kazanov — home">
-            <img src="/avatar.png" alt="" width={44} height={44} className="wordmark-avatar" />
+        <div className="site-nav-inner shell">
+          <Link href="/" className="mark-link" aria-label="Vladimir Deev-Kazanov — home">
+            <span className="mark">V/DK</span>
           </Link>
           <SiteNav />
         </div>

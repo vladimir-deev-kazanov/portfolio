@@ -6,29 +6,15 @@ import "./home-alt/hero-surface-depth.css";
 /* eslint-disable @next/next/no-img-element */
 
 /*
- * Header + hero ported from the /home-alt "Hero Surface Depth" draft
- * (identity block, real portrait, Cyprus, spacing rhythm). Everything
- * below the hero (work-section, contact, footer) is untouched production
- * content — only hero-surface-depth.css's nav/hero rules are consumed
- * here; its project-card and contact overrides never match anything on
- * this page, since .hsd-page wraps only the nav, not the whole page.
+ * Hero ported from the /home-alt "Hero Surface Depth" draft (identity
+ * block, real portrait, Cyprus, spacing rhythm). Everything below the
+ * hero (work-section, contact, footer) is untouched production content.
+ * The header/nav is the shared one from layout.tsx (SiteNav) — no local
+ * override needed now that the shared header uses the same V/DK + quiet
+ * nav design.
  */
 export default function Home() {
   return (
-    <>
-      <div className="hsd-page hsd-nav-wrap">
-        <div className="hsd-nav-inner">
-          <a href="#top" aria-label="Vladimir Deev-Kazanov — home" className="hsd-mark-link">
-            <span className="hsd-mark">V/DK</span>
-          </a>
-          <nav aria-label="Primary navigation" className="hsd-nav">
-            <a href="#work" aria-current="page" className="hsd-nav-link is-active">Work</a>
-            <Link href="/cv" className="hsd-nav-link">CV</Link>
-            <a href="#contact" className="hsd-nav-link">Contact</a>
-          </nav>
-        </div>
-      </div>
-
       <main id="main-content">
         <section id="top" aria-labelledby="hero-title" className="hsd-hero">
           <div className="hsd-meta-row">
@@ -107,6 +93,5 @@ export default function Home() {
           </div>
         </section>
       </main>
-    </>
   );
 }
