@@ -134,17 +134,22 @@ Two constraints worth knowing:
   `PATH="$HOME/.local/node/bin:$PATH"`. `pnpm` works via `corepack enable`.
   `node_modules` was originally placed by the tooling that scaffolded this
   project; `pnpm install` now works locally too.
-- **Deployment does not happen through git.** The site is published by the
-  OpenAI Sites tooling (`.openai/hosting.json`, project `appgprj_6a72…`) to
-  `vladimir-deev-kazanov.vladimirdeev0.chatgpt.site`. Pushing to GitHub stores
-  code; it does not update the live site.
+- **Deploy with `npm run deploy`.** Pushing this repo alone does not update
+  the live site. `vladimirdeev.com` is a Cloudflare Worker built on every push
+  to the private `vladimir-deev-kazanov/portfolio-site` repo.
+  `scripts/deploy.sh` runs the tests, pushes `main` here, mirrors the committed
+  HEAD into `portfolio-site`, pushes it, and waits for the live homepage to
+  change. Commit first — only HEAD ships. Its `KEEP_OUT` list holds the files
+  that intentionally differ or stay private (`CLAUDE.md`, `.openai/`, the
+  `/home-alt` draft, and Cloudflare-specific `vite.config.ts` /
+  `pnpm-workspace.yaml`); edit those directly in `portfolio-site`.
 
 ## Git
 
-Remote `origin` is `github.com/vladimir-deev-kazanov/portfolio`, branch `main`.
-**Nothing has been pushed yet** — the remote is empty. `.gitignore` already
-excludes `node_modules`, `dist`, `.wrangler` and `.env*`; tracked content is
-about 6 MB.
+Remote `origin` is `github.com/vladimir-deev-kazanov/portfolio`, branch `main`
+(source of truth). `portfolio-site` is a deploy mirror with its own history —
+don't commit to it by hand except for the `KEEP_OUT` files. `.gitignore`
+excludes `node_modules`, `dist`, `.wrangler` and `.env*`.
 
 ## Known open items
 
