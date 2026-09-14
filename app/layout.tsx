@@ -39,8 +39,8 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-touch-icon.png?v=1", sizes: "180x180", type: "image/png" }],
     other: [{ rel: "mask-icon", url: "/mask-icon.svg?v=1", color: "#171717" }],
   },
-  openGraph: { title: "Vladimir Deev-Kazanov — Product Designer", description: "I turn product insights into clear decisions.", images: [{ url: "/og.png", width: 1200, height: 630 }] },
-  twitter: { card: "summary_large_image", title: "Vladimir Deev-Kazanov — Product Designer", description: "I turn product insights into clear decisions.", images: ["/og.png"] },
+  openGraph: { title: "Vladimir Deev-Kazanov — Product Designer", description: "I turn difficult systems into products people can act on.", images: [{ url: "/og.png?v=2", width: 1200, height: 630 }] },
+  twitter: { card: "summary_large_image", title: "Vladimir Deev-Kazanov — Product Designer", description: "I turn difficult systems into products people can act on.", images: ["/og.png?v=2"] },
 };
 
 export const viewport: Viewport = {
