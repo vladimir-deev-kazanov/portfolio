@@ -38,7 +38,7 @@ export default function SiteNav() {
     return () => observer.disconnect();
   }, [pathname]);
 
-  const active = pathname === "/cv" ? "cv" : pathname === "/about" ? "about" : pathname.startsWith("/work/") ? "work" : hash || "work";
+  const active = pathname === "/cv" ? "cv" : pathname.startsWith("/work/") ? "work" : hash || "work";
 
   return <nav aria-label="Primary navigation">{links.map(link => <Link key={link.label} href={link.href} className={`nav-link${active === link.section ? " is-active" : ""}`} aria-current={active === link.section ? "page" : undefined}><span className="nav-label">{link.label}</span></Link>)}</nav>;
 }

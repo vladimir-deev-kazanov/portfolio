@@ -8,7 +8,6 @@ const routes = [
   { path: "/work/ai-agent", priority: 0.9 },
   { path: "/work/semrush-locations", priority: 0.9 },
   { path: "/work/raiffeisen-mobile", priority: 0.9 },
-  { path: "/about", priority: 0.7 },
   { path: "/cv", priority: 0.7 },
   { path: "/privacy", priority: 0.2 },
 ];
