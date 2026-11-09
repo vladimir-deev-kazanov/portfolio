@@ -31,7 +31,7 @@ for (const route of ["/", "/cv", "/privacy", "/work/ai-agent", "/work/raiffeisen
 }
 
 test("AI Agent product evidence exists locally", async () => {
-  await Promise.all(["dashboard-mvp.png", "dashboard-later.png", "post-editor.png", "settings.png"].map((name) =>
+  await Promise.all(["dashboard-mvp.png", "dashboard-mvp-full.png", "actions-later.png", "post-editor-crop.png", "settings-enabled.png"].map((name) =>
     access(new URL(`public/work/ai-agent/${name}`, projectRoot)),
   ));
 });

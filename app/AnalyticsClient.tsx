@@ -10,6 +10,9 @@ const scriptSource = process.env.NEXT_PUBLIC_PLAUSIBLE_SCRIPT_SRC;
 type AnalyticsEvent =
   | "case_open_ai_agent"
   | "case_open_raiffeisen"
+  | "case_open_semrush_locations"
+  | "case_decision_semrush_locations"
+  | "case_evidence_semrush_locations"
   | "case_decision_ai_agent"
   | "case_evidence_ai_agent"
   | "case_result_ai_agent"
@@ -44,6 +47,7 @@ function approvedScriptSource(value: string | undefined) {
 function trackingAllowed() {
   return window.location.hostname === PRODUCTION_HOST
     && navigator.doNotTrack !== "1"
+    && (navigator as Navigator & { globalPrivacyControl?: boolean }).globalPrivacyControl !== true
     && document.documentElement.dataset.analyticsDisabled !== "true";
 }
 

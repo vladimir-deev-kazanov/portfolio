@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import QrPrototype from "./QrPrototype";
-import { Scope, Tldr } from "../case-parts";
+import { Alternatives, Decision, EndContact, Evidence, NextCase, Scope, Tldr } from "../case-parts";
 
 /* Screens are fixed-size UI evidence, so plain <img> with explicit dimensions. */
 /* eslint-disable @next/next/no-img-element */
 
 export const metadata: Metadata = {
   title: "QR payments for merchants and cashiers case study",
-  description: "How I replaced technical QR types with task-based choices and designed limited payment access for cashiers.",
+  description: "How I replaced technical QR types with task-based names and designed limited payment access for cashiers.",
 };
+
+type Screen = { file: string; label: string; alt: string };
 
 export default function RaiffeisenMobileCaseStudy() {
   return <main id="main-content" className="case-page qr-case">
@@ -32,63 +34,130 @@ export default function RaiffeisenMobileCaseStudy() {
       </figure>
     </header>
 
-    <section className="case-section shell orientation"><div><p className="kicker">The problem</p><h2>The hard part was choosing<br/>the right QR, not creating one.</h2></div><div><p className="case-lede">The first design followed the Central Bank’s categories: dynamic and static QR codes, shown as tabs with dynamic selected by default. In UX tests with five participants, people did not understand the two terms and repeatedly created a new dynamic QR instead of reusing an existing code.</p><p>Merchants did not need a lesson in payment infrastructure. They needed to choose a QR based on how they accepted payments. After the tests, I proposed changing both the names and the chooser.</p><ol className="flow-list"><li><span>01</span>Choose a QR for the payment situation</li><li><span>02</span>Set or change the amount</li><li><span>03</span>Show the QR</li><li><span>04</span>Confirm the payment</li></ol></div></section>
+    <section className="case-section shell orientation" aria-labelledby="problem-title">
+      <div><h2 id="problem-title">Merchants couldn’t tell which QR to create.</h2></div>
+      <div className="reading-copy">
+        <p>The first design followed the Central Bank’s categories: dynamic and static QR codes as tabs, with dynamic selected by default. Merchants needed to pick a code by how they accepted payments, so after the tests I proposed changing both the names and the chooser.</p>
+      </div>
+    </section>
 
-    <Decision no="01" title="Rename the system around the merchant’s task" eyebrow="Decision 1 · Use task-based names">
-      <p>“Dynamic” and “static” described how the payment system worked. They did not tell a merchant whether a code could be used again.</p><p>I proposed the customer-facing names <b>one-time QR</b> and <b>reusable QR</b>. “Reusable” connected the feature to a familiar situation: a fixed-price service, such as a manicure, could show the same code to each customer.</p><p>I considered two alternatives, then kept the underlying capability and translated it into task-based language rather than removing choice altogether.</p>
-      <div className="compare"><p><b>Alternative 01</b><span>Keep the Central Bank’s terms unchanged.</span></p><p><b>Alternative 02</b><span>Offer one QR type, as one competitor did.</span></p></div><blockquote><b>Trade-off:</b> merchants still had to choose between several modes. The next decision made the criteria visible before they created a code.</blockquote>
-      <div className="term-shift"><FactCard label="System language" title="Dynamic · Static" detail="Technically correct, poorly understood"/><i>→</i><FactCard label="Task language" title="One-time · Reusable" detail="Explains how the code will be used"/></div>
-      <ScreenFlow caption="One-time QR · choose the mode, configure the payment, show the code" screens={[['one-type-en','Choose by use case'],['one-form-en','Configure payment'],['one-created-en','Show the QR']]} />
+    <Decision n={1} title="Rename QR types around the merchant’s task" event="case_decision_raiffeisen">
+      <p><strong>Challenge.</strong> “Dynamic” and “static” describe how the payment system works. They don’t tell a merchant whether a code can be used again.</p>
+      <Alternatives
+        couldHave="Keep the Central Bank’s terms, or offer a single QR type as one competitor did."
+        did="Keep the capability, rename it as one-time and reusable, and let the merchant choose by situation."
+      />
+      <p>“Reusable” connects to something familiar: a fixed-price service, such as a manicure, can show the same code to every customer.</p>
+      <p><strong>Trade-off:</strong> merchants still choose between several modes. Decision 2 makes the criteria visible before they create a code.</p>
+      <ScreenFlow
+        label="Decision 1 · one-time QR"
+        claim="A one-time code takes three steps: choose the mode, set the amount, show the code."
+        screens={[
+          { file: "one-type-en", label: "Choose", alt: "Choose a QR code type screen listing one-time, reusable and cashier, each with a description" },
+          { file: "one-form-en", label: "Configure", alt: "One-time QR code form with amount 3 500 roubles, optional name, validity until 22 January 2024 and a Create button" },
+          { file: "one-created-en", label: "Show", alt: "Created QR code for 3 500 roubles, status awaiting payment until 22 January 2024" },
+        ]}
+      />
     </Decision>
 
     <Scope rows={[
       ["Role", "I owned product design. I proposed the terminology, the chooser, and the cashier experience. We delivered implementation and the production launch as an agile team."],
-      ["Team", "PM/PO, system analyst, developers, QA, and me as the sole product designer"],
-      ["Timeline", "2023; shipped to production"],
-      ["Not mine", "The SBP C2B payment system (Russia’s bank-to-business QR payment system), Central Bank rules, and engineering implementation"],
+      ["Team", "PM/PO, system analyst, developers, QA, and me as the sole product designer."],
+      ["Timeline", "2023; shipped to production."],
+      ["Not mine", "The SBP C2B payment system (Russia’s bank-to-business QR payment system), Central Bank rules, and engineering implementation."],
     ]} />
 
-    <Decision no="02" title="Replace a defaulted tab with an explained list" eyebrow="Decision 2 · Explain the choice first" tone>
-      <p>The original interface selected dynamic QR before the merchant had expressed a need. Removing the default was one option, but the two categories would still be unexplained.</p><p>I proposed a list of three variants: <b>one-time</b>, <b>reusable</b>, and <b>cashier</b>. Each option described the payment situation it supported. Merchants could see the decision criteria before creating a code.</p><blockquote><b>Trade-off:</b> the list added a step. I proposed keeping it while merchants learned the model, then using usage data to decide whether to prioritise one mode or simplify the chooser.</blockquote><p className="evidence-limit">The available evidence does not show whether the team later collected that data or whether selection accuracy improved.</p>
-      <div className="chooser-compare"><div><span>Before</span><h3>Dynamic / Static</h3><p>A technical default selected before the merchant expressed a need.</p></div><div><span>After</span><h3>One-time / Reusable / Cashier</h3><p>Each heading is followed by a plain-language description of the payment situation.</p></div></div>
-      <ScreenFlow caption="Reusable QR · choose the mode, configure the code, then reuse it" screens={[['reusable-type-en','Choose reusable'],['reusable-form-en','Configure the code'],['reusable-created-en','Reuse and manage']]} />
+    <Decision n={2} title="Replace a defaulted tab with an explained list" tone>
+      <p>The original interface selected dynamic QR before the merchant had said what they needed. Removing the default would have left both categories unexplained.</p>
+      <p>I proposed a list of three variants: <b>one-time</b>, <b>reusable</b> and <b>cashier</b>. Each option describes the payment situation it supports, so merchants see the criteria before they create anything.</p>
+      <p><strong>Trade-off:</strong> the list adds a step. I proposed keeping it while merchants learned the model, then using usage data to decide whether to prioritise one mode or simplify the chooser.</p>
+      <div className="chooser-compare"><div><span>Before</span><h3>Dynamic / Static</h3><p>A technical default, selected before the merchant said what they needed.</p></div><div><span>After</span><h3>One-time / Reusable / Cashier</h3><p>Each option is described by the payment situation it serves.</p></div></div>
+      <ScreenFlow
+        label="Decision 2 · reusable QR"
+        claim="A reusable code is created once, then reused and managed from its own page."
+        screens={[
+          { file: "reusable-type-en", label: "Choose", alt: "Choose a QR code type screen with the reusable option described as never expiring" },
+          { file: "reusable-form-en", label: "Configure", alt: "Reusable QR code form with optional amount, name, payment purpose and a Create button" },
+          { file: "reusable-created-en", label: "Reuse", alt: "Reusable QR code page: active and never expires, with Show, Send and Rename actions and a list of its transactions" },
+        ]}
+      />
     </Decision>
 
     <section className="prototype-section shell" aria-labelledby="proto-title">
       <h2 id="proto-title">Prototype</h2>
-      <p>The one-time QR flow, from the home screen to a created code. Press the button to start; it stays inactive until you do.</p>
+      <p>The one-time QR flow, from the home screen to a created code. It stays inactive until you press the button.</p>
       <QrPrototype />
     </section>
 
-    <Decision no="03" title="Give cashiers payment tools, not the owner’s bank account" eyebrow="Decision 3 · Limit cashier access">
-      <p>A fixed-price reusable QR did not cover every point of sale. Cashiers needed to enter changing totals, but merchants did not want to give employees full access to internet banking.</p><p>I proposed a cashier QR with a changeable amount, plus a limited experience around two tasks: create a QR and check whether the payment succeeded.</p><div className="compare"><p><b>Rejected</b><span>Let cashiers use the owner’s full banking access—avoids a separate surface, but exposes accounts, transfers, and settings cashiers did not need.</span></p><p><b>Chosen</b><span>Expose QR creation and payment status only.</span></p></div><blockquote><b>Trade-off:</b> the limited cashier experience increased product and implementation scope. In return, access matched the cashier’s job.</blockquote>
+    <Decision n={3} title="Give cashiers payment tools, not the owner’s bank account">
+      <p>A fixed-price reusable QR didn’t cover every point of sale. Cashiers needed to enter changing totals, but owners didn’t want to give employees full internet-banking access.</p>
+      <p>I proposed a cashier QR with a changeable amount and a limited experience around two tasks: create a QR code and check whether the payment succeeded. The alternative, letting cashiers use the owner’s full access, avoids a separate surface but exposes accounts, transfers and settings.</p>
+      <p><strong>Trade-off:</strong> the limited experience increased product and implementation scope.</p>
       <div className="access-model"><FactCard label="Owner" title="Full banking" detail="Accounts · transfers · settings · QR payments"/><i>≠</i><FactCard label="Cashier" title="Payment access" detail="Create QR · check payment status"/></div>
-      <p className="evidence-limit">The experience shipped with the wider QR work. I do not have preserved evidence of adoption or operational impact.</p>
-      <ScreenFlow caption="Cashier QR · select the delegated mode, name the cashier point, create payments" screens={[['cashier-type-en','Choose cashier QR'],['cashier-name-en','Name the cashier point'],['cashier-payment-en','Create a payment']]} />
+      <ScreenFlow
+        label="Decision 3 · cashier QR"
+        claim="The cashier names a till, then enters the amount for each payment."
+        screens={[
+          { file: "cashier-type-en", label: "Choose", alt: "Choose a QR code type screen with the cashier option described as for a retail location" },
+          { file: "cashier-name-en", label: "Name the till", alt: "Cashier QR code form with a name field containing Front counter and a Create QR code button" },
+          { file: "cashier-payment-en", label: "Take a payment", alt: "Payment amount keypad asking what the payment amount is, with a To payment button" },
+        ]}
+      />
     </Decision>
 
-    <section className="case-section shell measure qr-evidence" data-analytics-event="case_evidence_raiffeisen" data-analytics-observe><div><p className="kicker">Evidence</p><h2>What changed, and what remains unmeasured</h2></div><dl><dt>Method</dt><dd>UX tests with five participants</dd><dt>Finding</dt><dd>Participants did not understand “dynamic” and “static” and repeatedly created new dynamic QR codes</dd><dt>Test-driven changes</dt><dd>Task-based names and an explained chooser</dd><dt>Related scope shipped</dt><dd>A limited cashier mode for changing totals</dd><dt>Product outcome</dt><dd>The revised QR experience shipped to production</dd><dt>Limits</dt><dd>Post-change comprehension, selection accuracy, usage, payment success, savings, retention, and revenue were not preserved in the available evidence</dd></dl><p className="measure-limit">Testing changed the product model. It did not establish a quantified user or business outcome.</p></section>
+    <Evidence
+      title="What the tests and the launch show"
+      event="case_evidence_raiffeisen"
+      method="UX tests with five participants. After release, a backend engineer supplied the production count of reusable QR creation at my request."
+      result="Participants didn’t understand “dynamic” and “static” and repeatedly created new dynamic codes. Task-based names and an explained chooser followed, plus a limited cashier mode for changing totals. The revised experience shipped to production. Reusable QR creation +17% in the first month after release."
+      limits="No control group. Comprehension and selection accuracy after the change, payment success, cashier adoption, savings, retention and revenue were not preserved, nor whether the chooser follow-up happened."
+    />
 
-    <section className="reflection shell" data-analytics-event="case_result_raiffeisen" data-analytics-observe><p className="kicker">Reflection</p><h2>Technical accuracy does not guarantee user understanding.</h2><div className="reflection-copy">
-      <p>The first design treated the Central Bank’s terms as if merchants already understood them. The tests showed that technically correct categories could still lead people to the wrong action.</p>
-      <p>The redesign kept the underlying payment options but described them through merchant tasks: use once, reuse at a fixed price, or let a cashier enter changing totals.</p>
-      <p>The unresolved question was how long the explicit chooser needed to remain. I proposed using behaviour data to decide when to prioritise a mode or simplify the step. The available evidence does not show whether that follow-up happened.</p>
-    </div></section>
+    <section className="reflection shell" data-analytics-event="case_result_raiffeisen" data-analytics-observe aria-labelledby="reflection-title">
+      <h2 id="reflection-title">Correct terms can still send people to the wrong action.</h2>
+      <p>The first design assumed merchants already knew the Central Bank’s terms. The redesign kept the same payment options and described them by task: use once, reuse at a fixed price, or let a cashier enter changing totals.</p>
+    </section>
 
-    <section className="appendix shell" aria-labelledby="qr-appendix-title"><p className="kicker">Appendix</p><h2 id="qr-appendix-title">QR transaction list and filters</h2>
-      <p>I also worked on the QR transaction list and filters, bringing payment status, period and amount filtering into the merchant’s operational flow, with transaction details and empty, loading and error states. This work is confirmed by the design source; its post-launch effect is not preserved in the available evidence.</p>
-      <ScreenFlow caption="QR transactions · list, filters, and filtered results" screens={[['tx-list-en','Transaction list'],['tx-filters-en','Filters'],['tx-filtered-en','Filtered results']]} />
+    <section className="case-section shell transactions" aria-labelledby="tx-title">
+      <div><h2 id="tx-title">Also: QR transactions and filters</h2></div>
+      <div>
+        <p className="reading-note">I also designed the QR transaction list and filters: status, period and amount filtering, with transaction details and empty, loading and error states.</p>
+        <ScreenFlow
+          label="QR transactions"
+          claim="List, filters, then filtered results."
+          screens={[
+            { file: "tx-list-en", label: "List", alt: "Transactions list with status filter chips and payments and refunds grouped by date" },
+            { file: "tx-filters-en", label: "Filters", alt: "Filters screen with Status, Period and Amount sections and an Apply button" },
+            { file: "tx-filtered-en", label: "Filtered", alt: "Transactions screen narrowed by status and a date range" },
+          ]}
+        />
+      </div>
     </section>
-    <section className="next-case shell" aria-label="Next case study">
-      <p className="kicker">Next case study</p>
-      <Link className="next-case-card" href="/work/semrush-locations" data-analytics-event="case_open_semrush_locations">
-        <span className="next-case-visual next-case-visual-wide"><img src="/work/semrush-locations/bulk-expansion.png" alt="Semrush Locations Expansion panel" loading="lazy" /></span>
-        <b>Semrush Locations Expansion</b>
-      </Link>
-    </section>
+
+    <EndContact />
+    <NextCase href="/work/semrush-locations" title="Locations Expansion, Semrush" outcome="Users adding 2+ locations spiked after launch, then returned near the earlier level." event="case_open_semrush_locations" />
   </main>;
 }
 
-function FactCard({label,title,detail}:{label:string,title:string,detail:string}) { return <div><span>{label}</span><b>{title}</b><small>{detail}</small></div>; }
-function ScreenFlow({caption,screens,sourceLabel}:{caption:string,screens:Array<[string,string]>,sourceLabel?:string}) { return <figure className="screen-flow"><div>{screens.map(([file,label],index)=><div className="flow-screen" key={file}><span>{String(index+1).padStart(2,'0')} · {label}</span><img src={`/work/raiffeisen-mobile/screens/${file}.jpg`} alt={label} loading="lazy"/>{index<screens.length-1&&<i aria-hidden="true">→</i>}</div>)}</div><figcaption>{caption}{sourceLabel&&<span>{sourceLabel}</span>}</figcaption></figure>; }
-function Decision({no,title,eyebrow,tone=false,children}:{no:string,title:string,eyebrow:string,tone?:boolean,children:React.ReactNode}) { return <section className={`decision-section ${tone?"tone":""}`} {...(no === "01" ? { "data-analytics-event": "case_decision_raiffeisen", "data-analytics-observe": true } : {})}><div className="shell"><div className="decision-head"><span>{no}</span><h2>{title}</h2></div><div className="decision-body"><p className="kicker">{eyebrow}</p><div className="decision-copy">{children}</div></div></div></section>; }
+function FactCard({ label, title, detail }: { label: string; title: string; detail: string }) {
+  return <div><span>{label}</span><b>{title}</b><small>{detail}</small></div>;
+}
+
+function ScreenFlow({ label, claim, screens }: { label: string; claim: string; screens: Screen[] }) {
+  return (
+    <figure className="screen-flow">
+      <div>
+        {screens.map(({ file, label: screenLabel, alt }, index) => {
+          const src = `/work/raiffeisen-mobile/screens/${file}.jpg`;
+          return (
+            <div className="flow-screen" key={file}>
+              <span>{index + 1}. {screenLabel}</span>
+              <a href={src} target="_blank" rel="noreferrer" aria-label={`${alt} (open full size)`}><img src={src} width={376} height={812} alt={alt} loading="lazy" /></a>
+            </div>
+          );
+        })}
+      </div>
+      <figcaption><span className="fig-label">{label}</span><span className="fig-claim">{claim}</span></figcaption>
+    </figure>
+  );
+}
