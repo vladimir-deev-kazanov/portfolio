@@ -261,7 +261,9 @@ iframe:focus-visible {
 .site-footer a {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   min-height: 44px;
+  min-width: 44px;
   padding-inline: 8px;
 }
 .arrow-icon {
@@ -479,6 +481,7 @@ iframe:focus-visible {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
+  min-width: 44px;
   font: 500 var(--fs-small) var(--ff-body);
   color: var(--color-link);
   text-decoration: underline;
