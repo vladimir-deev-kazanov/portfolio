@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Scope, Tldr } from "../case-parts";
 
 /* Product screenshots remain uncompressed; the current Sites image runtime is not reliable in local preview. */
 /* eslint-disable @next/next/no-img-element */
@@ -52,26 +53,21 @@ function Alternatives({ rejected, chosen }: { rejected: string; chosen: string }
 export default function CaseStudy() {
   return <main id="main-content" className="case-page"><article>
     <header className="case-hero shell">
-      <Link className="case-back reveal" href="/#work">← Back to projects</Link>
-      <div className="case-meta reveal"><span>Semrush · 2025</span><span>1 week design · 4 weeks to MVP</span><span>Sole Product Designer</span></div>
-      <h1 className="reveal delay-1">I cut an AI agent to one useful loop—and <em>exposed its limits.</em></h1>
-      <p className="reveal delay-2">With one week to design, I helped define what the MVP would do, what owners could see, and which controls had to wait.</p>
+      <Link className="case-back" href="/#work">← Back to projects</Link>
+      <p className="case-context">Semrush, 2025. A Local SEO product (helping a business show up in Google Maps and local search). I was the sole product designer.</p>
+      <h1>I had one week to decide what an AI agent would do on its own, and what its users could see.</h1>
+      <p>The Google Business Profile AI Agent posts updates and photos to a small business’s Google listing and prepares review replies. Leadership mandated the agent; I cut preview and editing, and designed setup, a dashboard of what the agent did, and adjustable posting cadence.</p>
+      <Tldr
+        rows={[
+          ["Role", "Sole designer: flows, UI, interactions, cadence controls"],
+          ["Team", "Product owner, 2 frontend, 2 backend, QA; no analyst"],
+          ["Timeline", "1 week of design, 4 weeks to MVP, 2025"],
+          ["Outcome", "8% of landing-page visitors paid for and configured the agent in month one"],
+        ]}
+        gap="Measure whether owners trust generated content (preview, edit, approval and correction behaviour), not only whether they reach the dashboard."
+      />
       <ProductImage image="mvp" priority alt="MVP Google Business Profile AI Agent dashboard showing Views, Interactions, Average Rating, and a Recent Actions list" />
     </header>
-
-    <section className="case-section shell snapshot-section" aria-labelledby="snapshot-title">
-      <div><p className="kicker">Project snapshot</p><h2 id="snapshot-title">Scope and ownership</h2></div>
-      <dl>
-        <dt>Product</dt><dd>Google Business Profile AI Agent</dd>
-        <dt>Duration</dt><dd>4 weeks: 1 week of design, followed by build and iteration</dd>
-        <dt>Team</dt><dd>Product owner, 2 frontend engineers, 2 backend engineers, QA, and me; no dedicated analyst</dd>
-        <dt>I owned</dt><dd>Product design, user flows, interactions, and user-facing feature behaviour</dd>
-        <dt>We decided together</dt><dd>The product owner and I agreed on the minimum valuable scope and launch cuts</dd>
-        <dt>Not mine</dt><dd>The AI initiative, model architecture, model-quality training, pricing, and landing-page copy</dd>
-        <dt>System</dt><dd>Desktop web, built with the Semrush UI kit</dd>
-        <dt>Status</dt><dd>Shipped; activation measured; product expanded after the MVP</dd>
-      </dl>
-    </section>
 
     <section className="case-punch" aria-labelledby="glance-title"><div className="shell">
       <p className="kicker">At a glance</p><h2 id="glance-title">Make the agent’s work visible without teaching owners Local SEO.</h2>
@@ -102,6 +98,13 @@ export default function CaseStudy() {
       <div className="failure-grid"><p><b>Technical failure</b><span>Retry → service status → resume.</span></p><p><b>Wrong public result</b><span>No in-product MVP recovery → correct in Google.</span></p></div>
       <div className="decision-screens"><div><span className="image-label">Landing page · entry point</span><ProductImage image="landing" alt="Local SEO AI Agent landing page introducing the product and its value" /></div><div><span className="image-label">Agent setup · control boundary</span><ProductImage image="setup" alt="AI Agent setup screen for configuring automated Local SEO activity" /></div></div>
     </Decision>
+
+    <Scope rows={[
+      ["Role", "I owned product design, user flows, interactions, and user-facing feature behaviour. The product owner and I decided together the minimum valuable scope and the launch cuts."],
+      ["Team", "Product owner, 2 frontend engineers, 2 backend engineers, QA, and me; no dedicated analyst. Desktop web, built with the Semrush UI kit."],
+      ["Timeline", "1 week of design, then 4 weeks to the MVP in 2025; the product kept evolving after launch."],
+      ["Not mine", "The AI initiative, model architecture, model-quality training, pricing, and landing-page copy."],
+    ]} />
 
     <Decision no="02" title="Make the dashboard answer ‘What did the agent do?’" eyebrow="Show completed and planned work" tone>
       <p><strong>The challenge.</strong> The short setup kept activation manageable, but it moved complexity into the background. After setup, owners needed proof that the agent was working, without inheriting a professional Local SEO dashboard.</p>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Scope, Tldr } from "../case-parts";
 
 /* Product screenshots remain uncompressed; the current Sites image runtime is not reliable in local preview. */
 /* eslint-disable @next/next/no-img-element */
@@ -74,27 +75,22 @@ function Alternatives({ rejected, chosen, rejectedLabel = "Rejected" }: { reject
 export default function CaseStudy() {
   return <main id="main-content" className="case-page semrush-case"><article>
     <header className="case-hero shell">
-      <Link className="case-back reveal" href="/#work">← Back to projects</Link>
-      <div className="case-meta reveal"><span>Semrush · Local SEO</span><span>Sole Product Designer</span><span>2025–2026</span></div>
-      <h1 className="reveal delay-1">Adding several locations <em>without starting over.</em></h1>
-      <p className="reveal delay-2">Small businesses and agencies managing several locations had to open Add location before Semrush showed another business it already recognised. They then repeated setup for each one. I moved these opportunities into the page where they managed locations and designed one setup for several businesses.</p>
+      <Link className="case-back" href="/#work">← Back to projects</Link>
+      <p className="case-context">Semrush Local SEO, 2025. I was the sole product designer.</p>
+      <h1>I turned one-at-a-time location setup into a single bulk action.</h1>
+      <p>Semrush recognised users’ other businesses but showed them only after Add location, then made them set up each one separately. I moved the suggestions onto the Locations page and designed bulk select, verify and setup.</p>
+      <Tldr
+        rows={[
+          ["Role", "Sole designer: suggestions, bulk select, verify and setup"],
+          ["Team", "Product owner, 2 frontend, 2 backend, QA; no analyst"],
+          ["Timeline", "Bulk release 1 April 2025; discount work 2026"],
+          ["Outcome", "Adds of 2+ locations spiked after launch, then returned near the earlier level"],
+        ]}
+        gap="Measure the full journey from seeing a recognised business to managing it later, to learn where users stop and which segments gain lasting value."
+      />
       <ProductImage image="hero" priority alt="Semrush Local dashboard showing recognised businesses and a 15% expansion discount on the Locations page" />
-      <p className="shot-caption"><b>Expand your local visibility</b>Recognised businesses and the problems Semrush found appear where users manage locations; this later view also carries the 2026 discount treatment.</p>
+      <p className="shot-caption"><b>Expand your local visibility</b>Recognised businesses and the problems Semrush found appear where users manage locations. This later view also carries the 2026 discount offer.</p>
     </header>
-
-    <section className="case-section shell snapshot-section" aria-labelledby="snapshot-title">
-      <div><p className="kicker">Project snapshot</p><h2 id="snapshot-title">Scope and ownership</h2></div>
-      <dl>
-        <dt>Bulk release</dt><dd>1 April 2025</dd>
-        <dt>Later experiment</dt><dd>Multi-location discount, 2026</dd>
-        <dt>Team</dt><dd>Product owner, 2 frontend engineers, 2 backend engineers, QA, and me; no dedicated analyst. Andrei Fateev was Design Team Lead.</dd>
-        <dt>Platform</dt><dd>Semrush Local SEO · desktop web</dd>
-        <dt>I owned</dt><dd>Moving suggestions to the Locations page, the multi-select and bulk setup, and the later discount-treatment design.</dd>
-        <dt>We decided together</dt><dd>How to prioritise the project by reusing existing components and limiting engineering effort.</dd>
-        <dt>Not mine</dt><dd>The existing one-business flow, Google data behaviour, pricing policy, and engineering implementation.</dd>
-        <dt>Status</dt><dd>Bulk setup shipped in 2025. A separate discount experiment launched in 2026.</dd>
-      </dl>
-    </section>
 
     <section className="case-punch" aria-labelledby="glance-title"><div className="shell">
       <p className="kicker">At a glance</p><h2 id="glance-title">What changed in 30 seconds</h2>
@@ -132,6 +128,13 @@ export default function CaseStudy() {
         <Shot image="after" alt="Shipped Locations page with recognised businesses visible" label="After · visible in context">The opportunity appears where users already manage locations.</Shot>
       </div>
     </Decision>
+
+    <Scope rows={[
+      ["Role", "I owned moving suggestions to the Locations page, the multi-select and bulk setup, and the later discount-offer design. We decided together how to prioritise by reusing existing components and limiting engineering effort."],
+      ["Team", "Product owner, 2 frontend engineers, 2 backend engineers, QA, and me; no dedicated analyst. Desktop web."],
+      ["Timeline", "Bulk setup shipped on 1 April 2025. A separate discount experiment launched in 2026."],
+      ["Not mine", "The existing one-business flow, Google data behaviour, pricing policy, and engineering implementation."],
+    ]} />
 
     <Decision no="02" title="Let users add several businesses—and recover without starting over" eyebrow="The challenge: moving suggestions into view didn't remove repeated work" tone>
       <p>I designed a list of concrete businesses instead of one abstract Google account. Users could select several, verify them together and follow progress for the whole set.</p>

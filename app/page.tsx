@@ -2,96 +2,106 @@ import Link from "next/link";
 import Arrow from "./Arrow";
 import "./home.css";
 
-/* Product screenshots remain uncompressed for UI-text fidelity. */
+/* Product screenshots stay plain <img>: they are UI evidence and need fixed dimensions. */
 /* eslint-disable @next/next/no-img-element */
 
-/*
- * Hero ("Hero Surface Depth": identity block, real portrait, spacing
- * rhythm) styled by app/home.css. Everything below the
- * hero (work-section, contact, footer) is untouched production content.
- * The header/nav is the shared one from layout.tsx (SiteNav) — no local
- * override needed now that the shared header uses the same V/DK + quiet
- * nav design.
- */
 export default function Home() {
   return (
-      <main id="main-content">
-        <section id="top" aria-labelledby="hero-title" className="hsd-hero">
-          <div className="hsd-meta-row">
-            <span className="hsd-meta-left">
-              <span aria-hidden="true" className="hsd-meta-dot" />
-              Available for product design roles
-            </span>
-            <span className="hsd-meta-right">Cyprus</span>
+    <main id="main-content">
+      <section id="top" aria-labelledby="hero-title" className="hsd-hero">
+        <div className="hsd-hero-grid">
+          <div className="hsd-identity">
+            <p className="hsd-name">Vladimir Deev-Kazanov</p>
+            <p className="hsd-role">Senior Product Designer · Cyprus · open to roles</p>
           </div>
 
-          <div className="hsd-hero-grid">
-            <div className="hsd-identity">
-              <p className="hsd-name">Vladimir Deev-Kazanov</p>
-              <p className="hsd-role">Senior Product Designer</p>
-            </div>
+          <div className="hsd-portrait-wrap">
+            <img
+              src="/avatar.png"
+              width="240"
+              height="240"
+              fetchPriority="high"
+              decoding="async"
+              alt="Portrait of Vladimir Deev-Kazanov"
+              className="hsd-portrait"
+            />
+          </div>
 
-            <div className="hsd-portrait-wrap">
-              <img
-                src="/avatar.png"
-                width="240"
-                height="240"
-                fetchPriority="high"
-                decoding="async"
-                alt="Portrait of Vladimir Deev-Kazanov"
-                className="hsd-portrait"
-              />
-            </div>
+          <h1 id="hero-title" className="hsd-title">I design products where users hand work to a system and need to know what it did.</h1>
 
-            <h1 id="hero-title" className="hsd-title">I turn difficult systems into products people can act on.</h1>
+          <div className="hsd-hero-copy-col">
+            <p className="hsd-hero-desc">
+              An AI agent that posts to small businesses’ Google profiles at Semrush. QR payments for merchants at Raiffeisen Bank. 7+ years, based in Cyprus.
+            </p>
 
-            <div className="hsd-hero-copy-col">
-              <p className="hsd-hero-desc hsd-decision-cut">
-                Product Designer with 7+ years across fintech, SaaS and AI. I turn technical rules into clear choices, show users what the system is doing, and help them recover when something goes wrong.
-              </p>
-
-              <div className="hsd-hero-actions">
-                <a href="#work" className="hsd-cta-primary">
-                  See selected work
-                  <span aria-hidden="true">&#8594;</span>
-                </a>
-                <Link href="/cv" className="hsd-cta-secondary">View CV</Link>
-              </div>
-
-              <ul className="hsd-fact-row">
-                <li className="hsd-fact-item">7+ YEARS &middot; SEMRUSH &middot; RAIFFEISEN</li>
-                <li className="hsd-fact-item">SELF-SERVICE &middot; FINTECH &middot; SaaS &middot; AI</li>
-              </ul>
+            <div className="hsd-hero-actions">
+              <a href="#work" className="hsd-cta-primary">
+                See selected work
+                <span aria-hidden="true">&#8594;</span>
+              </a>
+              <Link href="/cv" className="hsd-cta-secondary">View CV</Link>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="work-section shell section-pad" id="work">
-        <div className="section-head"><div><p className="kicker">Selected work</p><p className="section-intro">Three projects showing how I set product boundaries, explain technical choices, and work with incomplete evidence.</p></div></div>
+      <section className="work-section shell" id="work" aria-labelledby="work-title">
+        <h2 id="work-title" className="kicker">Selected work</h2>
         <div className="project-list">
-          <Link href="/work/ai-agent" className="project-card" data-analytics-event="case_open_ai_agent">
-            <div className="project-copy"><div><span className="project-no">01</span><span className="tag">AI PRODUCT</span></div><h3>Google Business Profile AI Agent</h3><p>With one week to design, I scoped the agent’s first useful loop, made completed work visible, and documented the controls the MVP deferred.</p><span className="role-line">Semrush · MVP launched in 2025<br/>Sole Product Designer</span><span className="text-link">Read case study<Arrow /></span></div>
+          <Link href="/work/ai-agent" className="project-card" aria-labelledby="work-ai-agent" data-analytics-event="case_open_ai_agent">
+            <div className="project-copy">
+              <span className="tag">AI product</span>
+              <h3 id="work-ai-agent">Google Business Profile AI Agent, Semrush</h3>
+              <p>One design week before a conference launch. I cut the MVP to connect, configure, and see what the agent did, and deferred preview and editing.</p>
+              <p className="project-outcome"><b>Outcome</b>8% of landing-page visitors paid for and configured the agent in month one. My later onboarding step lifted weekly first-time activations by 50%.</p>
+              <span className="role-line">MVP launched 2025 · Sole Product Designer</span>
+            </div>
             <div className="project-visual"><img src="/work/ai-agent/dashboard-mvp.png" width="1020" height="552" loading="lazy" alt="Semrush Google Business Profile AI Agent MVP dashboard" /></div>
           </Link>
-          <Link href="/work/raiffeisen-mobile" className="project-card" data-analytics-event="case_open_raiffeisen">
-            <div className="project-copy"><div><span className="project-no">02</span><span className="tag">MOBILE FINTECH</span></div><h3>QR payments for merchants and cashiers</h3><p>I replaced technical QR terms with task-based choices and limited cashier access to payment work.</p><span className="role-line">Raiffeisen Bank · 2023<br/>Sole Product Designer</span><span className="text-link">Read case study<Arrow /></span></div>
-            <div className="project-visual qr-project-visual"><img src="/work/raiffeisen-mobile/home.png" width="750" height="1298" loading="lazy" alt="Raiffeisen QR merchant app home screen listing one-time, cashier, and reusable QR codes" /></div>
+          <Link href="/work/raiffeisen-mobile" className="project-card" aria-labelledby="work-qr" data-analytics-event="case_open_raiffeisen">
+            <div className="project-copy">
+              <span className="tag">Mobile fintech</span>
+              <h3 id="work-qr">QR payments for merchants, Raiffeisen Bank</h3>
+              <p>In UX tests, merchants didn’t understand dynamic and static QR codes. I renamed them by task, replaced the defaulted tab with an explained chooser, and gave cashiers payment-only access.</p>
+              <p className="project-outcome"><b>Outcome</b>Shipped to production. Reusable QR creation rose 17% in the first month.</p>
+              <span className="role-line">2023 · Sole Product Designer</span>
+            </div>
+            <div className="project-visual qr-project-visual"><img src="/work/raiffeisen-mobile/screens/one-type-en.jpg" width="750" height="1624" loading="lazy" alt="Choose a QR code type screen listing one-time, reusable, and cashier codes, each with a plain-language description" /></div>
           </Link>
-          <Link href="/work/semrush-locations" className="project-card" data-analytics-event="case_open_semrush_locations">
-            <div className="project-copy"><div><span className="project-no">03</span><span className="tag">LOCAL SEO</span></div><h3>Semrush Locations Expansion</h3><p>I moved known Google Business Profile opportunities into the Locations list and replaced repeated setup with one bulk action.</p><span className="role-line">Semrush · Bulk release 2025<br/>Sole Product Designer</span><span className="text-link">Read case study<Arrow /></span></div>
+          <Link href="/work/semrush-locations" className="project-card" aria-labelledby="work-locations" data-analytics-event="case_open_semrush_locations">
+            <div className="project-copy">
+              <span className="tag">Local SEO</span>
+              <h3 id="work-locations">Locations Expansion, Semrush</h3>
+              <p>Semrush already recognised users’ other businesses but showed them only after Add location. I surfaced them on the Locations page and designed bulk setup that keeps successful adds when some fail.</p>
+              <p className="project-outcome"><b>Outcome</b>Users adding 2+ locations spiked after launch, then returned near the earlier level.</p>
+              <span className="role-line">Bulk release 2025 · Sole Product Designer</span>
+            </div>
             <div className="project-visual"><img src="/work/semrush-locations/bulk-expansion.png" width="1020" height="816" loading="lazy" alt="Semrush Locations dashboard with an Expand your local visibility panel" /></div>
           </Link>
         </div>
       </section>
 
-        <section className="contact shell section-pad" id="contact">
-          <h2 className="contact-headline">Looking for a Product Designer for a complex product?</h2>
+      <section className="how-i-work shell" aria-labelledby="how-title">
+        <h2 id="how-title">How I work</h2>
+        <p>
+          I design products where software acts on someone’s behalf: an agent posting to a business’s Google profile, a QR code that takes a merchant’s payment. The question I keep coming back to is where the user’s control ends and how they find out.
+        </p>
+        <p>
+          On the Semrush agent we shipped the dashboard before the edit button, and the feedback we got was that owners wanted to see planned posts before they went out. I’d make that call again under the same deadline, but I’d measure it differently.
+        </p>
+        <p>I also build: this site is a Next.js app I designed and shipped with an AI coding agent.</p>
+      </section>
+
+      <section className="contact section-pad" id="contact" aria-labelledby="contact-title">
+        <div className="shell">
+          <h2 id="contact-title" className="contact-headline">Hiring for AI or fintech product design? Email me.</h2>
           <p className="contact-note">I’m based in Cyprus and open to Senior product designer opportunities.</p>
           <div className="contact-actions">
             <a className="contact-cta-primary" href="mailto:vladimirdeev0@gmail.com" data-analytics-event="contact_email">vladimirdeev0@gmail.com</a>
             <a className="contact-cta-secondary" href="https://www.linkedin.com/in/vladimir-deev-kazanov/" target="_blank" rel="noreferrer" aria-label="LinkedIn (opens in new tab)" data-analytics-event="contact_linkedin">LinkedIn<Arrow /></a>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
+    </main>
   );
 }

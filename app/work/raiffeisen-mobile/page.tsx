@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import QrPrototype from "./QrPrototype";
+import { Scope, Tldr } from "../case-parts";
+
+/* Screens are fixed-size UI evidence, so plain <img> with explicit dimensions. */
+/* eslint-disable @next/next/no-img-element */
 
 export const metadata: Metadata = {
   title: "QR payments for merchants and cashiers case study",
@@ -10,18 +14,23 @@ export const metadata: Metadata = {
 export default function RaiffeisenMobileCaseStudy() {
   return <main id="main-content" className="case-page qr-case">
     <header className="case-hero shell">
-      <Link className="case-back reveal" href="/#work">← Back to projects</Link>
-      <div className="case-meta"><span>Raiffeisen Bank · 2023</span><span>Mobile banking</span><span>Sole Product Designer</span></div>
-      <h1>I replaced technical QR types with choices <em>merchants could use.</em></h1>
-      <p>When card payment fees were too high for a business, Raiffeisen could offer QR payments instead. I redesigned the names, chooser, and cashier flow around how merchants accepted payments.</p>
-      <div className="case-stage qr-hero-stage">
-        <QrPrototype />
-      </div>
+      <Link className="case-back" href="/#work">← Back to projects</Link>
+      <p className="case-context">Raiffeisen Bank, 2023. Mobile banking for entrepreneurs. I was the sole product designer.</p>
+      <h1>Merchants didn’t understand QR types, so I renamed them by task.</h1>
+      <p>Raiffeisen offered business customers QR payments as a lower-fee alternative to cards. In UX tests with five merchants, participants didn’t understand “dynamic” and “static” and kept creating new codes instead of reusing one. I renamed the types one-time, reusable and cashier, and designed payment-only access for cashiers.</p>
+      <Tldr
+        rows={[
+          ["Role", "Sole designer: terminology, chooser, cashier experience"],
+          ["Team", "PM/PO, system analyst, developers, QA"],
+          ["Timeline", "2023, shipped to production"],
+          ["Outcome", "Reusable QR creation +17% in the first month"],
+        ]}
+        gap="Measure whether merchants pick the right QR type after the change. Post-change comprehension and selection accuracy are not in the available evidence."
+      />
+      <figure className="qr-hero-stage">
+        <img src="/work/raiffeisen-mobile/screens/one-type-en.jpg" width="750" height="1624" alt="Choose a QR code type screen: one-time, reusable and cashier, each with a plain-language description" fetchPriority="high" />
+      </figure>
     </header>
-
-    <section className="case-section shell snapshot-section"><div><p className="kicker">Snapshot</p><h2>Scope and ownership</h2></div><dl><dt>Period</dt><dd>2023</dd><dt>Team</dt><dd>PM/PO, system analyst, developers, QA, and me as the sole product designer</dd><dt>I owned</dt><dd>Product design. I proposed the terminology, chooser, and cashier experience.</dd><dt>We delivered</dt><dd>Implementation and production launch as an agile team</dd><dt>Not mine</dt><dd>SBP C2B payment system, Central Bank rules, and engineering implementation</dd><dt>Status</dt><dd>Shipped to production</dd></dl></section>
-
-    <section className="case-punch"><div className="shell"><p className="kicker">Why this mattered</p><h2>Help merchants choose a lower-cost payment method without learning the Central Bank’s technical terms.</h2><div className="punch-grid"><p><b>SBP C2B</b><span>Russia’s bank-to-business QR payment system</span></p><p><b>Five participants</b><span>in the initial UX-test sample</span></p><p><b>Shipped</b><span>revised QR model and cashier functionality</span></p></div></div></section>
 
     <section className="case-section shell orientation"><div><p className="kicker">The problem</p><h2>The hard part was choosing<br/>the right QR, not creating one.</h2></div><div><p className="case-lede">The first design followed the Central Bank’s categories: dynamic and static QR codes, shown as tabs with dynamic selected by default. In UX tests with five participants, people did not understand the two terms and repeatedly created a new dynamic QR instead of reusing an existing code.</p><p>Merchants did not need a lesson in payment infrastructure. They needed to choose a QR based on how they accepted payments. After the tests, I proposed changing both the names and the chooser.</p><ol className="flow-list"><li><span>01</span>Choose a QR for the payment situation</li><li><span>02</span>Set or change the amount</li><li><span>03</span>Show the QR</li><li><span>04</span>Confirm the payment</li></ol></div></section>
 
@@ -32,11 +41,24 @@ export default function RaiffeisenMobileCaseStudy() {
       <ScreenFlow caption="One-time QR · choose the mode, configure the payment, show the code" screens={[['one-type-en','Choose by use case'],['one-form-en','Configure payment'],['one-created-en','Show the QR']]} />
     </Decision>
 
+    <Scope rows={[
+      ["Role", "I owned product design. I proposed the terminology, the chooser, and the cashier experience. We delivered implementation and the production launch as an agile team."],
+      ["Team", "PM/PO, system analyst, developers, QA, and me as the sole product designer"],
+      ["Timeline", "2023; shipped to production"],
+      ["Not mine", "The SBP C2B payment system (Russia’s bank-to-business QR payment system), Central Bank rules, and engineering implementation"],
+    ]} />
+
     <Decision no="02" title="Replace a defaulted tab with an explained list" eyebrow="Decision 2 · Explain the choice first" tone>
       <p>The original interface selected dynamic QR before the merchant had expressed a need. Removing the default was one option, but the two categories would still be unexplained.</p><p>I proposed a list of three variants: <b>one-time</b>, <b>reusable</b>, and <b>cashier</b>. Each option described the payment situation it supported. Merchants could see the decision criteria before creating a code.</p><blockquote><b>Trade-off:</b> the list added a step. I proposed keeping it while merchants learned the model, then using usage data to decide whether to prioritise one mode or simplify the chooser.</blockquote><p className="evidence-limit">The available evidence does not show whether the team later collected that data or whether selection accuracy improved.</p>
       <div className="chooser-compare"><div><span>Before</span><h3>Dynamic / Static</h3><p>A technical default selected before the merchant expressed a need.</p></div><div><span>After</span><h3>One-time / Reusable / Cashier</h3><p>Each heading is followed by a plain-language description of the payment situation.</p></div></div>
       <ScreenFlow caption="Reusable QR · choose the mode, configure the code, then reuse it" screens={[['reusable-type-en','Choose reusable'],['reusable-form-en','Configure the code'],['reusable-created-en','Reuse and manage']]} />
     </Decision>
+
+    <section className="prototype-section shell" aria-labelledby="proto-title">
+      <h2 id="proto-title">Prototype</h2>
+      <p>The one-time QR flow, from the home screen to a created code. Press the button to start; it stays inactive until you do.</p>
+      <QrPrototype />
+    </section>
 
     <Decision no="03" title="Give cashiers payment tools, not the owner’s bank account" eyebrow="Decision 3 · Limit cashier access">
       <p>A fixed-price reusable QR did not cover every point of sale. Cashiers needed to enter changing totals, but merchants did not want to give employees full access to internet banking.</p><p>I proposed a cashier QR with a changeable amount, plus a limited experience around two tasks: create a QR and check whether the payment succeeded.</p><div className="compare"><p><b>Rejected</b><span>Let cashiers use the owner’s full banking access—avoids a separate surface, but exposes accounts, transfers, and settings cashiers did not need.</span></p><p><b>Chosen</b><span>Expose QR creation and payment status only.</span></p></div><blockquote><b>Trade-off:</b> the limited cashier experience increased product and implementation scope. In return, access matched the cashier’s job.</blockquote>
