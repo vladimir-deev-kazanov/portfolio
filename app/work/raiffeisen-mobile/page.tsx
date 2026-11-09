@@ -23,7 +23,7 @@ type Screen = { file: string; label: string; alt: string };
 export default function RaiffeisenMobileCaseStudy() {
   return <main id="main-content" className="case-page qr-case">
     <header className="case-hero shell">
-      <Link className="case-back" href="/#work">← Back to projects</Link>
+      <Link className="case-back" href="/#work">← All projects</Link>
       <p className="case-context">Raiffeisen Bank, 2023. Mobile banking for entrepreneurs. I was the sole product designer.</p>
       <h1>Merchants didn’t understand QR types, so I renamed them by task.</h1>
       <p>Raiffeisen offered business customers QR payments as a lower-fee alternative to cards. In UX tests with five merchants, participants didn’t understand “dynamic” and “static” and kept creating new codes instead of reusing one. I renamed the types one-time, reusable and cashier, and designed payment-only access for cashiers.</p>

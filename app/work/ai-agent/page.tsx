@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 export default function CaseStudy() {
   return <main id="main-content" className="case-page"><article>
     <header className="case-hero shell">
-      <Link className="case-back" href="/#work">← Back to projects</Link>
+      <Link className="case-back" href="/#work">← All projects</Link>
       <p className="case-context">Semrush, 2025. A Local SEO product (helping a business show up in Google Maps and local search). Sole product designer.</p>
       <h1>I had one week to decide what an AI agent would do on its own, and what its users could see.</h1>
       <p>The Google Business Profile AI Agent posts updates and photos to a small business’s Google listing and prepares review replies. Leadership mandated the agent; I cut preview and editing, and designed setup, a dashboard of what the agent did, and adjustable posting cadence.</p>

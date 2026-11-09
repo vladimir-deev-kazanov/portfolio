@@ -71,6 +71,8 @@ html {
   scroll-behavior: smooth;
 }
 body {
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
   margin: 0;
   background: var(--paper);
   color: var(--ink);
@@ -150,7 +152,7 @@ li {
   color: var(--white);
   padding: 12px 16px;
   transform: translateY(-160%);
-  transition: transform 0.16s;
+  transition: transform var(--dur) var(--ease-out);
 }
 .skip-link:focus {
   transform: none;
@@ -212,7 +214,7 @@ iframe:focus-visible {
   font-size: 14px;
   font-weight: 500;
   color: var(--color-text-secondary);
-  transition: color 0.16s;
+  transition: color var(--dur) var(--ease-out);
 }
 .nav-link:hover,
 .nav-link.is-active {
@@ -288,7 +290,7 @@ iframe:focus-visible {
   color: var(--ink);
   border: 1px solid var(--line);
   border-radius: 8px;
-  transition: border-color 0.16s;
+  transition: border-color var(--dur) var(--ease-out);
 }
 .project-card:hover {
   border-color: var(--ink);
@@ -408,7 +410,7 @@ iframe:focus-visible {
   align-items: center;
   min-height: 44px;
   border-radius: 999px;
-  transition: background 0.16s, border-color 0.16s;
+  transition: background var(--dur) var(--ease-out), border-color var(--dur) var(--ease-out);
 }
 .contact-cta-primary {
   background: var(--paper);
@@ -836,7 +838,7 @@ iframe:focus-visible {
   font: 500 var(--fs-label) var(--ff-mono);
   letter-spacing: var(--letter-spacing-label);
   cursor: pointer;
-  transition: background 0.16s, color 0.16s;
+  transition: background var(--dur) var(--ease-out), color var(--dur) var(--ease-out);
 }
 .state-radio:focus-visible ~ .state-tabs {
   outline: 3px solid var(--color-focus);
@@ -936,7 +938,7 @@ iframe:focus-visible {
   color: var(--white);
   font: 600 var(--fs-small) var(--ff-body);
   cursor: pointer;
-  transition: background 0.16s;
+  transition: background var(--dur) var(--ease-out);
 }
 .qr-proto-button:hover {
   background: var(--color-link);
@@ -1131,7 +1133,7 @@ iframe:focus-visible {
   grid-column: 2;
   grid-row: 2 / 4;
   font-size: var(--fs-h2);
-  transition: transform 0.16s;
+  transition: transform var(--dur) var(--ease-out);
 }
 .next-row:hover .next-arrow {
   transform: translateX(4px);
@@ -1237,4 +1239,26 @@ iframe:focus-visible {
   .next-row {
     padding: 32px 0;
   }
+}
+
+/* ---------- Press feedback and touch ---------- */
+.contact-cta-primary,
+.contact-cta-secondary,
+.qr-proto-button,
+.state-tabs label {
+  transition: transform var(--dur) var(--ease-out), background var(--dur) var(--ease-out), border-color var(--dur) var(--ease-out), color var(--dur) var(--ease-out);
+}
+.contact-cta-primary:active,
+.contact-cta-secondary:active,
+.qr-proto-button:active,
+.state-tabs label:active {
+  transform: scale(0.97);
+}
+.project-card:active {
+  border-color: var(--ink);
+}
+@media (hover: none) {
+  .project-card:hover { border-color: var(--line); }
+  .next-row:hover h2 { color: inherit; }
+  .next-row:hover .next-arrow { transform: none; }
 }

@@ -111,7 +111,7 @@
   font-size: 15px;
   font-weight: 600;
   white-space: nowrap;
-  transition: background 0.16s, border-color 0.16s;
+  transition: transform var(--dur) var(--ease-out), background var(--dur) var(--ease-out), border-color var(--dur) var(--ease-out);
 }
 
 .hsd-cta-primary:hover {
@@ -123,6 +123,10 @@
 .hsd-cta-secondary:focus-visible {
   outline: 3px solid var(--color-focus);
   outline-offset: 2px;
+}
+
+.hsd-cta-primary:active {
+  transform: scale(0.97);
 }
 
 .hsd-cta-primary span {

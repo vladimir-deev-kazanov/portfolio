@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 export default function CaseStudy() {
   return <main id="main-content" className="case-page semrush-case"><article>
     <header className="case-hero shell">
-      <Link className="case-back" href="/#work">← Back to projects</Link>
+      <Link className="case-back" href="/#work">← All projects</Link>
       <p className="case-context">Semrush Local SEO, 2025. I was the sole product designer.</p>
       <h1>I turned one-at-a-time location setup into a single bulk action.</h1>
       <p>Semrush recognised users’ other businesses but showed them only after Add location, then made them set up each one separately. I moved the suggestions onto the Locations page and designed bulk select, verify and setup.</p>

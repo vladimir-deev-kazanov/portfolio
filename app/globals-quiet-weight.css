@@ -64,6 +64,10 @@
   --header-height: 64px;
   --measure: 62ch;
   --measure-wide: 68ch;
+
+  /* ---- Motion: 160ms ceiling, functional only ---- */
+  --ease-out: cubic-bezier(0.2, 0, 0.2, 1);
+  --dur: 160ms;
 }
 
 @media (max-width: 800px) {
