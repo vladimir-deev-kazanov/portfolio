@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 const siteUrl = "https://vladimirdeev.com";
 
-// Public, indexable routes only. /home-alt is a noindex draft and never ships.
+// Public, indexable routes only.
 const routes = [
   { path: "/", priority: 1 },
   { path: "/work/ai-agent", priority: 0.9 },

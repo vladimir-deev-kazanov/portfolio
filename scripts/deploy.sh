@@ -18,7 +18,6 @@ LIVE_URL="https://vladimirdeev.com/"
 KEEP_OUT=(
   CLAUDE.md
   .openai/
-  app/home-alt/page.tsx
   scripts/deploy.sh
   vite.config.ts
   pnpm-workspace.yaml

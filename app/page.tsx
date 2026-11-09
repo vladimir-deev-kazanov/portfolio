@@ -1,13 +1,13 @@
 import Link from "next/link";
 import Arrow from "./Arrow";
-import "./home-alt/hero-surface-depth.css";
+import "./home.css";
 
 /* Product screenshots remain uncompressed for UI-text fidelity. */
 /* eslint-disable @next/next/no-img-element */
 
 /*
- * Hero ported from the /home-alt "Hero Surface Depth" draft (identity
- * block, real portrait, Cyprus, spacing rhythm). Everything below the
+ * Hero ("Hero Surface Depth": identity block, real portrait, spacing
+ * rhythm) styled by app/home.css. Everything below the
  * hero (work-section, contact, footer) is untouched production content.
  * The header/nav is the shared one from layout.tsx (SiteNav) — no local
  * override needed now that the shared header uses the same V/DK + quiet
@@ -70,7 +70,7 @@ export default function Home() {
         <div className="section-head"><div><p className="kicker">Selected work</p><p className="section-intro">Three projects showing how I set product boundaries, explain technical choices, and work with incomplete evidence.</p></div></div>
         <div className="project-list">
           <Link href="/work/ai-agent" className="project-card" data-analytics-event="case_open_ai_agent">
-            <div className="project-copy"><div><span className="project-no">01</span><span className="tag">AI PRODUCT</span></div><h3>Google Business Profile AI Agent</h3><p>With one week to design, I scoped the agent's first useful loop, made completed work visible, and documented the controls the MVP deferred.</p><span className="role-line">Semrush · MVP launched in 2025<br/>Sole Product Designer</span><span className="text-link">Read case study<Arrow /></span></div>
+            <div className="project-copy"><div><span className="project-no">01</span><span className="tag">AI PRODUCT</span></div><h3>Google Business Profile AI Agent</h3><p>With one week to design, I scoped the agent’s first useful loop, made completed work visible, and documented the controls the MVP deferred.</p><span className="role-line">Semrush · MVP launched in 2025<br/>Sole Product Designer</span><span className="text-link">Read case study<Arrow /></span></div>
             <div className="project-visual"><img src="/work/ai-agent/dashboard-mvp.png" width="1020" height="552" loading="lazy" alt="Semrush Google Business Profile AI Agent MVP dashboard" /></div>
           </Link>
           <Link href="/work/raiffeisen-mobile" className="project-card" data-analytics-event="case_open_raiffeisen">
@@ -86,7 +86,7 @@ export default function Home() {
 
         <section className="contact shell section-pad" id="contact">
           <h2 className="contact-headline">Looking for a Product Designer for a complex product?</h2>
-          <p className="contact-note">I'm based in Cyprus and open to Senior product designer opportunities.</p>
+          <p className="contact-note">I’m based in Cyprus and open to Senior product designer opportunities.</p>
           <div className="contact-actions">
             <a className="contact-cta-primary" href="mailto:vladimirdeev0@gmail.com" data-analytics-event="contact_email">vladimirdeev0@gmail.com</a>
             <a className="contact-cta-secondary" href="https://www.linkedin.com/in/vladimir-deev-kazanov/" target="_blank" rel="noreferrer" aria-label="LinkedIn (opens in new tab)" data-analytics-event="contact_linkedin">LinkedIn<Arrow /></a>

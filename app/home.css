@@ -1,5 +1,5 @@
-/* Hero Surface Depth — draft homepage hero, imported from Claude Design.
-   Scoped under .hsd-page so it can't leak into the rest of the site. */
+/* Homepage styles (hero + work list + contact). Scoped to .hsd-* classes so
+   nothing here leaks into the rest of the site. */
 
 .hsd-page {
   /* Project-card tokens, scoped here rather than added to the shared
