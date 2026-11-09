@@ -31,7 +31,7 @@ export default function CaseStudy() {
           ["Timeline", "Bulk release 1 April 2025; discount work 2026"],
           ["Outcome", "Adds of 2+ locations spiked after launch, then returned near the earlier level"],
         ]}
-        gap="Measure the full journey from seeing a recognised business to managing it later, to learn where users stop and which segments gain lasting value."
+        gap="Measure the full path from seeing a recognised business to managing it afterwards, to learn where users stop and which segments gain lasting value."
       />
       <Fig priority name="semrush-locations/hero" alt="Semrush Local dashboard showing recognised businesses and a 15% expansion discount on the Locations page" label="Locations page, later view">Recognised businesses sit where users already manage locations. This view also carries the 2026 discount offer.</Fig>
     </header>
@@ -96,7 +96,7 @@ export default function CaseStudy() {
 
     <section className="reflection shell" aria-labelledby="reflection-title">
       <h2 id="reflection-title">Some customers needed bulk setup more than others.</h2>
-      <p>Removing repeated setup unlocked intent that already existed, but the lift faded. Expansion looks like a segmented opportunity rather than one growth loop for every customer.</p>
+      <p>Removing repeated setup released demand that already existed, but the lift faded. Expansion looks like an opportunity for some segments, not a growth loop for every customer.</p>
     </section>
 
     <EndContact />

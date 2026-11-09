@@ -121,7 +121,7 @@ export default function RaiffeisenMobileCaseStudy() {
     />
 
     <section className="reflection shell" data-analytics-event="case_result_raiffeisen" data-analytics-observe aria-labelledby="reflection-title">
-      <h2 id="reflection-title">Correct terms can still send people to the wrong action.</h2>
+      <h2 id="reflection-title">Why the terms had to change</h2>
       <p>The first design assumed merchants already knew the Central Bank’s terms. The redesign kept the same payment options and described them by task: use once, reuse at a fixed price, or let a cashier enter changing totals.</p>
     </section>
 

@@ -100,7 +100,7 @@ export default function CaseStudy() {
     />
 
     <section className="reflection shell" aria-labelledby="reflection-title">
-      <h2 id="reflection-title">Control has to continue after setup.</h2>
+      <h2 id="reflection-title">What the MVP could and couldn’t tell me</h2>
       <p>I’d still protect the deadline, but I’d describe the MVP precisely: it tested whether people would activate an autonomous workflow, and said nothing about trust in what the agent wrote.</p>
     </section>
 
