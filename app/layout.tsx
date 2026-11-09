@@ -54,7 +54,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <a className="skip-link" href="#main-content">Skip to content</a>
       <header className="site-header">
         <div className="site-nav-inner shell">
-          <Link href="/" className="mark-link" aria-label="Vladimir Deev-Kazanov — home">
+          <Link href="/" className="mark-link" aria-label="V/DK, Vladimir Deev-Kazanov home">
             <span className="mark">V/DK</span>
           </Link>
           <SiteNav />

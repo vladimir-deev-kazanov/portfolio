@@ -48,36 +48,36 @@ export default function Home() {
       <section className="work-section shell" id="work" aria-labelledby="work-title">
         <h2 id="work-title" className="kicker">Selected work</h2>
         <div className="project-list">
-          <Link href="/work/ai-agent" className="project-card" aria-labelledby="work-ai-agent" data-analytics-event="case_open_ai_agent">
+          <article className="project-card">
             <div className="project-copy">
               <span className="tag">AI product</span>
-              <h3 id="work-ai-agent">Google Business Profile AI Agent, Semrush</h3>
+              <h3><Link className="project-link" href="/work/ai-agent" data-analytics-event="case_open_ai_agent">Google Business Profile AI Agent, Semrush</Link></h3>
               <p>One design week before a conference launch. I cut the MVP to connect, configure, and see what the agent did, and deferred preview and editing.</p>
               <p className="project-outcome"><b>Outcome</b>8% of landing-page visitors paid for and configured the agent in month one. My later onboarding step lifted weekly first-time activations by 50%.</p>
               <span className="role-line">MVP launched 2025 · Sole Product Designer</span>
             </div>
             <div className="project-visual"><img src="/work/ai-agent/dashboard-mvp.png" width="1020" height="552" loading="lazy" alt="Semrush Google Business Profile AI Agent MVP dashboard" /></div>
-          </Link>
-          <Link href="/work/raiffeisen-mobile" className="project-card" aria-labelledby="work-qr" data-analytics-event="case_open_raiffeisen">
+          </article>
+          <article className="project-card">
             <div className="project-copy">
               <span className="tag">Mobile fintech</span>
-              <h3 id="work-qr">QR payments for merchants, Raiffeisen Bank</h3>
+              <h3><Link className="project-link" href="/work/raiffeisen-mobile" data-analytics-event="case_open_raiffeisen">QR payments for merchants, Raiffeisen Bank</Link></h3>
               <p>In UX tests, merchants didn’t understand dynamic and static QR codes. I renamed them by task, replaced the defaulted tab with an explained chooser, and gave cashiers payment-only access.</p>
               <p className="project-outcome"><b>Outcome</b>Shipped to production. Reusable QR creation rose 17% in the first month.</p>
               <span className="role-line">2023 · Sole Product Designer</span>
             </div>
             <div className="project-visual qr-project-visual"><img src="/work/raiffeisen-mobile/screens/one-type-en.jpg" width="750" height="1624" loading="lazy" alt="Choose a QR code type screen listing one-time, reusable, and cashier codes, each with a plain-language description" /></div>
-          </Link>
-          <Link href="/work/semrush-locations" className="project-card" aria-labelledby="work-locations" data-analytics-event="case_open_semrush_locations">
+          </article>
+          <article className="project-card">
             <div className="project-copy">
               <span className="tag">Local SEO</span>
-              <h3 id="work-locations">Locations Expansion, Semrush</h3>
+              <h3><Link className="project-link" href="/work/semrush-locations" data-analytics-event="case_open_semrush_locations">Locations Expansion, Semrush</Link></h3>
               <p>Semrush already recognised users’ other businesses but showed them only after Add location. I surfaced them on the Locations page and designed bulk setup that keeps successful adds when some fail.</p>
               <p className="project-outcome"><b>Outcome</b>Users adding 2+ locations spiked after launch, then returned near the earlier level.</p>
               <span className="role-line">Bulk release 2025 · Sole Product Designer</span>
             </div>
             <div className="project-visual"><img src="/work/semrush-locations/bulk-expansion.png" width="1020" height="816" loading="lazy" alt="Semrush Locations dashboard with an Expand your local visibility panel" /></div>
-          </Link>
+          </article>
         </div>
       </section>
 

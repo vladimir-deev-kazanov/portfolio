@@ -171,12 +171,21 @@ iframe:focus-visible {
   background: var(--ink);
 }
 .site-footer {
+  position: relative;
   min-height: 120px;
-  border-top: 1px solid var(--line);
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: var(--fs-small);
+}
+.site-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: var(--gutter);
+  right: var(--gutter);
+  height: 1px;
+  background: var(--line);
 }
 .site-footer > div {
   display: flex;
@@ -206,6 +215,7 @@ iframe:focus-visible {
   gap: 24px;
 }
 .project-card {
+  position: relative;
   display: grid;
   grid-template-columns: 0.86fr 1.14fr;
   min-height: 480px;
@@ -219,9 +229,18 @@ iframe:focus-visible {
 .project-card:hover {
   border-color: var(--ink);
 }
-.project-card:focus-visible {
+.project-card:has(.project-link:focus-visible) {
   outline: 3px solid var(--color-focus);
   outline-offset: 3px;
+}
+.project-link:focus-visible {
+  outline: none;
+}
+.project-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
 }
 .project-copy {
   padding: clamp(28px, 4vw, 56px);
@@ -353,7 +372,7 @@ iframe:focus-visible {
 }
 .cv-hero {
   display: grid;
-  align-items: end;
+  align-items: start;
   padding-bottom: var(--space-block);
   grid-template-columns: minmax(0, 1fr) minmax(280px, 0.65fr);
   column-gap: clamp(40px, 6vw, 100px);
@@ -362,8 +381,10 @@ iframe:focus-visible {
 .cv-hero > p {
   grid-column: 1 / -1;
 }
-.cv-intro h2 {
+.cv-role {
   font-size: var(--fs-h3);
+  font-weight: 600;
+  line-height: 1.25;
   margin-bottom: 16px;
 }
 .cv-intro > p {
