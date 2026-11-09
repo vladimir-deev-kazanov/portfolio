@@ -174,17 +174,18 @@
 
 @media (min-width: 880px) {
   .hsd-hero-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(200px, 240px);
+    grid-template-columns: minmax(0, 1fr) 200px;
     grid-template-areas:
       "identity portrait"
-      "title    portrait"
-      "copy     portrait";
+      "title    title"
+      "copy     copy";
     column-gap: 24px;
   }
 
   .hsd-portrait-wrap {
     align-self: start;
-    max-width: 240px;
+    justify-self: end;
+    max-width: 200px;
     margin-top: 0;
   }
 }

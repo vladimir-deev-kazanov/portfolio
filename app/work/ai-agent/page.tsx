@@ -55,19 +55,18 @@ export default function CaseStudy() {
     ]} />
 
     <Decision n={2} title="What happens when the agent posts something wrong" tone>
-      <p>In the MVP a technical failure had a path: the agent retried, showed a service-status message if the retry failed, and resumed later without owner action. Wrong content had none. An owner who found a bad or repetitive post could correct it only in Google. A separate team worked on model quality; I didn’t own that.</p>
+      <p>In the MVP a technical failure had a path: the agent retried, showed a service-status message if the retry failed, and resumed later without owner action. Wrong content had none. An owner who found a bad or repetitive post could correct it only in Google. A separate team owned model quality.</p>
       <p>After launch I designed the post-editing interface, so owners can change a scheduled post before it publishes.</p>
       <Fig name="ai-agent/post-editor-crop" maxWidth={434} alt="Scheduled post editor with generated image, editable copy, link, and save action" label="Decision 2 · after launch">Owners can edit a scheduled post before it goes out.</Fig>
     </Decision>
 
     <Decision n={3} title="The dashboard shows what the agent did">
-      <p>Owners needed proof the agent was working without inheriting a professional Local SEO dashboard. The alternative was a broader SEO panel. I chose three familiar Google measures (views, interactions, average rating) and a chronological list of completed actions.</p>
+      <p>Owners needed proof the agent was working without inheriting a professional Local SEO dashboard. I chose three familiar Google measures (views, interactions, average rating) and a list of completed actions over a broader SEO panel.</p>
       <p>Average rating was later removed: it barely changed, and a static number made the screen harder to read. <strong>Trade-off:</strong> less analytical depth, and owners saw content only after it published.</p>
     </Decision>
 
     <Decision n={4} title="Posting cadence is adjustable" tone>
-      <p>Many owners would never open settings, so defaults mattered, but rhythms differ: a café may have frequent events, a plumber few. A fixed schedule would repeat itself for quieter businesses. I designed controls per activity: posts and photos have separate schedules, review replies their own tone and language settings.</p>
-      <p>At launch everything ran every seven days and review drafts took an hour, following Google Business Profile community best-practice guidance, not a formal Google rule. <strong>Trade-off:</strong> more settings, more complexity.</p>
+      <p>Many owners would never open settings, so defaults mattered, but rhythms differ: a café may have frequent events, a plumber few. I designed controls per activity: posts and photos have separate schedules, review replies their own tone and language. At launch everything ran every seven days (Google Business Profile community best-practice guidance, not a formal rule). <strong>Trade-off:</strong> more settings, more complexity.</p>
       <div className="state-toggle">
         <input className="state-radio" type="radio" name="settings-state" id="settings-on" defaultChecked />
         <input className="state-radio" type="radio" name="settings-state" id="settings-off" />
@@ -86,7 +85,7 @@ export default function CaseStudy() {
 
     <section className="case-after" aria-labelledby="after-title" data-analytics-event="case_result_ai_agent" data-analytics-observe><div className="shell">
       <h2 id="after-title">After launch, owners asked to see posts before they went out.</h2>
-      <p>After several months of analytics, growth in feature users and feedback from the Send feedback modal, the team prioritised new scope. I owned the post-editing interface, a growth task that surfaces a scheduled post for review, and an agent-setup step in onboarding, and contributed to the redesign of list output and metrics. I don’t claim the photo, keyword, instruction or activation-widget work.</p>
+      <p>After several months of analytics, growth in feature users and feedback from the Send feedback modal, the team prioritised new scope. I owned the post-editing interface, a growth task that surfaces a scheduled post for review, and an agent-setup step in onboarding, and contributed to the list and metrics redesign. I don’t claim the photo, keyword, instruction or widget work.</p>
       <p>Weekly first-time agent activations rose 50% in the month after the onboarding step shipped (August 2026), against the month before. Onboarding completion didn’t drop.</p>
       <Fig name="ai-agent/actions-mvp" maxWidth={475} alt="MVP Recent Actions list: published post, replied to a review, added Q&A and updated photos, each with a time and a check mark" label="MVP · recent actions">Completed actions only, with no sign of what was written.</Fig>
       <Fig name="ai-agent/actions-later" maxWidth={670} alt="Post-MVP Actions panel: 13 completed and 3 upcoming, with scheduled posts and their content previews above recent actions" label="Post-MVP · actions">Planned work and a content preview sit above completed actions.</Fig>

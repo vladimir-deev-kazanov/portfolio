@@ -38,7 +38,7 @@ export default function Home() {
       <section className="work-section shell" id="work" aria-labelledby="work-title">
         <h2 id="work-title" className="kicker">Selected work</h2>
         <div className="project-list">
-          <article className="project-card">
+          <article className="project-card project-card-lead">
             <div className="project-copy">
               <span className="tag">AI product</span>
               <h3><Link className="project-link" href="/work/ai-agent" data-analytics-event="case_open_ai_agent">Google Business Profile AI Agent, Semrush</Link></h3>
@@ -61,7 +61,7 @@ export default function Home() {
           <article className="project-card">
             <div className="project-copy">
               <span className="tag">Local SEO</span>
-              <h3><Link className="project-link" href="/work/semrush-locations" data-analytics-event="case_open_semrush_locations">Locations Expansion, Semrush</Link></h3>
+              <h3><Link className="project-link" href="/work/semrush-locations" data-analytics-event="case_open_semrush_locations">Locations bulk setup, Semrush</Link></h3>
               <p>Semrush already recognised users’ other businesses but showed them only after Add location. I surfaced them on the Locations page and designed bulk setup that keeps successful adds when some fail.</p>
               <p className="project-outcome"><b>Outcome</b>Users adding 2+ locations spiked after launch, then returned near the earlier level.</p>
               <span className="role-line">Bulk release 2025 · Sole Product Designer</span>
@@ -79,7 +79,7 @@ export default function Home() {
         <p>
           On the Semrush agent we shipped the dashboard before the edit button, and the feedback we got was that owners wanted to see planned posts before they went out. I’d make that call again under the same deadline, but I’d measure it differently.
         </p>
-        <p>I also build: this site is a Next.js app I designed and shipped with an AI coding agent.</p>
+        <p>I also build: this site is a Next.js app I designed and shipped with an AI coding agent. It has automated tests, an accessibility pass with no serious findings, and loads in about 450 KB.</p>
       </section>
 
       <section className="contact section-pad" id="contact" aria-labelledby="contact-title">

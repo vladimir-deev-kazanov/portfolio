@@ -24,7 +24,7 @@ export default function RaiffeisenMobileCaseStudy() {
   return <main id="main-content" className="case-page qr-case">
     <header className="case-hero shell">
       <Link className="case-back" href="/#work">← All projects</Link>
-      <p className="case-context">Raiffeisen Bank, 2023. Mobile banking for entrepreneurs. I was the sole product designer.</p>
+      <p className="case-context">Raiffeisen Bank, 2023. Mobile banking for entrepreneurs. I was the sole product designer. An interactive prototype is further down.</p>
       <h1>Merchants didn’t understand QR types, so I renamed them by task.</h1>
       <p>Raiffeisen offered business customers QR payments as a lower-fee alternative to cards. In UX tests with five merchants, participants didn’t understand “dynamic” and “static” and kept creating new codes instead of reusing one. I renamed the types one-time, reusable and cashier, and designed payment-only access for cashiers.</p>
       <Tldr
@@ -142,7 +142,7 @@ export default function RaiffeisenMobileCaseStudy() {
     </section>
 
     <EndContact />
-    <NextCase href="/work/semrush-locations" title="Locations Expansion, Semrush" outcome="Users adding 2+ locations spiked after launch, then returned near the earlier level." event="case_open_semrush_locations" />
+    <NextCase href="/work/semrush-locations" title="Locations bulk setup, Semrush" outcome="Users adding 2+ locations spiked after launch, then returned near the earlier level." event="case_open_semrush_locations" />
   </main>;
 }
 

@@ -351,12 +351,21 @@ iframe:focus-visible {
 }
 .project-visual img {
   position: relative;
-  width: 89%;
+  width: 118%;
+  justify-self: start;
+  margin-left: 8%;
   border-radius: 8px;
   outline: 1px solid var(--hairline);
 }
 .qr-project-visual {
   min-height: 480px;
+}
+.project-card-lead {
+  min-height: 560px;
+  grid-template-columns: 0.86fr 1.14fr;
+}
+.work-section > .kicker {
+  color: var(--color-text-secondary);
 }
 .qr-project-visual img {
   position: absolute;
@@ -364,6 +373,8 @@ iframe:focus-visible {
   left: 50%;
   transform: translateX(-50%);
   width: min(62%, 280px);
+  margin-left: 0;
+  justify-self: auto;
   height: auto;
 }
 .how-i-work {
