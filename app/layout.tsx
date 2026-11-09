@@ -1,27 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
-import { Chivo, Geist_Mono, Alfa_Slab_One, Manrope, Oswald, IBM_Plex_Mono } from "next/font/google";
 import SiteNav from "./SiteNav";
 import AnalyticsClient from "./AnalyticsClient";
 import Arrow from "./Arrow";
 import "./globals.css";
-// Quiet Weight is a second, toggleable theme layered ON TOP of globals.css
-// (it only redefines the CSS custom properties globals.css already reads —
-// it is not a full stylesheet on its own). Uncomment the next line to turn
-// it on; comment it out to go back to the default theme. Keep the
-// globals.css import above active either way.
+// Tokens (colour, type scale, space, font stacks) live in globals-quiet-weight.css.
 import "./globals-quiet-weight.css";
-
-const chivo = Chivo({ variable: "--font-chivo", subsets: ["latin"] });
-const mono = Geist_Mono({ variable: "--font-mono", subsets: ["latin"] });
-const alfaSlab = Alfa_Slab_One({ variable: "--font-alfa", subsets: ["latin"], weight: "400" });
-// Quiet Weight typeface trio — only consumed when globals-quiet-weight.css
-// is active (it remaps --font-chivo/--font-alfa/--font-mono to these).
-// Loaded unconditionally so next/font can generate them at build time, but
-// their font files aren't fetched by the browser unless actually referenced.
-const manrope = Manrope({ variable: "--font-manrope", subsets: ["latin"], weight: ["400", "500", "600", "700"] });
-const oswald = Oswald({ variable: "--font-oswald", subsets: ["latin"], weight: ["600", "700"] });
-const plexMono = IBM_Plex_Mono({ variable: "--font-plex-mono", subsets: ["latin"], weight: ["400", "500"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vladimirdeev.com"),
@@ -43,6 +27,19 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title: "Vladimir Deev-Kazanov — Product Designer", description: "An AI agent that posts to small businesses’ Google profiles at Semrush.", images: ["/og.png?v=2"] },
 };
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Vladimir Deev-Kazanov",
+  jobTitle: "Senior Product Designer",
+  url: "https://vladimirdeev.com",
+  image: "https://vladimirdeev.com/apple-touch-icon.png",
+  address: { "@type": "PostalAddress", addressCountry: "CY" },
+  knowsAbout: ["Product design", "AI product design", "Fintech", "B2B SaaS"],
+  sameAs: ["https://www.linkedin.com/in/vladimir-deev-kazanov/"],
+  worksFor: { "@type": "Organization", name: "Semrush" },
+};
+
 export const viewport: Viewport = {
   themeColor: "#f7f6f2",
 };
@@ -50,7 +47,11 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${chivo.variable} ${mono.variable} ${alfaSlab.variable} ${manrope.variable} ${oswald.variable} ${plexMono.variable}`}>
+      <head>
+        <link rel="preload" href="/fonts/oswald-700-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      </head>
+      <body>
       <a className="skip-link" href="#main-content">Skip to content</a>
       <header className="site-header">
         <div className="site-nav-inner shell">
@@ -62,6 +63,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       </header>
       {children}
       <footer className="site-footer shell"><span>© 2026 Vladimir Deev-Kazanov</span><div><a href="mailto:vladimirdeev0@gmail.com" data-analytics-event="contact_email">Email</a><a href="https://www.linkedin.com/in/vladimir-deev-kazanov/" target="_blank" rel="noreferrer" aria-label="LinkedIn (opens in new tab)" data-analytics-event="contact_linkedin">LinkedIn<Arrow /></a><Link href="/cv">CV</Link><Link href="/privacy">Privacy</Link></div></footer>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
       <AnalyticsClient />
     </body></html>
   );

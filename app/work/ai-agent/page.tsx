@@ -1,13 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Pic from "../Pic";
 import { Alternatives, Decision, EndContact, Evidence, Fig, NextCase, Scope, Tldr } from "../case-parts";
-
-/* Product screens are fixed-size UI evidence, so plain <img> with explicit dimensions. */
-/* eslint-disable @next/next/no-img-element */
 
 export const metadata: Metadata = {
   title: "Google Business Profile AI Agent case study",
   description: "How I cut a Google Business Profile agent to one useful loop in a week, made its work visible, and designed the controls deferred from the MVP.",
+  alternates: { canonical: "/work/ai-agent" },
+  openGraph: {
+    type: "article",
+    url: "/work/ai-agent",
+    title: "Google Business Profile AI Agent, Semrush",
+    description: "How I cut a Google Business Profile agent to one useful loop in a week, made its work visible, and designed the controls deferred from the MVP.",
+    images: [{ url: "/og/ai-agent.png", width: 1200, height: 630, alt: "Google Business Profile AI Agent, Semrush" }],
+  },
+  twitter: { card: "summary_large_image", title: "Google Business Profile AI Agent, Semrush", description: "How I cut a Google Business Profile agent to one useful loop in a week, made its work visible, and designed the controls deferred from the MVP.", images: ["/og/ai-agent.png"] },
 };
 
 export default function CaseStudy() {
@@ -26,7 +33,7 @@ export default function CaseStudy() {
         ]}
         gap="Whether owners trust generated content: preview, edit, approval and correction behaviour, not just reaching the dashboard."
       />
-      <Fig priority src="/work/ai-agent/dashboard-mvp-full.png" width={2040} height={1232} alt="MVP Google Business Profile AI Agent dashboard showing Views, Interactions, Average Rating, and a Recent Actions list" label="MVP dashboard, 2025">Owners saw that the agent had acted, but not what it had written.</Fig>
+      <Fig priority name="ai-agent/dashboard-mvp-full" alt="MVP Google Business Profile AI Agent dashboard showing Views, Interactions, Average Rating, and a Recent Actions list" label="MVP dashboard, 2025">Owners saw that the agent had acted, but not what it had written.</Fig>
     </header>
 
     <Decision n={1} title="Show what the agent did before letting owners edit it" event="case_decision_ai_agent">
@@ -37,7 +44,7 @@ export default function CaseStudy() {
       />
       <p>The shorter loop still showed whether people would activate an autonomous workflow. <strong>Trade-off:</strong> owners could confirm the agent had acted but couldn’t inspect or fix its output inside Semrush.</p>
       <p>Flow: landing → Google sign-in → profile analysis → audit → payment → setup → dashboard.</p>
-      <Fig src="/work/ai-agent/setup-crop.png" width={1000} height={1220} maxWidth={700} alt="AI Agent setup screen for configuring automated Local SEO activity" label="Decision 1 · setup">Setup collects profile photos and keywords, then goes straight to the dashboard.</Fig>
+      <Fig name="ai-agent/setup-crop" maxWidth={700} alt="AI Agent setup screen for configuring automated Local SEO activity" label="Decision 1 · setup">Setup collects profile photos and keywords, then goes straight to the dashboard.</Fig>
     </Decision>
 
     <Scope rows={[
@@ -50,7 +57,7 @@ export default function CaseStudy() {
     <Decision n={2} title="What happens when the agent posts something wrong" tone>
       <p>In the MVP a technical failure had a path: the agent retried, showed a service-status message if the retry failed, and resumed later without owner action. Wrong content had none. An owner who found a bad or repetitive post could correct it only in Google. A separate team worked on model quality; I didn’t own that.</p>
       <p>After launch I designed the post-editing interface, so owners can change a scheduled post before it publishes.</p>
-      <Fig src="/work/ai-agent/post-editor-crop.png" width={867} height={1560} maxWidth={434} alt="Scheduled post editor with generated image, editable copy, link, and save action" label="Decision 2 · after launch">Owners can edit a scheduled post before it goes out.</Fig>
+      <Fig name="ai-agent/post-editor-crop" maxWidth={434} alt="Scheduled post editor with generated image, editable copy, link, and save action" label="Decision 2 · after launch">Owners can edit a scheduled post before it goes out.</Fig>
     </Decision>
 
     <Decision n={3} title="The dashboard shows what the agent did">
@@ -69,8 +76,8 @@ export default function CaseStudy() {
           <label htmlFor="settings-off">Automations off</label>
         </div>
         <div className="case-stage case-stage-settings state-stage">
-          <img className="state-on" src="/work/ai-agent/settings-enabled.png" width={2000} height={1408} loading="lazy" alt="AI Agent settings with posts, photos, and review replies switched on, each with its own cadence control" />
-          <img className="state-off" src="/work/ai-agent/settings-disabled.png" width={2000} height={1408} loading="lazy" alt="AI Agent settings with every activity switched off, cadence controls greyed out, and a red Disable AI Agent action" />
+          <Pic className="state-on" name="ai-agent/settings-enabled" alt="AI Agent settings with posts, photos, and review replies switched on, each with its own cadence control" sizes="(min-width: 1200px) 1085px, 100vw" />
+          <Pic className="state-off" name="ai-agent/settings-disabled" alt="AI Agent settings with every activity switched off, cadence controls greyed out, and a red Disable AI Agent action" sizes="(min-width: 1200px) 1085px, 100vw" />
         </div>
         <p className="state-caption state-on"><span className="fig-label">Post-MVP settings, 2026</span> Cadence is set per activity.</p>
         <p className="state-caption state-off"><span className="fig-label">Post-MVP settings, 2026</span> With everything off, the primary action becomes <b>Disable AI Agent</b>, so an owner can’t leave a silently dormant agent.</p>
@@ -81,8 +88,8 @@ export default function CaseStudy() {
       <h2 id="after-title">After launch, owners asked to see posts before they went out.</h2>
       <p>After several months of analytics, growth in feature users and feedback from the Send feedback modal, the team prioritised new scope. I owned the post-editing interface, a growth task that surfaces a scheduled post for review, and an agent-setup step in onboarding, and contributed to the redesign of list output and metrics. I don’t claim the photo, keyword, instruction or activation-widget work.</p>
       <p>Weekly first-time agent activations rose 50% in the month after the onboarding step shipped (August 2026), against the month before. Onboarding completion didn’t drop.</p>
-      <Fig src="/work/ai-agent/actions-mvp.png" width={950} height={750} maxWidth={475} alt="MVP Recent Actions list: published post, replied to a review, added Q&A and updated photos, each with a time and a check mark" label="MVP · recent actions">Completed actions only, with no sign of what was written.</Fig>
-      <Fig src="/work/ai-agent/actions-later.png" width={670} height={810} maxWidth={670} alt="Post-MVP Actions panel: 13 completed and 3 upcoming, with scheduled posts and their content previews above recent actions" label="Post-MVP · actions">Planned work and a content preview sit above completed actions.</Fig>
+      <Fig name="ai-agent/actions-mvp" maxWidth={475} alt="MVP Recent Actions list: published post, replied to a review, added Q&A and updated photos, each with a time and a check mark" label="MVP · recent actions">Completed actions only, with no sign of what was written.</Fig>
+      <Fig name="ai-agent/actions-later" maxWidth={670} alt="Post-MVP Actions panel: 13 completed and 3 upcoming, with scheduled posts and their content previews above recent actions" label="Post-MVP · actions">Planned work and a content preview sit above completed actions.</Fig>
     </div></section>
 
     <Evidence

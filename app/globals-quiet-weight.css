@@ -75,12 +75,11 @@
   }
 }
 
-/* The next/font variables are set on <body> by its generated class, so the
-   semantic font names are declared on body too. */
-body {
-  --ff-body: var(--font-manrope), "Helvetica Neue", Arial, sans-serif;
-  --ff-display: var(--font-oswald), "Arial Narrow", "Roboto Condensed", Arial, sans-serif;
-  --ff-mono: var(--font-plex-mono), "SFMono-Regular", Consolas, monospace;
+/* Font stacks. The generic family comes last in each stack. */
+:root {
+  --ff-body: "Manrope", "Manrope Fallback", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --ff-display: "Oswald", "Oswald Fallback", "Arial Narrow", "Roboto Condensed", Arial, sans-serif;
+  --ff-mono: "IBM Plex Mono", "IBM Plex Mono Fallback", "SFMono-Regular", Consolas, monospace;
 }
 
 ::selection {

@@ -1,13 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Pic from "../Pic";
 import { Alternatives, Decision, EndContact, Evidence, Fig, NextCase, Scope, Tldr } from "../case-parts";
-
-/* Product screens are fixed-size UI evidence, so plain <img> with explicit dimensions. */
-/* eslint-disable @next/next/no-img-element */
 
 export const metadata: Metadata = {
   title: "Adding several business locations without repeating setup case study",
   description: "How I moved known businesses into the right context, let users add several in one setup, and read mixed adoption evidence.",
+  alternates: { canonical: "/work/semrush-locations" },
+  openGraph: {
+    type: "article",
+    url: "/work/semrush-locations",
+    title: "Locations Expansion, Semrush",
+    description: "How I moved known businesses into the right context, let users add several in one setup, and read mixed adoption evidence.",
+    images: [{ url: "/og/semrush-locations.png", width: 1200, height: 630, alt: "Locations Expansion, Semrush" }],
+  },
+  twitter: { card: "summary_large_image", title: "Locations Expansion, Semrush", description: "How I moved known businesses into the right context, let users add several in one setup, and read mixed adoption evidence.", images: ["/og/semrush-locations.png"] },
 };
 
 export default function CaseStudy() {
@@ -26,7 +33,7 @@ export default function CaseStudy() {
         ]}
         gap="Measure the full journey from seeing a recognised business to managing it later, to learn where users stop and which segments gain lasting value."
       />
-      <Fig priority src="/work/semrush-locations/hero.png" width={2040} height={1140} alt="Semrush Local dashboard showing recognised businesses and a 15% expansion discount on the Locations page" label="Locations page, later view">Recognised businesses sit where users already manage locations. This view also carries the 2026 discount offer.</Fig>
+      <Fig priority name="semrush-locations/hero" alt="Semrush Local dashboard showing recognised businesses and a 15% expansion discount on the Locations page" label="Locations page, later view">Recognised businesses sit where users already manage locations. This view also carries the 2026 discount offer.</Fig>
     </header>
 
     <section className="case-section shell orientation" aria-labelledby="brief-title">
@@ -44,8 +51,8 @@ export default function CaseStudy() {
       />
       <p><strong>Trade-off:</strong> the Locations page got denser and carries a commercial offer. Users see the opportunity without being interrupted during first setup.</p>
       <div className="fig-row">
-        <Fig src="/work/semrush-locations/before-list.png" width={2040} height={1552} alt="Local dashboard listing businesses, with no recognised-business suggestion" label="Before · the list">Nothing on the list pointed to another business.</Fig>
-        <Fig src="/work/semrush-locations/before-expansion.png" width={2040} height={1552} alt="Add location modal containing a recognised business suggestion" label="Before · inside Add location">The suggestion appeared only after users opened Add location.</Fig>
+        <Fig name="semrush-locations/before-list" alt="Local dashboard listing businesses, with no recognised-business suggestion" label="Before · the list">Nothing on the list pointed to another business.</Fig>
+        <Fig name="semrush-locations/before-expansion" alt="Add location modal containing a recognised business suggestion" label="Before · inside Add location">The suggestion appeared only after users opened Add location.</Fig>
       </div>
     </Decision>
 
@@ -60,10 +67,10 @@ export default function CaseStudy() {
       <p>I designed a list of concrete businesses instead of one abstract Google account. Users select several, verify them together and follow progress for the whole set.</p>
       <p>The result state handles mixed outcomes. It keeps completed additions, identifies the businesses that failed and offers a direct path to fix them.</p>
       <p><strong>Trade-off:</strong> a technical cap of 20 locations per setup didn’t cover every business size. We accepted it for small businesses and agencies; enterprise customers already used a separate API flow.</p>
-      <Fig src="/work/semrush-locations/bulk-select-crop.png" width={1400} height={1510} maxWidth={700} alt="Select Google Business Profile modal with three of four businesses ticked and a Continue button" label="Decision 2 · select">Several businesses, one selection. This export is the 2026 variant and includes the discount offer.</Fig>
-      <Fig src="/work/semrush-locations/bulk-verify-crop.png" width={1990} height={2260} maxWidth={995} alt="Verify business details page: one business expanded with its name, address, service area, phone and website, two more collapsed, and a Distribute business info button" label="Decision 2 · verify">Users check the whole set at once.</Fig>
-      <Fig src="/work/semrush-locations/bulk-progress-crop.png" width={1050} height={1050} maxWidth={525} alt="Creating locations progress screen with a progress bar reading 2 of 4 created" label="Production, 2025 · progress">The flow reports how many selected locations exist so far.</Fig>
-      <Fig src="/work/semrush-locations/bulk-partial-crop.png" width={720} height={670} maxWidth={720} alt="Result screen: 2 of 4 locations were added; two businesses with errors are listed, with Continue and Fix errors actions" label="Production, 2025 · partial result">Two added locations stay added; two failures get a fix path.</Fig>
+      <Fig name="semrush-locations/bulk-select-crop" maxWidth={700} alt="Select Google Business Profile modal with three of four businesses ticked and a Continue button" label="Decision 2 · select">Several businesses, one selection. This export is the 2026 variant and includes the discount offer.</Fig>
+      <Fig name="semrush-locations/bulk-verify-crop" maxWidth={995} alt="Verify business details page: one business expanded with its name, address, service area, phone and website, two more collapsed, and a Distribute business info button" label="Decision 2 · verify">Users check the whole set at once.</Fig>
+      <Fig name="semrush-locations/bulk-progress-crop" maxWidth={525} alt="Creating locations progress screen with a progress bar reading 2 of 4 created" label="Production, 2025 · progress">The flow reports how many selected locations exist so far.</Fig>
+      <Fig name="semrush-locations/bulk-partial-crop" maxWidth={720} alt="Result screen: 2 of 4 locations were added; two businesses with errors are listed, with Continue and Fix errors actions" label="Production, 2025 · partial result">Two added locations stay added; two failures get a fix path.</Fig>
     </Decision>
 
     <section className="case-section shell" aria-labelledby="discount-title">
@@ -82,7 +89,7 @@ export default function CaseStudy() {
       limits="The Tableau workbook, query, eligible population, target and any concurrent releases are unavailable, so the chart shows association in time only. The 2026 comparison wasn’t randomised; exact dates, counts and method are unavailable, and it can’t separate price, offer visibility, seasonality or other changes."
     >
       <figure className="fig chart-fig">
-        <img src="/work/semrush-locations/results-chart-crop.png" width={3479} height={1605} loading="lazy" alt="Tableau chart of weekly users setting up two or more locations, before and after the 2025 release" />
+        <Pic name="semrush-locations/results-chart-crop" alt="Tableau chart of weekly users setting up two or more locations, before and after the 2025 release" sizes="(min-width: 1200px) 1085px, 100vw" />
         <figcaption><span className="fig-label">Weekly users setting up 2+ locations</span><span className="fig-claim">A sharp peak after release, then a return to near the first labelled value.</span></figcaption>
       </figure>
     </Evidence>

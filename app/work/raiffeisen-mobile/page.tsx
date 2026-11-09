@@ -1,14 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import QrPrototype from "./QrPrototype";
+import Pic, { fullSize } from "../Pic";
 import { Alternatives, Decision, EndContact, Evidence, NextCase, Scope, Tldr } from "../case-parts";
-
-/* Screens are fixed-size UI evidence, so plain <img> with explicit dimensions. */
-/* eslint-disable @next/next/no-img-element */
 
 export const metadata: Metadata = {
   title: "QR payments for merchants and cashiers case study",
   description: "How I replaced technical QR types with task-based names and designed limited payment access for cashiers.",
+  alternates: { canonical: "/work/raiffeisen-mobile" },
+  openGraph: {
+    type: "article",
+    url: "/work/raiffeisen-mobile",
+    title: "QR payments for merchants and cashiers, Raiffeisen Bank",
+    description: "How I replaced technical QR types with task-based names and designed limited payment access for cashiers.",
+    images: [{ url: "/og/raiffeisen-mobile.png", width: 1200, height: 630, alt: "QR payments for merchants and cashiers, Raiffeisen Bank" }],
+  },
+  twitter: { card: "summary_large_image", title: "QR payments for merchants and cashiers, Raiffeisen Bank", description: "How I replaced technical QR types with task-based names and designed limited payment access for cashiers.", images: ["/og/raiffeisen-mobile.png"] },
 };
 
 type Screen = { file: string; label: string; alt: string };
@@ -30,7 +37,7 @@ export default function RaiffeisenMobileCaseStudy() {
         gap="Measure whether merchants pick the right QR type after the change. Post-change comprehension and selection accuracy are not in the available evidence."
       />
       <figure className="qr-hero-stage">
-        <img src="/work/raiffeisen-mobile/screens/one-type-en.jpg" width="750" height="1624" alt="Choose a QR code type screen: one-time, reusable and cashier, each with a plain-language description" fetchPriority="high" />
+        <Pic priority name="raiffeisen-mobile/screens/one-type-en" alt="Choose a QR code type screen: one-time, reusable and cashier, each with a plain-language description" sizes="300px" />
       </figure>
     </header>
 
@@ -148,11 +155,11 @@ function ScreenFlow({ label, claim, screens }: { label: string; claim: string; s
     <figure className="screen-flow">
       <div>
         {screens.map(({ file, label: screenLabel, alt }, index) => {
-          const src = `/work/raiffeisen-mobile/screens/${file}.jpg`;
+          const name = `raiffeisen-mobile/screens/${file}`;
           return (
             <div className="flow-screen" key={file}>
               <span>{index + 1}. {screenLabel}</span>
-              <a href={src} target="_blank" rel="noreferrer" aria-label={`${alt} (open full size)`}><img src={src} width={376} height={812} alt={alt} loading="lazy" /></a>
+              <a href={fullSize(name)} target="_blank" rel="noreferrer" aria-label={`${alt} (open full size)`}><Pic name={name} alt={alt} sizes="(max-width: 800px) 76vw, 330px" /></a>
             </div>
           );
         })}

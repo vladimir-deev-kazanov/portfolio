@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import Arrow from "../Arrow";
 
-export const metadata: Metadata = { title: "CV", description: "Experience, skills and education of Senior Product Designer Vladimir Deev-Kazanov." };
+export const metadata: Metadata = { title: "CV", alternates: { canonical: "/cv" }, description: "Experience, skills and education of Senior Product Designer Vladimir Deev-Kazanov." };
 
 const roles: Array<{ company: string; role: string; date: string; intro: string; bullets: ReactNode[] }> = [
   {

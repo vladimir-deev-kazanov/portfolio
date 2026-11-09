@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import Pic, { fullSize } from "./Pic";
 
 /* Server-component pieces shared by the three case studies. */
 
@@ -39,9 +40,7 @@ export function Scope({ rows }: { rows: Array<[string, ReactNode]> }) {
 
 /** The one figure pattern: image (tap to open full size), then a mono label and a one-sentence claim. */
 export function Fig({
-  src,
-  width,
-  height,
+  name,
   alt,
   label,
   children,
@@ -49,9 +48,7 @@ export function Fig({
   className = "",
   maxWidth,
 }: {
-  src: string;
-  width: number;
-  height: number;
+  name: string;
   alt: string;
   label: string;
   children: ReactNode;
@@ -59,11 +56,11 @@ export function Fig({
   className?: string;
   maxWidth?: number;
 }) {
+  const sizes = maxWidth ? `(max-width: ${maxWidth}px) 100vw, ${maxWidth}px` : "(min-width: 1200px) 1085px, 100vw";
   return (
     <figure className={`fig ${className}`.trim()} style={maxWidth ? { maxWidth } : undefined}>
-      <a className="fig-link" href={src} target="_blank" rel="noreferrer" aria-label={`${alt} (open full size)`}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={src} width={width} height={height} alt={alt} loading={priority ? "eager" : "lazy"} fetchPriority={priority ? "high" : "auto"} />
+      <a className="fig-link" href={fullSize(name)} target="_blank" rel="noreferrer" aria-label={`${alt} (open full size)`}>
+        <Pic name={name} alt={alt} sizes={sizes} priority={priority} />
       </a>
       <figcaption>
         <span className="fig-label">{label}</span>

@@ -1,9 +1,7 @@
 import Link from "next/link";
 import Arrow from "./Arrow";
+import Pic from "./work/Pic";
 import "./home.css";
-
-/* Product screenshots stay plain <img>: they are UI evidence and need fixed dimensions. */
-/* eslint-disable @next/next/no-img-element */
 
 export default function Home() {
   return (
@@ -16,15 +14,7 @@ export default function Home() {
           </div>
 
           <div className="hsd-portrait-wrap">
-            <img
-              src="/avatar.png"
-              width="240"
-              height="240"
-              fetchPriority="high"
-              decoding="async"
-              alt="Portrait of Vladimir Deev-Kazanov"
-              className="hsd-portrait"
-            />
+            <Pic priority name="avatar" alt="Portrait of Vladimir Deev-Kazanov" sizes="240px" className="hsd-portrait" />
           </div>
 
           <h1 id="hero-title" className="hsd-title">I design products where users hand work to a system and need to know what it did.</h1>
@@ -56,7 +46,7 @@ export default function Home() {
               <p className="project-outcome"><b>Outcome</b>8% of landing-page visitors paid for and configured the agent in month one. My later onboarding step lifted weekly first-time activations by 50%.</p>
               <span className="role-line">MVP launched 2025 · Sole Product Designer</span>
             </div>
-            <div className="project-visual"><img src="/work/ai-agent/dashboard-mvp.png" width="1020" height="552" loading="lazy" alt="Semrush Google Business Profile AI Agent MVP dashboard" /></div>
+            <div className="project-visual"><Pic name="ai-agent/dashboard-mvp" alt="Semrush Google Business Profile AI Agent MVP dashboard" sizes="(max-width: 800px) 89vw, 580px" /></div>
           </article>
           <article className="project-card">
             <div className="project-copy">
@@ -66,7 +56,7 @@ export default function Home() {
               <p className="project-outcome"><b>Outcome</b>Shipped to production. Reusable QR creation rose 17% in the first month.</p>
               <span className="role-line">2023 · Sole Product Designer</span>
             </div>
-            <div className="project-visual qr-project-visual"><img src="/work/raiffeisen-mobile/screens/one-type-en.jpg" width="750" height="1624" loading="lazy" alt="Choose a QR code type screen listing one-time, reusable, and cashier codes, each with a plain-language description" /></div>
+            <div className="project-visual qr-project-visual"><Pic name="raiffeisen-mobile/screens/one-type-en" alt="Choose a QR code type screen listing one-time, reusable, and cashier codes, each with a plain-language description" sizes="280px" /></div>
           </article>
           <article className="project-card">
             <div className="project-copy">
@@ -76,7 +66,7 @@ export default function Home() {
               <p className="project-outcome"><b>Outcome</b>Users adding 2+ locations spiked after launch, then returned near the earlier level.</p>
               <span className="role-line">Bulk release 2025 · Sole Product Designer</span>
             </div>
-            <div className="project-visual"><img src="/work/semrush-locations/bulk-expansion.png" width="1020" height="816" loading="lazy" alt="Semrush Locations dashboard with an Expand your local visibility panel" /></div>
+            <div className="project-visual"><Pic name="semrush-locations/bulk-expansion" alt="Semrush Locations dashboard with an Expand your local visibility panel" sizes="(max-width: 800px) 89vw, 580px" /></div>
           </article>
         </div>
       </section>
