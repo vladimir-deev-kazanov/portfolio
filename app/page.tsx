@@ -79,7 +79,6 @@ export default function Home() {
         <p>
           On the Semrush agent we shipped the dashboard before the edit button, and the feedback we got was that owners wanted to see planned posts before they went out. I’d make that call again under the same deadline, but I’d measure it differently.
         </p>
-        <p>I also build: this site is a Next.js app I designed and shipped with an AI coding agent. It has automated tests, an accessibility pass with no serious findings, and loads in about 450 KB.</p>
       </section>
 
       <section className="contact section-pad" id="contact" aria-labelledby="contact-title">
