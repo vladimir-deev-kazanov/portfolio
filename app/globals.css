@@ -198,7 +198,7 @@ iframe:focus-visible {
   min-height: 44px;
   min-width: 44px;
   padding-inline: 4px;
-  font-size: 14px;
+  font-size: var(--fs-small);
   font-weight: 500;
   color: var(--color-text-secondary);
   transition: color var(--dur) var(--ease-out);

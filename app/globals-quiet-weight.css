@@ -48,12 +48,12 @@
   /* ---- Type scale: six sizes and one label ---- */
   --fs-display: clamp(46px, 6vw, 88px);    /* Oswald 700, lh .96: home and case H1 */
   --fs-h2: clamp(30px, 3.1vw, 44px);       /* Manrope 600, lh 1.1: every section heading */
-  --fs-h3: clamp(21px, 1.7vw, 24px);       /* Manrope 600, lh 1.25 */
+  --fs-h3: clamp(20px, 1.7vw, 24px);       /* Manrope 600, lh 1.25; same steps as lead */
   --fs-lead: clamp(20px, 1.7vw, 24px);     /* Manrope 400, lh 1.45 */
   --fs-body: clamp(17px, 1.25vw, 18px);    /* Manrope 400, lh 1.6 */
-  --fs-small: 15px;                        /* captions, table cells */
-  --fs-label: 13px;                        /* Manrope 600, .01em, sentence case */
-  --fs-meta: 14px;                         /* Manrope 400: card meta lines */
+  --fs-small: 15px;                        /* the one small size: captions, labels, meta, nav */
+  --fs-label: var(--fs-small);             /* Manrope 600, .01em, sentence case, muted */
+  --fs-meta: var(--fs-small);              /* Manrope 400: card meta lines */
   --letter-spacing-heading: -0.015em;
   --letter-spacing-label: 0.01em;
 
