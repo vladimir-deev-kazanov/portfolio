@@ -74,7 +74,7 @@ export default function RaiffeisenMobileCaseStudy() {
       ["Not mine", "The SBP C2B payment system (Russia’s bank-to-business QR payment system), Central Bank rules, and engineering implementation."],
     ]} />
 
-    <Decision n={2} title="Replace a defaulted tab with an explained list" tone>
+    <Decision n={2} title="Replace the default tab with a list that explains each type" tone>
       <p>The original interface selected dynamic QR before the merchant had said what they needed. Removing the default would have left both categories unexplained.</p>
       <p>I proposed a list of three variants: <b>one-time</b>, <b>reusable</b> and <b>cashier</b>. Each option describes the payment situation it supports, so merchants see the criteria before they create anything.</p>
       <p><strong>Trade-off:</strong> the list adds a step. I proposed keeping it while merchants learned the model, then using usage data to decide whether to prioritise one mode or simplify the chooser.</p>
@@ -126,7 +126,7 @@ export default function RaiffeisenMobileCaseStudy() {
     </section>
 
     <section className="case-section shell transactions" aria-labelledby="tx-title">
-      <div><h2 id="tx-title">Also: QR transactions and filters</h2></div>
+      <div><h2 id="tx-title">QR transactions and filters</h2></div>
       <div>
         <p className="reading-note">I also designed the QR transaction list and filters: status, period and amount filtering, with transaction details and empty, loading and error states.</p>
         <ScreenFlow

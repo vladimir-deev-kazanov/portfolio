@@ -36,7 +36,7 @@ export default function Home() {
       </section>
 
       <section className="work-section shell" id="work" aria-labelledby="work-title">
-        <h2 id="work-title" className="kicker">Selected work</h2>
+        <h2 id="work-title" className="kicker">Three projects</h2>
         <div className="project-list">
           <article className="project-card project-card-lead">
             <div className="project-copy">
@@ -52,7 +52,7 @@ export default function Home() {
             <div className="project-copy">
               <span className="tag">Mobile fintech</span>
               <h3><Link className="project-link" href="/work/raiffeisen-mobile" data-analytics-event="case_open_raiffeisen">QR payments for merchants, Raiffeisen Bank</Link></h3>
-              <p>In UX tests, merchants didn’t understand dynamic and static QR codes. I renamed them by task, replaced the defaulted tab with an explained chooser, and gave cashiers payment-only access.</p>
+              <p>In UX tests, merchants didn’t understand dynamic and static QR codes. I renamed them by task, replaced the default tab with an explained chooser, and gave cashiers payment-only access.</p>
               <p className="project-outcome"><b>Outcome</b>Shipped to production. Reusable QR creation rose 17% in the first month.</p>
               <span className="role-line">2023 · Sole Product Designer</span>
             </div>

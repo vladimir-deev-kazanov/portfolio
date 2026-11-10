@@ -60,12 +60,12 @@ export default function CaseStudy() {
       <Fig name="ai-agent/post-editor-crop" maxWidth={434} alt="Scheduled post editor with generated image, editable copy, link, and save action" label="Decision 2 · after launch">Owners can edit a scheduled post before it goes out.</Fig>
     </Decision>
 
-    <Decision n={3} title="The dashboard shows what the agent did">
+    <Decision n={3} title="Prove the agent works without a full SEO dashboard">
       <p>Owners needed proof the agent was working without inheriting a professional Local SEO dashboard. I chose three familiar Google measures (views, interactions, average rating) and a list of completed actions over a broader SEO panel.</p>
       <p>Average rating was later removed: it barely changed, and a static number made the screen harder to read. <strong>Trade-off:</strong> less analytical depth, and owners saw content only after it published.</p>
     </Decision>
 
-    <Decision n={4} title="Posting cadence is adjustable" tone>
+    <Decision n={4} title="Give owners separate controls for each activity" tone>
       <p>Many owners would never open settings, so defaults mattered, but rhythms differ: a café may have frequent events, a plumber few. I designed controls per activity: posts and photos have separate schedules, review replies their own tone and language. At launch everything ran every seven days (Google Business Profile community best-practice guidance, not a formal rule). <strong>Trade-off:</strong> more settings, more complexity.</p>
       <div className="state-toggle">
         <input className="state-radio" type="radio" name="settings-state" id="settings-on" defaultChecked />

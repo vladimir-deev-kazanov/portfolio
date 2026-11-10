@@ -63,7 +63,7 @@ export default function CaseStudy() {
       ["Not mine", "The existing one-business flow, Google data behaviour, pricing policy, and engineering implementation."],
     ]} />
 
-    <Decision n={2} title="Bulk add turned one-at-a-time setup into one pass" tone>
+    <Decision n={2} title="Let users add every location in one pass" tone>
       <p>I designed a list of concrete businesses instead of one abstract Google account. Users select several, verify them together and follow progress for the whole set.</p>
       <p>The result state handles mixed outcomes. It keeps completed additions, identifies the businesses that failed and offers a direct path to fix them.</p>
       <p><strong>Trade-off:</strong> a technical cap of 20 locations per setup didn’t cover every business size. We accepted it for small businesses and agencies; enterprise customers already used a separate API flow.</p>
