@@ -1,290 +1,660 @@
 {
  "ai-agent/actions-later": {
-  "hash": "60d12980",
-  "height": 810,
-  "width": 670,
+  "hash": "b1e36914",
+  "height": 2332,
+  "width": 1286,
   "widths": [
-   640
+   280,
+   360,
+   560,
+   720,
+   1080,
+   1286
   ]
  },
  "ai-agent/actions-mvp": {
-  "hash": "ac6de810",
+  "hash": "0ac6a6aa",
   "height": 750,
   "width": 950,
   "widths": [
-   475,
-   640,
+   280,
+   360,
+   560,
+   720,
    950
   ]
  },
- "ai-agent/dashboard-mvp": {
-  "hash": "14624937",
-  "height": 552,
-  "width": 1020,
-  "widths": [
-   580,
-   640,
-   1020
-  ]
- },
- "ai-agent/dashboard-mvp-full": {
-  "hash": "6160a2fc",
-  "height": 1232,
+ "ai-agent/clip-edit-post": {
+  "hash": "43c1f1ed",
+  "height": 1860,
   "width": 2040,
   "widths": [
-   640,
-   1085,
+   280,
+   360,
+   560,
+   720,
+   1080,
+   1360,
+   1600,
    2040
   ]
  },
- "ai-agent/post-editor-crop": {
-  "hash": "74ab0bee",
-  "height": 1560,
-  "width": 867,
+ "ai-agent/clip-growth-action": {
+  "hash": "7692eb5d",
+  "height": 1610,
+  "width": 2200,
   "widths": [
-   434,
-   640,
-   867
+   280,
+   360,
+   560,
+   720,
+   1080,
+   1360,
+   1600,
+   2170
+  ]
+ },
+ "ai-agent/clip-settings-dropdown": {
+  "hash": "84c937bb",
+  "height": 1520,
+  "width": 2040,
+  "widths": [
+   280,
+   360,
+   560,
+   720,
+   1080,
+   1360,
+   1600,
+   2040
+  ]
+ },
+ "ai-agent/dash-option-1": {
+  "hash": "b6f3a055",
+  "height": 615,
+  "width": 1046,
+  "widths": [
+   280,
+   360,
+   560,
+   720,
+   1046
+  ]
+ },
+ "ai-agent/dash-option-2": {
+  "hash": "a8a9ea01",
+  "height": 615,
+  "width": 1046,
+  "widths": [
+   280,
+   360,
+   560,
+   720,
+   1046
+  ]
+ },
+ "ai-agent/dash-option-3": {
+  "hash": "d28b2c7d",
+  "height": 615,
+  "width": 1049,
+  "widths": [
+   280,
+   360,
+   560,
+   720,
+   1049
+  ]
+ },
+ "ai-agent/dashboard-mvp": {
+  "hash": "afaa4bc0",
+  "height": 552,
+  "width": 1020,
+  "widths": [
+   280,
+   360,
+   560,
+   720,
+   1020
+  ]
+ },
+ "ai-agent/dashboard-mvp-clean": {
+  "hash": "71d08391",
+  "height": 741,
+  "width": 988,
+  "widths": [
+   280,
+   360,
+   560,
+   720,
+   988
+  ]
+ },
+ "ai-agent/full/analysis": {
+  "hash": "5c86574a",
+  "height": 750,
+  "width": 1000,
+  "widths": [
+   280,
+   360,
+   560,
+   720,
+   1000
+  ]
+ },
+ "ai-agent/full/audit": {
+  "hash": "357160d5",
+  "height": 1288,
+  "width": 956,
+  "widths": [
+   280,
+   360,
+   560,
+   720,
+   956
+  ]
+ },
+ "ai-agent/full/landing": {
+  "hash": "f7308214",
+  "height": 4522,
+  "width": 1025,
+  "widths": [
+   280,
+   360,
+   560,
+   720,
+   1025
+  ]
+ },
+ "ai-agent/full/post-editor": {
+  "hash": "16e8da1a",
+  "height": 1860,
+  "width": 2040,
+  "widths": [
+   280,
+   360,
+   560,
+   720,
+   1080,
+   1360,
+   1600,
+   2040
+  ]
+ },
+ "ai-agent/full/settings-mvp": {
+  "hash": "9730c6db",
+  "height": 504,
+  "width": 609,
+  "widths": [
+   280,
+   360,
+   560,
+   609
+  ]
+ },
+ "ai-agent/full/setup": {
+  "hash": "9b6256ce",
+  "height": 1920,
+  "width": 1200,
+  "widths": [
+   280,
+   360,
+   560,
+   720,
+   1080,
+   1200
+  ]
+ },
+ "ai-agent/full/sign-in": {
+  "hash": "02da0bbf",
+  "height": 497,
+  "width": 1209,
+  "widths": [
+   280,
+   360,
+   560,
+   720,
+   1080,
+   1209
+  ]
+ },
+ "ai-agent/onboarding-posts": {
+  "hash": "bb3b0d52",
+  "height": 1652,
+  "width": 1972,
+  "widths": [
+   280,
+   360,
+   560,
+   720,
+   1080,
+   1360,
+   1600,
+   1972
   ]
  },
  "ai-agent/settings-disabled": {
-  "hash": "848dfa15",
+  "hash": "a025feee",
   "height": 1408,
   "width": 2000,
   "widths": [
-   640,
-   1085,
+   280,
+   360,
+   560,
+   720,
+   1080,
+   1360,
+   1600,
    2000
   ]
  },
  "ai-agent/settings-enabled": {
-  "hash": "6d1299de",
+  "hash": "1cf90c2f",
   "height": 1408,
   "width": 2000,
   "widths": [
-   640,
-   1085,
+   280,
+   360,
+   560,
+   720,
+   1080,
+   1360,
+   1600,
    2000
   ]
  },
- "ai-agent/setup-crop": {
-  "hash": "258805fd",
-  "height": 1220,
-  "width": 1000,
-  "widths": [
-   640,
-   700,
-   1000
-  ]
- },
  "avatar": {
-  "hash": "e408ffb1",
+  "hash": "645e07df",
   "height": 240,
   "width": 240,
   "widths": [
    240
   ]
  },
+ "raiffeisen-mobile/after-main": {
+  "hash": "dcd9c39c",
+  "height": 2400,
+  "width": 1109,
+  "widths": [
+   280,
+   360,
+   560,
+   720,
+   1109
+  ]
+ },
+ "raiffeisen-mobile/main-screen": {
+  "hash": "f8ffcd4e",
+  "height": 1600,
+  "width": 739,
+  "widths": [
+   280,
+   360,
+   560,
+   739
+  ]
+ },
+ "raiffeisen-mobile/round1-amount": {
+  "hash": "cd59c67d",
+  "height": 1886,
+  "width": 871,
+  "widths": [
+   280,
+   360,
+   560,
+   720,
+   871
+  ]
+ },
+ "raiffeisen-mobile/round1-main": {
+  "hash": "4138acab",
+  "height": 1886,
+  "width": 871,
+  "widths": [
+   280,
+   360,
+   560,
+   720,
+   871
+  ]
+ },
+ "raiffeisen-mobile/round1-types": {
+  "hash": "5a825860",
+  "height": 1258,
+  "width": 581,
+  "widths": [
+   280,
+   360,
+   581
+  ]
+ },
  "raiffeisen-mobile/screens/cashier-name-en": {
-  "hash": "652eae3a",
+  "hash": "268e5647",
   "height": 812,
   "width": 376,
   "widths": [
-   188,
+   280,
    376
   ]
  },
  "raiffeisen-mobile/screens/cashier-payment-en": {
-  "hash": "bd829a91",
+  "hash": "bb20a151",
   "height": 812,
   "width": 376,
   "widths": [
-   188,
+   280,
    376
   ]
  },
  "raiffeisen-mobile/screens/cashier-type-en": {
-  "hash": "0f251340",
+  "hash": "e4a2ae44",
   "height": 812,
   "width": 376,
   "widths": [
-   188,
+   280,
    376
   ]
  },
  "raiffeisen-mobile/screens/one-created-en": {
-  "hash": "6248969a",
+  "hash": "623f674a",
   "height": 1624,
   "width": 750,
   "widths": [
-   375,
-   640,
+   280,
+   360,
+   560,
    750
   ]
  },
  "raiffeisen-mobile/screens/one-form-en": {
-  "hash": "057b5cde",
+  "hash": "664b87d7",
   "height": 1624,
   "width": 750,
   "widths": [
-   375,
-   640,
+   280,
+   360,
+   560,
    750
   ]
  },
  "raiffeisen-mobile/screens/one-type-en": {
-  "hash": "ee75264d",
+  "hash": "2ae65389",
   "height": 1624,
   "width": 750,
   "widths": [
-   375,
-   640,
+   280,
+   360,
+   560,
    750
   ]
  },
  "raiffeisen-mobile/screens/reusable-created-en": {
-  "hash": "e996c674",
+  "hash": "bdbf7bda",
   "height": 812,
   "width": 376,
   "widths": [
-   188,
+   280,
    376
   ]
  },
  "raiffeisen-mobile/screens/reusable-form-en": {
-  "hash": "6b00bf67",
+  "hash": "f3192442",
   "height": 812,
   "width": 376,
   "widths": [
-   188,
+   280,
    376
   ]
  },
  "raiffeisen-mobile/screens/reusable-type-en": {
-  "hash": "0f251340",
+  "hash": "e4a2ae44",
   "height": 812,
   "width": 376,
   "widths": [
-   188,
+   280,
    376
   ]
  },
  "raiffeisen-mobile/screens/tx-filtered-en": {
-  "hash": "445b452e",
+  "hash": "cf1c6e7c",
   "height": 1624,
   "width": 750,
   "widths": [
-   375,
-   640,
+   280,
+   360,
+   560,
    750
   ]
  },
  "raiffeisen-mobile/screens/tx-filters-en": {
-  "hash": "5cc4dd14",
+  "hash": "32195ac5",
   "height": 1624,
   "width": 750,
   "widths": [
-   375,
-   640,
+   280,
+   360,
+   560,
    750
   ]
  },
  "raiffeisen-mobile/screens/tx-list-en": {
-  "hash": "523ddb48",
+  "hash": "3b66cc97",
   "height": 2064,
   "width": 750,
   "widths": [
-   375,
-   640,
+   280,
+   360,
+   560,
+   750
+  ]
+ },
+ "raiffeisen-mobile/states/create-error": {
+  "hash": "a2a71fdb",
+  "height": 1624,
+  "width": 750,
+  "widths": [
+   280,
+   360,
+   560,
+   750
+  ]
+ },
+ "raiffeisen-mobile/states/empty": {
+  "hash": "f7f19567",
+  "height": 1624,
+  "width": 750,
+  "widths": [
+   280,
+   360,
+   560,
+   750
+  ]
+ },
+ "raiffeisen-mobile/states/error": {
+  "hash": "b71b24e3",
+  "height": 1624,
+  "width": 750,
+  "widths": [
+   280,
+   360,
+   560,
+   750
+  ]
+ },
+ "raiffeisen-mobile/states/loading": {
+  "hash": "c2f051a0",
+  "height": 1624,
+  "width": 750,
+  "widths": [
+   280,
+   360,
+   560,
+   750
+  ]
+ },
+ "raiffeisen-mobile/states/not-found": {
+  "hash": "1a417214",
+  "height": 1624,
+  "width": 750,
+  "widths": [
+   280,
+   360,
+   560,
    750
   ]
  },
  "semrush-locations/before-expansion": {
-  "hash": "3b97f8b9",
+  "hash": "37b83155",
   "height": 1552,
   "width": 2040,
   "widths": [
-   640,
-   1085,
+   280,
+   360,
+   560,
+   720,
+   1080,
+   1360,
+   1600,
    2040
   ]
  },
  "semrush-locations/before-list": {
-  "hash": "467c45fa",
+  "hash": "d5b56a08",
   "height": 1552,
   "width": 2040,
   "widths": [
-   640,
-   1085,
+   280,
+   360,
+   560,
+   720,
+   1080,
+   1360,
+   1600,
    2040
   ]
  },
  "semrush-locations/bulk-expansion": {
-  "hash": "e8c6e55f",
+  "hash": "c3e2ab3a",
   "height": 1632,
   "width": 2040,
   "widths": [
-   580,
-   640,
-   1160
+   280,
+   360,
+   560,
+   720,
+   1080,
+   1360,
+   1600,
+   2040
   ]
  },
  "semrush-locations/bulk-partial-crop": {
-  "hash": "4d92293a",
+  "hash": "ab3e585b",
   "height": 670,
   "width": 720,
   "widths": [
-   640,
+   280,
+   360,
+   560,
    720
   ]
  },
  "semrush-locations/bulk-progress-crop": {
-  "hash": "c18f9536",
+  "hash": "52e9bdc1",
   "height": 1050,
   "width": 1050,
   "widths": [
-   525,
-   640,
+   280,
+   360,
+   560,
+   720,
    1050
   ]
  },
  "semrush-locations/bulk-select-crop": {
-  "hash": "87f0592b",
+  "hash": "d1ae7728",
   "height": 1510,
   "width": 1400,
   "widths": [
-   640,
-   700,
+   280,
+   360,
+   560,
+   720,
+   1080,
    1400
   ]
  },
  "semrush-locations/bulk-verify-crop": {
-  "hash": "32bbbf16",
+  "hash": "27307e44",
   "height": 2260,
   "width": 1990,
   "widths": [
-   640,
-   995,
+   280,
+   360,
+   560,
+   720,
+   1080,
+   1360,
+   1600,
    1990
   ]
  },
+ "semrush-locations/discount-entry": {
+  "hash": "1f5933e4",
+  "height": 2570,
+  "width": 2880,
+  "widths": [
+   280,
+   360,
+   560,
+   720,
+   1080,
+   1360,
+   1600,
+   2170
+  ]
+ },
+ "semrush-locations/discount-selection": {
+  "hash": "cde2f3a3",
+  "height": 2570,
+  "width": 2880,
+  "widths": [
+   280,
+   360,
+   560,
+   720,
+   1080,
+   1360,
+   1600,
+   2170
+  ]
+ },
  "semrush-locations/hero": {
-  "hash": "8a1fca28",
+  "hash": "f4a44620",
   "height": 1140,
   "width": 2040,
   "widths": [
-   640,
-   1085,
+   280,
+   360,
+   560,
+   720,
+   1080,
+   1360,
+   1600,
    2040
   ]
  },
  "semrush-locations/results-chart-crop": {
-  "hash": "dd18a580",
+  "hash": "8450cce0",
   "height": 1605,
   "width": 3479,
   "widths": [
-   640,
-   1085,
+   280,
+   360,
+   560,
+   720,
+   1080,
+   1360,
+   1600,
    2170
   ]
  }

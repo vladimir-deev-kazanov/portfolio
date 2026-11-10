@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """Encode every original in assets/originals/ as AVIF (q 60) and WebP (q 82).
 
-Variants are sized at 640px, at the largest CSS width the image is rendered
-at, and at twice that (never above the source width). File names carry a
+Variants follow one width ladder (LADDER), capped at the source width. File names carry a
 content hash, so they can be cached for a year (see public/_headers).
 Writes public/img/** and app/work/image-manifest.json.
 
@@ -17,37 +16,33 @@ SRC = ROOT / "assets" / "originals"
 OUT = ROOT / "public" / "img"
 MANIFEST = ROOT / "app" / "work" / "image-manifest.json"
 
-# Largest CSS width each image is rendered at. Anything not listed uses its
-# own width halved (a 2x export shown at 1x).
-DISPLAY = {
-    "avatar": 240,
-    "ai-agent/dashboard-mvp-full": 1085, "ai-agent/dashboard-mvp": 580,
-    "ai-agent/actions-mvp": 475, "ai-agent/actions-later": 670,
-    "ai-agent/setup-crop": 700, "ai-agent/post-editor-crop": 434,
-    "ai-agent/settings-enabled": 1085, "ai-agent/settings-disabled": 1085,
-    "semrush-locations/hero": 1085, "semrush-locations/before-list": 1085,
-    "semrush-locations/before-expansion": 1085, "semrush-locations/bulk-expansion": 580,
-    "semrush-locations/bulk-select-crop": 700, "semrush-locations/bulk-verify-crop": 995,
-    "semrush-locations/bulk-progress-crop": 525, "semrush-locations/bulk-partial-crop": 720,
-    "semrush-locations/results-chart-crop": 1085,
-    "raiffeisen-mobile/screens/one-type-en": 375,
-}
+# One width ladder for every image, so srcset can serve 2x at each figure
+# width the site uses (680 text, 1085 wide, 530 pair, 345 third, 280 phone,
+# 170 flow phone). Capped at the source width, which is always included.
+ENCODING = b"ladder-v1;flatten-white"
+LADDER = (280, 360, 560, 720, 1080, 1360, 1600, 2170)
 
 manifest = {}
 for path in sorted(SRC.rglob("*")):
     if path.suffix.lower() not in {".png", ".jpg", ".jpeg"}:
         continue
     name = path.relative_to(SRC).with_suffix("").as_posix()
-    digest = hashlib.sha1(path.read_bytes()).hexdigest()[:8]
-    image = Image.open(path).convert("RGBA" if path.suffix.lower() == ".png" else "RGB")
+    # The salt changes the names when the encoding changes, not only the source.
+    digest = hashlib.sha1(path.read_bytes() + ENCODING).hexdigest()[:8]
+    image = Image.open(path)
+    if image.mode in ("RGBA", "LA", "P"):
+        # Transparent corners flatten to white, not black.
+        rgba = image.convert("RGBA")
+        image = Image.alpha_composite(Image.new("RGBA", rgba.size, (255, 255, 255, 255)), rgba)
+    image = image.convert("RGB")
     width, height = image.size
-    shown = DISPLAY.get(name, max(1, width // 2))
-    widths = sorted({min(width, w) for w in (640, shown, shown * 2)})
-    # drop near-duplicates (within 8%)
+    widths = sorted({min(width, w) for w in LADDER} | {min(width, 2170)})
+    # drop near-duplicates (within 8%), keeping the largest
     kept = []
-    for w in widths:
-        if not kept or w > kept[-1] * 1.08:
+    for w in reversed(widths):
+        if not kept or w < kept[-1] / 1.08:
             kept.append(w)
+    kept.reverse()
     target = OUT / name
     target.parent.mkdir(parents=True, exist_ok=True)
     stale = re.compile(rf"^{re.escape(target.name)}-\d+\.[0-9a-f]{{8}}\.(avif|webp)$")

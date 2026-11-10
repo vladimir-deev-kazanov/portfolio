@@ -33,7 +33,7 @@ export default function QrPrototype() {
     <div className="qr-proto">
       {!active && (
         <button type="button" className="qr-proto-button" onClick={() => setActive(true)}>
-          Try the prototype
+          Play the walkthrough
         </button>
       )}
       <div
@@ -46,7 +46,7 @@ export default function QrPrototype() {
           className="qr-hero-prototype"
           tabIndex={active ? 0 : -1}
           src={active ? PROTOTYPE_SRC : undefined}
-          title="Interactive prototype: choose a QR code type, then create a one-time QR code"
+          title="Guided walkthrough: choose a QR code type, then create a one-time QR code"
           style={{ width: NATURAL_WIDTH, height: NATURAL_HEIGHT, transform: `scale(${scale})` }}
         />
       </div>

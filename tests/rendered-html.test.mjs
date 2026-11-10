@@ -33,7 +33,7 @@ for (const route of ["/", "/cv", "/privacy", "/work/ai-agent", "/work/raiffeisen
 test("every image in the manifest has AVIF and WebP files on disk", async () => {
   const manifest = JSON.parse(await readFile(new URL("app/work/image-manifest.json", projectRoot), "utf8"));
   const names = Object.keys(manifest);
-  assert.ok(names.includes("ai-agent/dashboard-mvp-full"));
+  assert.ok(names.includes("ai-agent/dashboard-mvp-clean"));
   for (const [name, entry] of Object.entries(manifest)) {
     for (const width of entry.widths) {
       for (const ext of ["avif", "webp"]) {
@@ -44,7 +44,7 @@ test("every image in the manifest has AVIF and WebP files on disk", async () => 
 });
 
 test("fonts are self-hosted", async () => {
-  await Promise.all(["manrope-latin", "oswald-700-latin", "plex-mono-400-latin", "plex-mono-500-latin"].map((name) =>
+  await Promise.all(["manrope-latin", "oswald-700-latin"].map((name) =>
     access(new URL(`public/fonts/${name}.woff2`, projectRoot)),
   ));
 });

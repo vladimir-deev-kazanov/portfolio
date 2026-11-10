@@ -21,22 +21,6 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
-  font-family: "IBM Plex Mono";
-  src: url("/fonts/plex-mono-400-latin.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: "IBM Plex Mono";
-  src: url("/fonts/plex-mono-500-latin.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
   font-family: "Manrope Fallback";
   src: local("Arial");
   size-adjust: 100.3%;
@@ -50,14 +34,6 @@
   size-adjust: 103.5%;
   ascent-override: 115%;
   descent-override: 28%;
-  line-gap-override: 0%;
-}
-@font-face {
-  font-family: "IBM Plex Mono Fallback";
-  src: local("Courier New"), local("CourierNew");
-  size-adjust: 100%;
-  ascent-override: 102%;
-  descent-override: 27%;
   line-gap-override: 0%;
 }
 
@@ -140,7 +116,7 @@ li {
 .fig-label,
 .decision-label,
 .next-label {
-  font: 500 var(--fs-label) / 1.3 var(--ff-mono);
+  font: 600 var(--fs-label) / 1.3 var(--ff-body);
   letter-spacing: var(--letter-spacing-label);
   color: var(--color-kicker);
 }
@@ -171,6 +147,15 @@ iframe:focus-visible {
   scroll-margin-top: var(--header-height);
 }
 
+/* Numbers in tables, metrics and step counters line up. */
+.tldr dd,
+.evidence dd,
+.project-outcome,
+.flow-step,
+.state-caption {
+  font-variant-numeric: tabular-nums;
+}
+
 /* ---------- Header, nav, footer ---------- */
 .site-header {
   position: sticky;
@@ -194,10 +179,11 @@ iframe:focus-visible {
   min-width: 44px;
 }
 .mark {
-  font-family: var(--ff-mono);
-  font-weight: 500;
-  font-size: var(--fs-small);
-  letter-spacing: 0.03em;
+  font-family: var(--ff-display);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.01em;
+  line-height: 1;
 }
 .site-nav-inner nav {
   display: flex;
@@ -287,7 +273,7 @@ iframe:focus-visible {
   position: relative;
   display: grid;
   grid-template-columns: 0.86fr 1.14fr;
-  min-height: 480px;
+  min-height: 600px;
   overflow: hidden;
   background: var(--white);
   color: var(--ink);
@@ -334,51 +320,59 @@ iframe:focus-visible {
 .project-outcome b {
   display: block;
   margin-bottom: 4px;
-  font: 500 var(--fs-label) / 1.3 var(--ff-mono);
+  font: 600 var(--fs-label) / 1.3 var(--ff-body);
   letter-spacing: var(--letter-spacing-label);
   color: var(--color-text-secondary);
 }
 .role-line {
   margin-top: 24px;
-  font: 500 var(--fs-label) / 1.5 var(--ff-mono);
-  letter-spacing: var(--letter-spacing-label);
+  font: 400 var(--fs-meta) / 1.5 var(--ff-body);
   color: var(--color-text-secondary);
 }
+/* Card image area: same stage, 40px inset on every side, image centred
+   both ways. Desktop screens fit the width; the phone shows whole. */
 .project-visual {
   position: relative;
-  display: grid;
-  place-items: start center;
-  padding-top: 40px;
   overflow: hidden;
-  background: var(--stage);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: var(--fig-stage);
 }
-.project-visual img {
+.project-shot {
   position: relative;
-  width: 118%;
-  justify-self: start;
-  margin-left: 8%;
-  border-radius: 8px;
-  outline: 1px solid var(--hairline);
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--fig-radius);
+  background: var(--white);
 }
-.qr-project-visual {
-  min-height: 480px;
+.project-shot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px var(--hairline);
+  pointer-events: none;
 }
-.project-card-lead {
-  min-height: 560px;
-  grid-template-columns: 0.86fr 1.14fr;
+.project-shot img {
+  width: 100%;
+  height: auto;
+}
+/* The phone follows production: pinned 64px from the top and running past
+   the card's bottom edge, so the screen's cut-off end never shows. */
+.project-shot.phone {
+  position: absolute;
+  top: 64px;
+  left: 50%;
+  width: auto;
+  max-width: 90%;
+  height: calc(100% + 36px);
+  aspect-ratio: 739 / 1600;
+  transform: translateX(-50%);
 }
 .work-section > .kicker {
   color: var(--color-text-secondary);
-}
-.qr-project-visual img {
-  position: absolute;
-  top: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(62%, 280px);
-  margin-left: 0;
-  justify-self: auto;
-  height: auto;
 }
 .how-i-work {
   padding-bottom: var(--space-section);
@@ -422,7 +416,10 @@ iframe:focus-visible {
 .contact-cta-secondary {
   display: inline-flex;
   align-items: center;
-  min-height: 44px;
+  height: 52px;
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 1;
   border-radius: 999px;
   transition: background var(--dur) var(--ease-out), border-color var(--dur) var(--ease-out);
 }
@@ -430,8 +427,8 @@ iframe:focus-visible {
   background: var(--paper);
   color: var(--ink);
   border: 1px solid var(--paper);
-  padding: 12px 28px;
-  font: 600 var(--fs-body) var(--ff-body);
+  padding-inline: 28px;
+  font: 600 var(--fs-body) / 1 var(--ff-body);
 }
 .contact-cta-primary:hover {
   background: var(--white);
@@ -439,8 +436,8 @@ iframe:focus-visible {
 .contact-cta-secondary {
   color: var(--white);
   border: 1px solid var(--rule-on-dark);
-  padding: 11px 24px;
-  font: 600 var(--fs-small) var(--ff-body);
+  padding-inline: 28px;
+  font: 600 var(--fs-body) / 1 var(--ff-body);
 }
 .contact-cta-secondary:hover {
   border-color: var(--white);
@@ -498,6 +495,11 @@ iframe:focus-visible {
   display: grid;
   grid-template-columns: 220px 1fr;
   gap: 60px;
+}
+.cv-earlier {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px 48px;
 }
 .role {
   padding-bottom: var(--space-block);
@@ -608,7 +610,26 @@ iframe:focus-visible {
 
 /* ---------- Case studies: page, hero, TL;DR ---------- */
 .case-page {
+  /* One 62ch reading column, centred. Wide figures start at the column's
+     left edge and run to the shell's right edge, so the page keeps one
+     left edge and the right half carries the evidence. */
+  --col: 680px;
+  --shell-content: min(calc(var(--max) - 2 * var(--gutter)), calc(100vw - 2 * var(--gutter)));
   background: var(--paper);
+}
+.case-page .shell {
+  width: min(calc(var(--col) + 2 * var(--gutter)), 100%);
+}
+.case-hero h1 {
+  width: calc(100% + (var(--shell-content) - 100%) / 2);
+  max-width: none;
+}
+/* `wide`: the page container, from the logo's left edge to the nav's right
+   edge, centred on the reading column. */
+.case-page .wide {
+  width: var(--shell-content);
+  max-width: none;
+  margin-left: calc((100% - var(--shell-content)) / 2);
 }
 .case-hero {
   padding-top: 48px;
@@ -618,7 +639,7 @@ iframe:focus-visible {
   align-items: center;
   min-height: 44px;
   margin-bottom: 24px;
-  font: 500 var(--fs-label) var(--ff-mono);
+  font: 600 var(--fs-label) / 1.3 var(--ff-body);
   letter-spacing: var(--letter-spacing-label);
 }
 .case-back:hover {
@@ -640,12 +661,34 @@ iframe:focus-visible {
   margin: 0 0 24px;
 }
 .tldr {
-  margin: 40px 0 var(--space-block);
+  margin: 40px 0 0;
   border-top: 2px solid var(--ink);
+}
+.live-product {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: var(--fs-small);
+  line-height: 1.5;
+}
+.live-product a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 600;
+  color: var(--color-link);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+.live-product span {
+  color: var(--color-text-secondary);
 }
 .tldr dl {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0 32px;
   margin: 0;
 }
@@ -653,7 +696,7 @@ iframe:focus-visible {
   padding: 16px 0;
 }
 .tldr dt {
-  font: 500 var(--fs-label) / 1.3 var(--ff-mono);
+  font: 600 var(--fs-label) / 1.3 var(--ff-body);
   letter-spacing: var(--letter-spacing-label);
   color: var(--color-text-secondary);
   margin-bottom: 6px;
@@ -663,36 +706,99 @@ iframe:focus-visible {
   font-size: var(--fs-small);
   line-height: 1.5;
 }
-.tldr-gap {
+.tldr-note {
   padding: 16px 0 0;
   border-top: 1px solid var(--line);
   font-size: var(--fs-small);
   line-height: 1.5;
   max-width: var(--measure-wide);
 }
-.tldr-gap b {
+.tldr-note + .tldr-note {
+  padding-top: 12px;
+  border-top: 0;
+}
+.tldr-note b {
   font-weight: 700;
 }
 
-/* ---------- Case studies: figures ---------- */
+.case-nav {
+  margin: 32px 0 var(--space-block);
+}
+.case-nav ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.case-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: var(--fs-small);
+  transition: border-color var(--dur) var(--ease-out);
+}
+.case-nav a:hover {
+  border-color: var(--ink);
+}
+.stage-label {
+  margin-bottom: 16px;
+  font: 600 var(--fs-label) / 1.3 var(--ff-body);
+  letter-spacing: var(--letter-spacing-label);
+  color: var(--color-text-secondary);
+}
+
+/* ---------- Case studies: figures ----------
+   One frame for every image and video: the stage colour, an 8px radius and
+   a hairline. No shadows. Widths: the 680px column, `wide`, or a grid of
+   equal columns inside `wide`. Caption under the frame, left-aligned. */
 .fig {
   margin: var(--space-block) 0 0;
 }
 .case-hero .fig {
-  margin-top: 0;
+  margin-top: 40px;
 }
-.fig-link {
+.media {
+  position: relative;
   display: block;
+  overflow: hidden;
+  border-radius: var(--fig-radius);
+  background: var(--fig-stage);
+  cursor: zoom-in;
 }
-.fig-link:focus-visible {
+.media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px var(--hairline);
+  pointer-events: none;
+}
+.media:focus-visible {
   outline-offset: 4px;
 }
-.fig img {
+.media img {
   width: 100%;
   height: auto;
-  border-radius: 8px;
-  outline: 1px solid var(--hairline);
-  background: var(--white);
+}
+.media img[data-fit] {
+  height: auto;
+  object-fit: cover;
+  object-position: top center;
+}
+.media img[data-fit="contain"] {
+  object-fit: contain;
+}
+.crop {
+  display: block;
+  overflow: hidden;
+}
+.crop img {
+  height: auto;
 }
 .fig figcaption {
   display: grid;
@@ -728,18 +834,105 @@ iframe:focus-visible {
   }
 }
 
+/* AI Agent and Raiffeisen (.fit-case): a large screenshot, recording or
+   phone row never runs past the screen. It narrows until frame and caption
+   fit below the sticky header and stays centred: a wide figure on the page,
+   a column figure in the column. --ar is the image's visible width/height,
+   set inline by Fig and Clip (and on the settings toggle). Figures inside
+   pairs and rows keep their grid width. */
+.fit-case .fig.wide:not(.fig-pair > *, .option-row > *, .phone-row) {
+  width: min(var(--shell-content), calc((100svh - var(--header-height) - 120px) * var(--ar)));
+  margin-left: calc((100% - min(var(--shell-content), calc((100svh - var(--header-height) - 120px) * var(--ar)))) / 2);
+}
+.fit-case .fig:not(.wide, .fig-pair > *, .option-row > *) {
+  width: min(100%, calc((100svh - var(--header-height) - 120px) * var(--ar)));
+  margin-inline: auto;
+}
+/* The settings toggle also has its tab switch (about 82px) above the image. */
+.fit-case .state-toggle {
+  width: min(100%, calc((100svh - var(--header-height) - 210px) * var(--ar)));
+  margin-inline: auto;
+}
+/* Phone rows: the screen width (--p) shrinks so step label, screen and
+   caption fit; the row is centred on the page. */
+.fit-case .phone-row {
+  --p: min(280px, calc((100svh - var(--header-height) - 170px) * 375 / 812), calc((var(--shell-content) - 64px) / 3));
+  width: calc(3 * var(--p) + 64px);
+  margin-left: calc((100% - (3 * var(--p) + 64px)) / 2);
+}
+.fit-case .phone-row ol {
+  grid-template-columns: repeat(3, var(--p));
+}
+.fit-case .fig-pair.phones {
+  --p: min(280px, calc((100svh - var(--header-height) - 120px) * 375 / 812));
+  grid-template-columns: repeat(2, var(--p));
+  justify-content: center;
+}
+.fit-case .qr-hero-prototype-wrap {
+  margin-inline: auto;
+}
+@media (max-width: 800px) {
+  .fit-case .fig.wide:not(.fig-pair > *, .option-row > *, .phone-row) {
+    width: min(100%, calc((100svh - var(--header-height) - 120px) * var(--ar)));
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .fit-case .phone-row {
+    margin-left: calc((100% - (3 * var(--p) + 64px)) / 2);
+  }
+}
+@media (max-width: 699px) {
+  .fit-case .phone-row {
+    width: 100%;
+    margin-left: 0;
+  }
+  .fit-case .phone-row ol {
+    grid-template-columns: none;
+  }
+}
+
+/* Phones: one screen height, no device frame, up to three in a row. */
+.phone-row ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 280px));
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.phone-row li {
+  min-width: 0;
+}
+.phone-step {
+  display: block;
+  margin-bottom: 12px;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
 /* ---------- Case studies: sections ---------- */
 .case-section {
   padding-top: var(--space-section);
   padding-bottom: var(--space-section);
   display: grid;
-  grid-template-columns: 330px 1fr;
-  gap: 64px;
+  grid-template-columns: 1fr;
+  gap: 32px;
 }
 .reading-copy > p,
 .reading-note {
   max-width: var(--measure);
   margin-bottom: 16px;
+}
+.reading-copy > h3 {
+  max-width: var(--measure);
+  margin: 40px 0 12px;
+}
+.reading-copy > h3:first-child {
+  margin-top: 0;
+}
+.reading-copy > .fig {
+  margin: 32px 0 40px;
 }
 .snapshot-section dl,
 .evidence dl {
@@ -793,6 +986,9 @@ iframe:focus-visible {
 .decision-copy > .compare + p {
   margin-top: 32px;
 }
+.decision-copy > .fig + .compare {
+  margin-top: 48px;
+}
 .decision-copy strong {
   font-weight: 700;
 }
@@ -819,7 +1015,7 @@ iframe:focus-visible {
   background: var(--white);
 }
 .compare b {
-  font: 500 var(--fs-label) / 1.3 var(--ff-mono);
+  font: 600 var(--fs-label) / 1.3 var(--ff-body);
   letter-spacing: var(--letter-spacing-label);
   color: var(--color-text-secondary);
 }
@@ -850,7 +1046,7 @@ iframe:focus-visible {
   align-items: center;
   padding: 0 18px;
   border-radius: 999px;
-  font: 500 var(--fs-label) var(--ff-mono);
+  font: 600 var(--fs-label) / 1.3 var(--ff-body);
   letter-spacing: var(--letter-spacing-label);
   cursor: pointer;
   transition: background var(--dur) var(--ease-out), color var(--dur) var(--ease-out);
@@ -863,13 +1059,6 @@ iframe:focus-visible {
 #settings-off:checked ~ .state-tabs label[for="settings-off"] {
   background: var(--ink);
   color: var(--white);
-}
-.state-stage img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  outline: 1px solid var(--hairline);
-  background: var(--white);
 }
 .state-stage .state-on,
 .state-stage .state-off,
@@ -916,26 +1105,186 @@ iframe:focus-visible {
 .case-after .fig-claim {
   color: var(--on-dark);
 }
+.after-sub {
+  margin-top: var(--space-chapter);
+  margin-bottom: 24px;
+}
+.journey {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0 0 32px;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+.journey li {
+  counter-increment: step;
+  padding: 16px;
+  border: 1px solid var(--rule-on-dark);
+  border-radius: 8px;
+  font-size: var(--fs-small);
+  line-height: 1.35;
+  color: var(--on-dark-muted);
+}
+.journey li::before {
+  content: counter(step);
+  display: block;
+  margin-bottom: 8px;
+  font: 600 var(--fs-label) / 1 var(--ff-body);
+  font-variant-numeric: tabular-nums;
+}
+.journey .journey-mine {
+  border: 2px solid var(--on-dark);
+  color: var(--on-dark);
+  font-weight: 600;
+}
+/* Recordings: no browser controls; one play/pause button and a progress
+   line under the frame. */
+.video-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--fig-radius);
+  background: var(--fig-stage);
+}
+.video-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px var(--hairline);
+  pointer-events: none;
+}
+.video-frame video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+}
+.video-toggle {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--white);
+  fill: currentColor;
+  cursor: pointer;
+  transition: transform var(--dur) var(--ease-out), background var(--dur) var(--ease-out);
+}
+.video-toggle:hover {
+  background: var(--color-link);
+}
+.video-toggle:active {
+  transform: scale(0.94);
+}
+.video-progress {
+  height: 2px;
+  margin-top: 8px;
+  background: var(--hairline);
+  overflow: hidden;
+}
+.video-progress span {
+  display: block;
+  height: 100%;
+  background: currentColor;
+  opacity: 0.6;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+.fig-pair,
+.option-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px 24px;
+  margin-top: var(--space-block);
+  align-items: start;
+}
+.fig-pair .fig,
+.option-row .fig {
+  margin-top: 0;
+}
+.fig-pair.phones {
+  grid-template-columns: repeat(2, minmax(0, 280px));
+  gap: 32px;
+}
+.option-row .is-chosen .media::after {
+  box-shadow: inset 0 0 0 2px var(--ink);
+}
+.option-row .is-chosen .fig-label {
+  color: var(--ink);
+}
+@media (min-width: 700px) {
+  .fig-pair {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 900px) {
+  .option-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Case studies: full flow ---------- */
+.full-flow {
+  padding: var(--space-section) 0;
+  border-top: 1px solid var(--line);
+}
+.full-flow-intro {
+  max-width: var(--measure);
+  margin: 24px 0 0;
+  color: var(--color-text-secondary);
+}
+.flow-gallery {
+  margin-top: var(--space-block);
+}
+.flow-gallery-label {
+  margin-bottom: 16px;
+  font: 600 var(--fs-label) / 1.3 var(--ff-body);
+  letter-spacing: var(--letter-spacing-label);
+  color: var(--color-caption);
+}
+.flow-gallery ol {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 32px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.flow-gallery ol:has(.phone) {
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+.flow-gallery[data-cols] ol {
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+}
+.flow-item {
+  display: grid;
+  gap: 6px;
+  align-content: start;
+  min-width: 0;
+}
+.flow-step {
+  margin-top: 6px;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  line-height: 1.3;
+}
+.flow-note {
+  font-size: var(--fs-small);
+  line-height: 1.4;
+  color: var(--color-text-secondary);
+}
 
 /* ---------- Case studies: Raiffeisen specifics ---------- */
-.qr-hero-stage {
-  position: relative;
-  height: 560px;
-  margin: 0;
-  overflow: hidden;
-  display: grid;
-  place-items: start center;
-  padding-top: 40px;
-  background: var(--stage);
-  border-radius: 8px;
-}
-.qr-hero-stage img {
-  width: 300px;
-  max-width: 80%;
-  height: auto;
-  border-radius: 8px;
-  outline: 1px solid var(--hairline);
-}
 .prototype-section {
   padding-top: var(--space-section);
   padding-bottom: var(--space-section);
@@ -969,27 +1318,6 @@ iframe:focus-visible {
   outline: 1px solid var(--hairline);
   background: var(--white);
 }
-.chooser-compare {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  margin-top: var(--space-block);
-  padding-top: 24px;
-  border-top: 1px solid var(--line);
-}
-.chooser-compare > div > span {
-  font: 500 var(--fs-label) / 1.3 var(--ff-mono);
-  letter-spacing: var(--letter-spacing-label);
-  color: var(--tone-kicker);
-}
-.chooser-compare h3 {
-  margin: 12px 0 8px;
-}
-.chooser-compare p {
-  font-size: var(--fs-small);
-  line-height: 1.5;
-  color: var(--tone-muted);
-}
 .access-model {
   display: grid;
   grid-template-columns: 1fr 48px 1fr;
@@ -1011,7 +1339,7 @@ iframe:focus-visible {
   color: var(--color-text-secondary);
 }
 .access-model span {
-  font: 500 var(--fs-label) / 1.3 var(--ff-mono);
+  font: 600 var(--fs-label) / 1.3 var(--ff-body);
   letter-spacing: var(--letter-spacing-label);
   color: var(--color-kicker);
 }
@@ -1025,56 +1353,6 @@ iframe:focus-visible {
   line-height: 1.5;
   color: var(--color-text-secondary);
 }
-.screen-flow {
-  margin: var(--space-block) 0 0;
-}
-.screen-flow > div {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 32px;
-  padding: 32px;
-  background: var(--stage);
-  border-radius: 8px;
-}
-.decision-section.tone .screen-flow > div {
-  background: var(--paper);
-}
-.flow-screen {
-  min-width: 0;
-}
-.flow-screen > span {
-  display: block;
-  margin-bottom: 12px;
-  font-size: var(--fs-small);
-  line-height: 1.3;
-  color: var(--color-text-secondary);
-}
-.flow-screen a {
-  display: block;
-}
-.flow-screen img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 376 / 812;
-  object-fit: cover;
-  object-position: top;
-  border-radius: 8px;
-  outline: 1px solid var(--hairline);
-  background: var(--white);
-}
-.screen-flow figcaption {
-  display: grid;
-  gap: 4px;
-  margin-top: 12px;
-  max-width: var(--measure);
-}
-.screen-flow .fig-label {
-  color: var(--color-caption);
-}
-.decision-section.tone .screen-flow .fig-label {
-  color: var(--tone-kicker);
-}
-
 /* ---------- Case studies: evidence, reflection, close ---------- */
 .evidence-wrap {
   border-top: 1px solid var(--line);
@@ -1098,9 +1376,6 @@ iframe:focus-visible {
 .evidence-wrap.dark .fig-claim {
   color: var(--on-dark-muted);
 }
-.chart-fig img {
-  background: var(--white);
-}
 .reflection {
   padding-top: var(--space-chapter);
   padding-bottom: var(--space-chapter);
@@ -1111,9 +1386,6 @@ iframe:focus-visible {
 }
 .reflection p {
   max-width: var(--measure);
-}
-.transactions .reading-note {
-  margin-bottom: 0;
 }
 .end-contact {
   padding-top: 0;
@@ -1176,12 +1448,46 @@ iframe:focus-visible {
   .project-card {
     min-height: 0;
   }
-  .project-visual {
-    height: 360px;
+  .journey {
+    grid-template-columns: 1fr 1fr;
   }
-  .qr-project-visual {
-    height: 440px;
-    min-height: 0;
+  .flow-gallery {
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    overscroll-behavior-x: contain;
+    padding-bottom: 12px;
+  }
+  .flow-gallery ol,
+  .flow-gallery ol:has(.phone) {
+    display: flex;
+    gap: 16px;
+  }
+  .flow-gallery[data-cols] ol {
+    display: flex;
+  }
+  .flow-item {
+    flex: 0 0 min(280px, 76vw);
+    scroll-snap-align: start;
+  }
+  .flow-item.phone {
+    flex-basis: min(180px, 44vw);
+  }
+  .case-page .wide {
+    width: 100%;
+    margin-left: 0;
+  }
+  .case-nav {
+    margin-bottom: 40px;
+  }
+  .project-visual {
+    order: -1;
+    padding: 24px;
+  }
+  .project-visual:has(.phone) {
+    height: 420px;
+  }
+  .project-shot.phone {
+    top: 40px;
   }
   .cv-block,
   .case-section,
@@ -1216,10 +1522,7 @@ iframe:focus-visible {
     border-top: 0;
   }
   .compare,
-  .chooser-compare {
-    grid-template-columns: 1fr;
-  }
-  .access-model {
+    .access-model {
     grid-template-columns: 1fr;
     gap: 16px;
   }
@@ -1228,20 +1531,6 @@ iframe:focus-visible {
     text-align: left;
     transform: rotate(90deg);
     width: 24px;
-  }
-  .qr-hero-stage {
-    height: 480px;
-  }
-  .screen-flow > div {
-    display: flex;
-    gap: 16px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding: 20px;
-  }
-  .flow-screen {
-    flex: 0 0 76%;
-    scroll-snap-align: center;
   }
   .state-tabs {
     display: flex;
@@ -1254,6 +1543,107 @@ iframe:focus-visible {
   .next-row {
     padding: 32px 0;
   }
+}
+
+/* Phone rows and the before/after pair scroll sideways on a phone; the next
+   screen shows by about a third. */
+@media (max-width: 699px) {
+  .phone-row ol,
+  .fig-pair.phones {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    padding-bottom: 12px;
+  }
+  .phone-row li,
+  .fig-pair.phones .fig {
+    flex: 0 0 68%;
+    scroll-snap-align: start;
+  }
+}
+
+/* ---------- Lightbox ---------- */
+.lightbox {
+  width: 100vw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--on-dark);
+}
+.lightbox::backdrop {
+  background: var(--scrim);
+}
+.lightbox-body {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  justify-items: center;
+  gap: 16px;
+  height: 100%;
+  padding: 24px var(--gutter) 16px;
+}
+.lightbox-frame {
+  align-self: center;
+  min-height: 0;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: var(--fig-radius);
+  background: var(--fig-stage);
+}
+.lightbox-frame img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(100dvh - 200px);
+  width: auto;
+  height: auto;
+}
+.lightbox-frame.is-cropped img {
+  max-height: none;
+}
+.lightbox-bar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  width: min(100%, var(--max));
+}
+.lightbox-caption {
+  display: grid;
+  gap: 4px;
+  max-width: var(--measure);
+  font-size: var(--fs-small);
+  line-height: 1.5;
+}
+.lightbox-caption .fig-label,
+.lightbox-count {
+  color: var(--on-dark-muted);
+}
+.lightbox-actions {
+  display: flex;
+  gap: 8px;
+  flex: none;
+}
+.lightbox-actions button {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--rule-on-dark);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--on-dark);
+  font: 600 var(--fs-body) / 1 var(--ff-body);
+  cursor: pointer;
+  transition: border-color var(--dur) var(--ease-out);
+}
+.lightbox-actions button:hover {
+  border-color: var(--on-dark);
+}
+.lightbox-actions button:focus-visible {
+  outline-color: var(--on-dark);
 }
 
 /* ---------- Press feedback and touch ---------- */

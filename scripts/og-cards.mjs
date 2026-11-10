@@ -17,15 +17,15 @@ const chrome = process.env.CHROME_PATH ?? "/Applications/Google Chrome.app/Conte
 
 const b64 = (file, mime) => `data:${mime};base64,${readFileSync(path.join(root, file)).toString("base64")}`;
 const cards = [
-  { slug: "ai-agent", label: "Case study · Semrush · 2025", title: "I had one week to decide what an AI agent would do on its own, and what its users could see.", image: "assets/originals/ai-agent/dashboard-mvp-full.png", fit: "width" },
-  { slug: "raiffeisen-mobile", label: "Case study · Raiffeisen Bank · 2023", title: "Merchants didn’t understand QR types, so I renamed them by task.", image: "assets/originals/raiffeisen-mobile/screens/one-type-en.jpg", fit: "phone" },
+  { slug: "ai-agent", label: "Case study · Semrush · 2025", title: "I designed an AI agent’s first release in a week, then what owners needed after launch.", image: "assets/originals/ai-agent/dashboard-mvp-clean.png", fit: "width" },
+  { slug: "raiffeisen-mobile", label: "Case study · Raiffeisen Bank · 2023", title: "I turned technical QR types into merchant tasks and gave cashiers their own limited access.", image: "assets/originals/raiffeisen-mobile/screens/one-type-en.jpg", fit: "phone" },
   { slug: "semrush-locations", label: "Case study · Semrush · 2025", title: "I turned one-at-a-time location setup into a single bulk action.", image: "assets/originals/semrush-locations/hero.png", fit: "width" },
 ];
 
 const fonts = `
 @font-face{font-family:Manrope;src:url(${b64("public/fonts/manrope-latin.woff2", "font/woff2")});font-weight:200 800}
 @font-face{font-family:Oswald;src:url(${b64("public/fonts/oswald-700-latin.woff2", "font/woff2")});font-weight:700}
-@font-face{font-family:Plex;src:url(${b64("public/fonts/plex-mono-500-latin.woff2", "font/woff2")});font-weight:500}`;
+`;
 
 const browser = await chromium.launch({ executablePath: chrome });
 const page = await browser.newPage({ viewport: { width: 1200, height: 630 } });
@@ -35,7 +35,7 @@ for (const c of cards) {
   await page.setContent(`<style>${fonts}
   *{box-sizing:border-box;margin:0}
   body{width:1200px;height:630px;background:#f2eee3;color:#241b17;font-family:Manrope;position:relative;overflow:hidden}
-  .l{position:absolute;left:64px;top:56px;font:500 22px Plex;letter-spacing:.06em;color:#5f584f}
+  .l{position:absolute;left:64px;top:56px;font:600 22px Manrope;letter-spacing:.01em;color:#5f584f}
   h1{position:absolute;left:64px;top:128px;width:600px;font:700 58px/0.98 Oswald;letter-spacing:-.02em}
   .n{position:absolute;left:64px;bottom:56px;font-weight:600;font-size:26px}
   .n span{display:block;font-weight:400;font-size:22px;color:#5f584f;margin-top:4px}

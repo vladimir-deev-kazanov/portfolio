@@ -7,8 +7,8 @@
    value of its own.
 
    Palette: warm linen ground, deep teal for links, one burnt-henna accent.
-   Type: Manrope (body, interface, h2/h3), Oswald 700 (home and case H1
-   only), IBM Plex Mono (labels, metadata, numerals).
+   Type: Oswald 700 (home and case H1, and the V/DK mark) and Manrope for
+   everything else. There is no monospace face on the site.
    ========================================================= */
 
 :root {
@@ -40,6 +40,9 @@
 
   /* ---- Hairlines ---- */
   --hairline: rgb(36 27 23 / 10%);       /* screenshot outline */
+  --fig-stage: var(--stage);             /* the one figure background */
+  --fig-radius: 8px;
+  --scrim: rgb(20 15 12 / 88%);          /* lightbox backdrop */
   --rule-on-dark: rgb(242 238 227 / 28%);
 
   /* ---- Type scale: six sizes and one label ---- */
@@ -49,9 +52,10 @@
   --fs-lead: clamp(20px, 1.7vw, 24px);     /* Manrope 400, lh 1.45 */
   --fs-body: clamp(17px, 1.25vw, 18px);    /* Manrope 400, lh 1.6 */
   --fs-small: 15px;                        /* captions, table cells */
-  --fs-label: 13px;                        /* Plex Mono 500, .06em */
+  --fs-label: 13px;                        /* Manrope 600, .01em, sentence case */
+  --fs-meta: 14px;                         /* Manrope 400: card meta lines */
   --letter-spacing-heading: -0.015em;
-  --letter-spacing-label: 0.06em;
+  --letter-spacing-label: 0.01em;
 
   /* ---- Space (4-pt canon) ---- */
   --space-block: 64px;
@@ -83,7 +87,6 @@
 :root {
   --ff-body: "Manrope", "Manrope Fallback", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --ff-display: "Oswald", "Oswald Fallback", "Arial Narrow", "Roboto Condensed", Arial, sans-serif;
-  --ff-mono: "IBM Plex Mono", "IBM Plex Mono Fallback", "SFMono-Regular", Consolas, monospace;
 }
 
 ::selection {

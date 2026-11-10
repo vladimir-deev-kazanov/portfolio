@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Arrow from "./Arrow";
 import Pic from "./work/Pic";
+import { CASES, type CaseInfo } from "./work/cases";
 import "./home.css";
 
 export default function Home() {
@@ -10,18 +11,18 @@ export default function Home() {
         <div className="hsd-hero-grid">
           <div className="hsd-identity">
             <p className="hsd-name">Vladimir Deev-Kazanov</p>
-            <p className="hsd-role">Senior Product Designer · Cyprus · open to roles</p>
+            <p className="hsd-role">AI · B2B SaaS · fintech · open to roles</p>
           </div>
 
           <div className="hsd-portrait-wrap">
             <Pic priority name="avatar" alt="Portrait of Vladimir Deev-Kazanov" sizes="240px" className="hsd-portrait" />
           </div>
 
-          <h1 id="hero-title" className="hsd-title">I design products where users hand work to a system and need to know what it did.</h1>
+          <h1 id="hero-title" className="hsd-title">I design AI and banking products that show users what the system did.</h1>
 
           <div className="hsd-hero-copy-col">
             <p className="hsd-hero-desc">
-              An AI agent that posts to small businesses’ Google profiles at Semrush. QR payments for merchants at Raiffeisen Bank. 7+ years, based in Cyprus.
+              Senior Product Designer, 7+ years. Sole designer of Semrush’s Google Business Profile AI Agent; before that, self-service banking for entrepreneurs at Raiffeisen Bank. Based in Cyprus.
             </p>
 
             <div className="hsd-hero-actions">
@@ -35,56 +36,34 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="work-section shell" id="work" aria-labelledby="work-title">
-        <h2 id="work-title" className="kicker">Three projects</h2>
+      <section className="work-section shell" id="work" aria-label="Selected work">
         <div className="project-list">
-          <article className="project-card project-card-lead">
-            <div className="project-copy">
-              <span className="tag">AI product</span>
-              <h3><Link className="project-link" href="/work/ai-agent" data-analytics-event="case_open_ai_agent">Google Business Profile AI Agent, Semrush</Link></h3>
-              <p>One design week before a conference launch. I cut the MVP to connect, configure, and see what the agent did, and deferred preview and editing.</p>
-              <p className="project-outcome"><b>Outcome</b>8% of landing-page visitors paid for and configured the agent in month one. My later onboarding step lifted weekly first-time activations by 50%.</p>
-              <span className="role-line">MVP launched 2025 · Sole Product Designer</span>
-            </div>
-            <div className="project-visual"><Pic name="ai-agent/dashboard-mvp" alt="Semrush Google Business Profile AI Agent MVP dashboard" sizes="(max-width: 800px) 89vw, 580px" /></div>
-          </article>
-          <article className="project-card">
-            <div className="project-copy">
-              <span className="tag">Mobile fintech</span>
-              <h3><Link className="project-link" href="/work/raiffeisen-mobile" data-analytics-event="case_open_raiffeisen">QR payments for merchants, Raiffeisen Bank</Link></h3>
-              <p>In UX tests, merchants didn’t understand dynamic and static QR codes. I renamed them by task, replaced the default tab with an explained chooser, and gave cashiers payment-only access.</p>
-              <p className="project-outcome"><b>Outcome</b>Shipped to production. Reusable QR creation rose 17% in the first month.</p>
-              <span className="role-line">2023 · Sole Product Designer</span>
-            </div>
-            <div className="project-visual qr-project-visual"><Pic name="raiffeisen-mobile/screens/one-type-en" alt="Choose a QR code type screen listing one-time, reusable, and cashier codes, each with a plain-language description" sizes="280px" /></div>
-          </article>
-          <article className="project-card">
-            <div className="project-copy">
-              <span className="tag">Local SEO</span>
-              <h3><Link className="project-link" href="/work/semrush-locations" data-analytics-event="case_open_semrush_locations">Locations bulk setup, Semrush</Link></h3>
-              <p>Semrush already recognised users’ other businesses but showed them only after Add location. I surfaced them on the Locations page and designed bulk setup that keeps successful adds when some fail.</p>
-              <p className="project-outcome"><b>Outcome</b>Users adding 2+ locations spiked after launch, then returned near the earlier level.</p>
-              <span className="role-line">Bulk release 2025 · Sole Product Designer</span>
-            </div>
-            <div className="project-visual"><Pic name="semrush-locations/bulk-expansion" alt="Semrush Locations dashboard with an Expand your local visibility panel" sizes="(max-width: 800px) 89vw, 580px" /></div>
-          </article>
+          <ProjectCard info={CASES.aiAgent} event="case_open_ai_agent" lead outcome="8% of landing-page visitors paid for and configured the agent in month one. After I added an onboarding step, weekly first-time activations were 50% higher than the month before.">
+            <div className="project-shot"><Pic name="ai-agent/dashboard-mvp" alt="Semrush Google Business Profile AI Agent MVP dashboard" sizes="(min-width: 1250px) 580px, (min-width: 800px) 46vw, 86vw" /></div>
+          </ProjectCard>
+          <ProjectCard info={CASES.raiffeisen} event="case_open_raiffeisen">
+            <div className="project-shot phone"><Pic name="raiffeisen-mobile/main-screen" alt="Raiffeisen QR payments main screen: store, a rating banner, the Transactions tab with filters, November turnover and the latest payments, and a Create QR code button" sizes="(min-width: 800px) 370px, 270px" /></div>
+          </ProjectCard>
+          <ProjectCard info={CASES.locations} event="case_open_semrush_locations">
+            <div className="project-shot"><Pic name="semrush-locations/bulk-expansion" alt="Semrush Locations dashboard with an Expand your local visibility panel" sizes="(min-width: 1250px) 580px, (min-width: 800px) 46vw, 86vw" /></div>
+          </ProjectCard>
         </div>
       </section>
 
       <section className="how-i-work shell" aria-labelledby="how-title">
         <h2 id="how-title">How I work</h2>
         <p>
-          I design products where software acts on someone’s behalf: an agent posting to a business’s Google profile, a QR code that takes a merchant’s payment. The question I keep coming back to is where the user’s control ends and how they find out.
+          When time is fixed, I agree the cut with the product owner and design the loop that’s left: one design week for the Semrush agent meant deferring editing and shipping a dashboard of what it did.
         </p>
         <p>
-          On the Semrush agent we shipped the dashboard before the edit button, and the feedback we got was that owners wanted to see planned posts before they went out. I’d make that call again under the same deadline, but I’d measure it differently.
+          I change designs on evidence. Five merchant UX tests at Raiffeisen changed how QR types were named; feedback sent from the agent page shaped its next release. With engineers I keep scope shippable: bulk location setup reused existing components and accepted a 20-location cap. When there’s no analyst, I run the funnel myself in GA4 and SQL.
         </p>
       </section>
 
       <section className="contact section-pad" id="contact" aria-labelledby="contact-title">
         <div className="shell">
-          <h2 id="contact-title" className="contact-headline">Hiring for AI or fintech product design? Email me.</h2>
-          <p className="contact-note">I’m based in Cyprus and open to Senior product designer opportunities.</p>
+          <h2 id="contact-title" className="contact-headline">Looking for a Product Designer for a complex product?</h2>
+          <p className="contact-note">I’m based in Cyprus and open to Senior Product Designer roles.</p>
           <div className="contact-actions">
             <a className="contact-cta-primary" href="mailto:vladimirdeev0@gmail.com" data-analytics-event="contact_email">vladimirdeev0@gmail.com</a>
             <a className="contact-cta-secondary" href="https://www.linkedin.com/in/vladimir-deev-kazanov/" target="_blank" rel="noreferrer" aria-label="LinkedIn (opens in new tab)" data-analytics-event="contact_linkedin">LinkedIn<Arrow /></a>
@@ -92,5 +71,19 @@ export default function Home() {
         </div>
       </section>
     </main>
+  );
+}
+
+function ProjectCard({ info, event, lead = false, outcome, visualClass = "", children }: { info: CaseInfo; event: string; lead?: boolean; outcome?: string; visualClass?: string; children: React.ReactNode }) {
+  return (
+    <article className={`project-card${lead ? " project-card-lead" : ""}`}>
+      <div className="project-copy">
+        <h3><Link className="project-link" href={info.href} data-analytics-event={event}>{info.title}</Link></h3>
+        <p>{info.summary}</p>
+        <p className="project-outcome"><b>Outcome</b>{outcome ?? info.outcome}</p>
+        <span className="role-line">{info.role}</span>
+      </div>
+      <div className={`project-visual ${visualClass}`.trim()}>{children}</div>
+    </article>
   );
 }

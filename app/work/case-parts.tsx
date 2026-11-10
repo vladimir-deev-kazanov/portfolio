@@ -1,13 +1,31 @@
 import Link from "next/link";
-import type { ReactNode } from "react";
-import Pic, { fullSize } from "./Pic";
+import type { CSSProperties, ReactNode } from "react";
+import Pic, { CROPS, SIZES, fullSize, visibleSize } from "./Pic";
+import VideoPlayer from "./VideoPlayer";
+import Arrow from "../Arrow";
 
 /* Server-component pieces shared by the three case studies. */
 
-/** One row of Role / Team / Timeline / Outcome, plus the one gap to fix first. */
-export function Tldr({ rows, gap }: { rows: Array<[string, ReactNode]>; gap: ReactNode }) {
+/** One row of Role / Team / Timeline / Outcome, plus the ownership boundary that matters. */
+export function Tldr({
+  rows,
+  notMine,
+  live,
+  kit = false,
+}: {
+  rows: Array<[string, ReactNode]>;
+  notMine?: ReactNode;
+  live?: { href: string; label: string; status: string };
+  kit?: boolean;
+}) {
   return (
     <section className="tldr" aria-label="Summary">
+      {live ? (
+        <p className="live-product">
+          <a href={live.href} target="_blank" rel="noreferrer" aria-label={`Live product: ${live.label} (opens in new tab)`}>Live product: {live.label}<Arrow /></a>
+          <span>{live.status}</span>
+        </p>
+      ) : null}
       <dl>
         {rows.map(([term, detail]) => (
           <div key={term}>
@@ -16,29 +34,80 @@ export function Tldr({ rows, gap }: { rows: Array<[string, ReactNode]>; gap: Rea
           </div>
         ))}
       </dl>
-      <p className="tldr-gap"><b>The gap I’d fix first.</b> {gap}</p>
+      {kit ? <p className="tldr-note"><b>Inside the Semrush UI kit.</b> The screens are built from the kit’s base components. My work: the flows, screen composition, information hierarchy, states and behaviour.</p> : null}
+      {notMine ? <p className="tldr-note"><b>Not mine.</b> {notMine}</p> : null}
     </section>
   );
 }
 
-/** Four-row scope and ownership table. Sits below the first decision. */
-export function Scope({ rows }: { rows: Array<[string, ReactNode]> }) {
+/** Compact in-page index for long cases. Plain anchors, no script. */
+export function SectionNav({ items }: { items: Array<[string, string]> }) {
   return (
-    <section className="case-section shell snapshot-section" aria-labelledby="scope-title">
-      <div><h2 id="scope-title">Scope and ownership</h2></div>
-      <dl>
-        {rows.map(([term, detail]) => (
-          <div key={term} className="scope-row">
-            <dt>{term}</dt>
-            <dd>{detail}</dd>
-          </div>
+    <nav className="case-nav" aria-label="Sections of this case study">
+      <ol>
+        {items.map(([id, label]) => (
+          <li key={id}><a href={`#${id}`}>{label}</a></li>
         ))}
-      </dl>
-    </section>
+      </ol>
+    </nav>
   );
 }
 
-/** The one figure pattern: image (tap to open full size), then a mono label and a one-sentence claim. */
+/**
+ * One image inside the shared figure frame (stage background, 8px radius,
+ * hairline). Clicking opens the on-page lightbox (Lightbox.tsx); without
+ * script the link opens the largest file. Images with the same `gallery`
+ * page through together.
+ */
+export function Media({
+  name,
+  alt,
+  sizes,
+  priority = false,
+  ratio,
+  gallery,
+  className = "",
+  fit,
+}: {
+  name: string;
+  alt: string;
+  sizes: string;
+  priority?: boolean;
+  ratio?: number;
+  gallery?: string;
+  className?: string;
+  fit?: "cover" | "contain";
+}) {
+  const crop = CROPS[name];
+  const vis = visibleSize(name);
+  return (
+    <a
+      className={`media ${className}`.trim()}
+      style={{ "--ar": ratio ?? vis.width / vis.height } as CSSProperties}
+      href={fullSize(name)}
+      data-lightbox={gallery ?? ""}
+      data-crop={crop ? crop.join(",") : undefined}
+      aria-label={`${alt} (open larger view)`}
+    >
+      <Pic name={name} alt={alt} sizes={sizes} priority={priority} ratio={ratio} fit={fit} />
+    </a>
+  );
+}
+
+function Caption({ label, children }: { label: string; children: ReactNode }) {
+  return (
+    <figcaption>
+      <span className="fig-label">{label}</span>
+      <span className="fig-claim">{children}</span>
+    </figcaption>
+  );
+}
+
+/**
+ * The one figure pattern: image, then a short label and a one-sentence claim.
+ * Width is `text` (the 680px column) or `wide` (the page container); `pair`
+ * and three-up rows are grids inside `wide`.
+ */
 export function Fig({
   name,
   alt,
@@ -46,7 +115,10 @@ export function Fig({
   children,
   priority = false,
   className = "",
-  maxWidth,
+  wide = false,
+  ratio,
+  sizes,
+  gallery,
 }: {
   name: string;
   alt: string;
@@ -54,19 +126,110 @@ export function Fig({
   children: ReactNode;
   priority?: boolean;
   className?: string;
-  maxWidth?: number;
+  wide?: boolean;
+  ratio?: number;
+  sizes?: string;
+  gallery?: string;
 }) {
-  const sizes = maxWidth ? `(max-width: ${maxWidth}px) 100vw, ${maxWidth}px` : "(min-width: 1200px) 1085px, 100vw";
   return (
-    <figure className={`fig ${className}`.trim()} style={maxWidth ? { maxWidth } : undefined}>
-      <a className="fig-link" href={fullSize(name)} target="_blank" rel="noreferrer" aria-label={`${alt} (open full size)`}>
-        <Pic name={name} alt={alt} sizes={sizes} priority={priority} />
-      </a>
-      <figcaption>
-        <span className="fig-label">{label}</span>
-        <span className="fig-claim">{children}</span>
-      </figcaption>
+    <figure className={`fig${wide ? " wide" : ""} ${className}`.trim()} style={{ "--ar": ratio ?? visibleSize(name).width / visibleSize(name).height } as CSSProperties}>
+      <Media name={name} alt={alt} sizes={sizes ?? (wide ? SIZES.wide : SIZES.text)} priority={priority} ratio={ratio} gallery={gallery} />
+      <Caption label={label}>{children}</Caption>
     </figure>
+  );
+}
+
+export type PhoneScreen = { name: string; label?: string; alt: string };
+
+/**
+ * Up to three phone screens in a row on `wide`, one screen height, no device
+ * frame. Long screens show their first screenful; the lightbox shows all of it.
+ * Under 700px the row scrolls sideways and the next screen peeks in.
+ */
+export function PhoneRow({ label, claim, screens, priority = false, gallery }: { label: string; claim: ReactNode; screens: PhoneScreen[]; priority?: boolean; gallery: string }) {
+  return (
+    <figure className="fig phone-row wide">
+      <ol>
+        {screens.map(({ name, label: screenLabel, alt }, index) => (
+          <li key={name}>
+            {screenLabel ? <span className="phone-step">{index + 1}. {screenLabel}</span> : null}
+            <Media name={name} alt={alt} sizes={SIZES.phone} ratio={PHONE} priority={priority && index === 0} gallery={gallery} />
+          </li>
+        ))}
+      </ol>
+      <Caption label={label}>{claim}</Caption>
+    </figure>
+  );
+}
+
+/** Phone screen proportion shared by every row and flow (375 × 812). */
+export const PHONE = 375 / 812;
+
+/**
+ * A silent prototype recording, in the figure frame, with its own play/pause
+ * control (VideoPlayer.tsx). Autoplays in view unless reduced motion is on.
+ */
+export function Clip({
+  src,
+  poster,
+  width,
+  height,
+  label,
+  alt,
+  children,
+}: {
+  src: string;
+  poster: string;
+  width: number;
+  height: number;
+  label: string;
+  alt: string;
+  children: ReactNode;
+}) {
+  return (
+    <figure className="fig clip wide" style={{ "--ar": width / height } as CSSProperties}>
+      <VideoPlayer src={src} poster={fullSize(poster)} width={width} height={height} alt={alt} />
+      <Caption label={label}>{children}</Caption>
+    </figure>
+  );
+}
+
+export type FlowStep = { name: string; title: string; alt: string; note?: string; shape?: "phone" | "screen" | "tall" };
+
+/**
+ * A row of real screens, each opening in the lightbox, which pages through
+ * the whole gallery. Desktop screens sit in 4:3 tiles, phones at screen
+ * height, both top-aligned. `cols` fixes the column count; without it the
+ * grid fills automatically.
+ */
+export function FlowGallery({ label, steps, start = 1, cols, gallery, fit }: { label: string; steps: FlowStep[]; start?: number; cols?: number; gallery?: string; fit?: "cover" | "contain" }) {
+  const group = gallery ?? label;
+  return (
+    <div className="flow-gallery wide" role="group" aria-label={label} style={cols ? ({ "--cols": cols } as CSSProperties) : undefined} data-cols={cols ? "" : undefined}>
+      <p className="flow-gallery-label">{label}</p>
+      <ol start={start}>
+        {steps.map(({ name, title, alt, note, shape = "screen" }, i) => (
+          <li key={name} className={`flow-item ${shape}`}>
+            <Media name={name} alt={alt} sizes={shape === "phone" ? SIZES.flowPhone : SIZES.flowScreen} ratio={shape === "phone" ? PHONE : 4 / 3} gallery={group} fit={fit} />
+            <span className="flow-step">{start + i}. {title}</span>
+            {note ? <span className="flow-note">{note}</span> : null}
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+}
+
+/** "Full flow" section at the end of a case: every real screen from entry to result. */
+export function FullFlow({ intro, children }: { intro: ReactNode; children: ReactNode }) {
+  return (
+    <section className="full-flow" aria-labelledby="flow-title">
+      <div className="shell">
+        <h2 id="flow-title">Full flow</h2>
+        <p className="full-flow-intro">{intro}</p>
+        {children}
+      </div>
+    </section>
   );
 }
 
