@@ -48,6 +48,7 @@
   /* ---- Type scale: six sizes and one label ---- */
   --fs-display: clamp(46px, 6vw, 88px);    /* Oswald 700, lh .96: home and case H1 */
   --fs-home-h1: clamp(36px, calc(22px + 4.4vw), 76px); /* home hero H1: 36 at 320, 39 at 390, 67 at 1024, 76 from ~1230 */
+  --fs-home-lead: clamp(18px, calc(12px + 0.8vw), 22px); /* home hero description: 18 to ~770, 20 at 1024, 22 from 1250 */
   --fs-h2: clamp(30px, 3.1vw, 44px);       /* Manrope 600, lh 1.1: every section heading */
   --fs-h3: clamp(20px, 1.7vw, 24px);       /* Manrope 600, lh 1.25; same steps as lead */
   --fs-lead: clamp(20px, 1.7vw, 24px);     /* Manrope 400, lh 1.45 */
