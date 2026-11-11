@@ -263,11 +263,15 @@
   ]
  },
  "avatar": {
-  "hash": "645e07df",
-  "height": 240,
-  "width": 240,
+  "hash": "3174b499",
+  "height": 1000,
+  "width": 1000,
   "widths": [
-   240
+   280,
+   360,
+   560,
+   720,
+   1000
   ]
  },
  "raiffeisen-mobile/after-main": {

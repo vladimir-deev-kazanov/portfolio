@@ -278,7 +278,7 @@ iframe:focus-visible {
   background: var(--white);
   color: var(--ink);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--card-radius);
   transition: border-color var(--dur) var(--ease-out);
 }
 .project-card:hover {
@@ -329,15 +329,16 @@ iframe:focus-visible {
   font: 400 var(--fs-meta) / 1.5 var(--ff-body);
   color: var(--color-text-secondary);
 }
-/* Card image area: same stage, 40px inset on every side, image centred
-   both ways. Desktop screens fit the width; the phone shows whole. */
+/* Card image area: same stage, --card-pad inset on every side (40px, 24px
+   up to 800px), image centred both ways. Desktop screens fit the width;
+   the phone shows whole. */
 .project-visual {
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
+  padding: var(--card-pad);
   background: var(--fig-stage);
 }
 .project-shot {
@@ -1502,7 +1503,6 @@ iframe:focus-visible {
   }
   .project-visual {
     order: -1;
-    padding: 24px;
   }
   .project-visual:has(.phone) {
     height: 420px;

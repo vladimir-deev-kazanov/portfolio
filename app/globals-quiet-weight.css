@@ -42,6 +42,10 @@
   --hairline: rgb(36 27 23 / 10%);       /* screenshot outline */
   --fig-stage: var(--stage);             /* the one figure background */
   --fig-radius: 8px;
+  /* Home project cards: corners concentric with the screenshot inside.
+     Outer radius = inner radius + padding + the card's 1px border. */
+  --card-pad: 40px;
+  --card-radius: calc(var(--fig-radius) + var(--card-pad) + 1px);
   --scrim: rgb(20 15 12 / 88%);          /* lightbox backdrop */
   --rule-on-dark: rgb(242 238 227 / 28%);
 
@@ -82,6 +86,7 @@
     --space-section: 72px;
     --space-chapter: 88px;
     --header-height: 56px;
+    --card-pad: 24px;
   }
 }
 
