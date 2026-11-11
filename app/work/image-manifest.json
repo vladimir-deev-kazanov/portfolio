@@ -282,6 +282,17 @@
    1109
   ]
  },
+ "raiffeisen-mobile/clip-qr-flow": {
+  "hash": "42710768",
+  "height": 1624,
+  "width": 750,
+  "widths": [
+   280,
+   360,
+   560,
+   750
+  ]
+ },
  "raiffeisen-mobile/main-screen": {
   "hash": "f8ffcd4e",
   "height": 1600,
@@ -318,7 +329,7 @@
   ]
  },
  "raiffeisen-mobile/round1-types": {
-  "hash": "5a825860",
+  "hash": "df40a3ee",
   "height": 1258,
   "width": 581,
   "widths": [

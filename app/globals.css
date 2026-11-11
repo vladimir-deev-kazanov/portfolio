@@ -371,6 +371,27 @@ iframe:focus-visible {
   aspect-ratio: 739 / 1600;
   transform: translateX(-50%);
 }
+/* A prototype recording in a card: no progress line, and the play/pause
+   button shows only on hover or keyboard focus (clicking the video toggles too). */
+.project-visual:has(.project-clip.phone) {
+  container-type: size;
+}
+.project-clip {
+  width: 100%;
+}
+.project-clip.phone {
+  width: min(100cqw, 100cqh * 750 / 1624);
+}
+.project-clip .video-progress {
+  display: none;
+}
+.project-clip .video-toggle {
+  opacity: 0;
+}
+.project-clip:hover .video-toggle,
+.project-clip .video-toggle:focus-visible {
+  opacity: 1;
+}
 .work-section > .kicker {
   color: var(--color-text-secondary);
 }

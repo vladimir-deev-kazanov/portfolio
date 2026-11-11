@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Arrow from "./Arrow";
-import Pic from "./work/Pic";
+import Pic, { fullSize } from "./work/Pic";
+import VideoPlayer from "./work/VideoPlayer";
 import { CASES, type CaseInfo } from "./work/cases";
 import "./home.css";
 
@@ -18,7 +19,7 @@ export default function Home() {
             <Pic priority name="avatar" alt="Portrait of Vladimir Deev-Kazanov" sizes="240px" className="hsd-portrait" />
           </div>
 
-          <h1 id="hero-title" className="hsd-title">I design AI and banking products that show users what the system did.</h1>
+          <h1 id="hero-title" className="hsd-title">I design how people decide, delegate work, and recover when things go wrong.</h1>
 
           <div className="hsd-hero-copy-col">
             <p className="hsd-hero-desc">
@@ -39,10 +40,10 @@ export default function Home() {
       <section className="work-section shell" id="work" aria-label="Selected work">
         <div className="project-list">
           <ProjectCard info={CASES.aiAgent} event="case_open_ai_agent" lead outcome="8% of landing-page visitors paid for and configured the agent in month one. After I added an onboarding step, weekly first-time activations were 50% higher than the month before.">
-            <div className="project-shot"><Pic name="ai-agent/dashboard-mvp" alt="Semrush Google Business Profile AI Agent MVP dashboard" sizes="(min-width: 1250px) 580px, (min-width: 800px) 46vw, 86vw" /></div>
+            <div className="project-clip"><VideoPlayer src="/work/ai-agent/motion/edit-post.mp4" poster={fullSize("ai-agent/clip-edit-post")} width={1020} height={930} alt="Prototype recording: opening a scheduled post from the actions list, rewriting its text and saving" /></div>
           </ProjectCard>
           <ProjectCard info={CASES.raiffeisen} event="case_open_raiffeisen">
-            <div className="project-shot phone"><Pic name="raiffeisen-mobile/main-screen" alt="Raiffeisen QR payments main screen: store, a rating banner, the Transactions tab with filters, November turnover and the latest payments, and a Create QR code button" sizes="(min-width: 800px) 370px, 270px" /></div>
+            <div className="project-clip phone"><VideoPlayer src="/work/raiffeisen-mobile/motion/qr-flow.mp4" poster={fullSize("raiffeisen-mobile/clip-qr-flow")} width={750} height={1624} alt="Prototype recording: from the QR payments screen, tapping Create QR code, choosing Single-use, entering 3,000 roubles and creating the code" /></div>
           </ProjectCard>
           <ProjectCard info={CASES.locations} event="case_open_semrush_locations">
             <div className="project-shot"><Pic name="semrush-locations/bulk-expansion" alt="Semrush Locations dashboard with an Expand your local visibility panel" sizes="(min-width: 1250px) 580px, (min-width: 800px) 46vw, 86vw" /></div>
