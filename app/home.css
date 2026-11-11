@@ -6,35 +6,33 @@
   width: min(var(--max), 100%);
   margin-inline: auto;
   padding-inline: var(--gutter);
-  padding-top: clamp(24px, 3vh, 40px);
+  padding-top: clamp(24px, 4vh, 40px);
   padding-bottom: 0;
-  display: flex;
-  flex-direction: column;
 }
 
-/* Hero identity/photo + H1 + support/CTA, in three tiers:
-   - base (<375px): identity full width, then a compact portrait below it.
-   - 375–879px: identity and a compact portrait share one row; title and
-     copy span the full width.
-   - 880px and up: text in the wide column, portrait beside it.
+/* Three groups, spaced wider between than within: name + role, then
+   H1 + description, then the CTAs.
+   - under 880px: one column; a small portrait sits beside name + role.
+   - 880px and up: name + role across the top; below it the H1, description
+     and CTAs on the left and the portrait on the right, its top on the H1's.
    Source order (identity, portrait, title, copy) is the reading order at
-   every tier; only the grid template changes. */
+   every width; only the grid template changes. */
 .hsd-hero-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr) auto;
   grid-template-areas:
-    "identity"
-    "portrait"
-    "title"
-    "copy";
-  row-gap: 0;
+    "identity portrait"
+    "title    title"
+    "copy     copy";
+  column-gap: 16px;
+  align-items: center;
 }
 
 .hsd-identity {
   grid-area: identity;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 4px;
 }
 
 .hsd-name {
@@ -43,27 +41,31 @@
   font-weight: 700;
   font-size: var(--fs-h3);
   letter-spacing: -0.01em;
-  line-height: 1.15;
+  line-height: 1.2;
   color: var(--ink);
+}
+
+/* The surname never breaks at its hyphen. */
+.hsd-nowrap {
+  white-space: nowrap;
 }
 
 .hsd-role {
   margin: 0;
   font-size: var(--fs-small);
-  line-height: 1.3;
+  line-height: 1.4;
   color: var(--color-text-secondary);
 }
 
 .hsd-portrait-wrap {
   grid-area: portrait;
-  max-width: 168px;
-  margin-top: 16px;
+  width: 64px;
 }
 
 .hsd-portrait {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1;
   object-fit: cover;
   border-radius: 8px;
 }
@@ -71,23 +73,24 @@
 .hsd-title {
   grid-area: title;
   margin: 32px 0 0;
-  max-width: 17em;
+  max-width: 13em;
+  font-size: var(--fs-home-h1);
 }
 
 .hsd-hero-copy-col {
   grid-area: copy;
+  align-self: start;
   min-width: 0;
-  display: flex;
-  flex-direction: column;
-  margin-top: 24px;
+  margin-top: 16px;
 }
 
 .hsd-hero-desc {
   margin: 0;
-  max-width: 44ch;
+  max-width: 34ch;
   font-size: var(--fs-lead);
   line-height: 1.45;
   color: var(--color-text-secondary);
+  text-wrap: balance;
 }
 
 .hsd-hero-actions {
@@ -150,39 +153,45 @@
 }
 
 @media (min-width: 375px) and (max-width: 879px) {
-  .hsd-hero-grid {
-    grid-template-columns: 1fr 124px;
-    grid-template-areas:
-      "identity portrait"
-      "title    title"
-      "copy     copy";
-    column-gap: 16px;
-  }
-
-  .hsd-identity {
-    align-self: start;
-  }
-
   .hsd-portrait-wrap {
-    max-width: none;
-    margin-top: 0;
+    width: 80px;
   }
 }
 
 @media (min-width: 880px) {
   .hsd-hero-grid {
-    grid-template-columns: minmax(0, 1fr) 168px;
+    grid-template-columns: minmax(0, 1fr) 240px;
+    grid-template-rows: auto auto 1fr;
     grid-template-areas:
-      "identity portrait"
+      "identity identity"
       "title    portrait"
-      "copy     copy";
-    column-gap: 24px;
+      "copy     portrait";
+    column-gap: clamp(48px, 5vw, 72px);
+    align-items: start;
   }
 
+  /* The gap sits under name + role, so the title row starts at the H1's
+     top and the portrait shares that edge. */
+  .hsd-identity {
+    margin-bottom: 48px;
+  }
+
+  /* Oswald's cap top sits 0.12em below the H1's line box; the portrait
+     starts there so its edge meets the visible top of the letters. */
   .hsd-portrait-wrap {
-    align-self: start;
-    justify-self: end;
-    max-width: 168px;
+    width: 240px;
+    margin-top: calc(var(--fs-home-h1) * 0.12);
+  }
+
+  .hsd-title {
     margin-top: 0;
+  }
+
+  .hsd-hero-copy-col {
+    margin-top: 20px;
+  }
+
+  .hsd-hero-actions {
+    margin-top: 32px;
   }
 }

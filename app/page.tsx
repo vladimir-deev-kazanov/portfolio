@@ -11,20 +11,18 @@ export default function Home() {
       <section id="top" aria-labelledby="hero-title" className="hsd-hero">
         <div className="hsd-hero-grid">
           <div className="hsd-identity">
-            <p className="hsd-name">Vladimir Deev-Kazanov</p>
-            <p className="hsd-role">AI · B2B SaaS · fintech · open to roles</p>
+            <p className="hsd-name">Vladimir <span className="hsd-nowrap">Deev-Kazanov</span></p>
+            <p className="hsd-role">Senior Product Designer · Cyprus · Open to roles</p>
           </div>
 
           <div className="hsd-portrait-wrap">
-            <Pic priority name="avatar" alt="Portrait of Vladimir Deev-Kazanov" sizes="240px" className="hsd-portrait" />
+            <Pic priority name="avatar" alt="Portrait of Vladimir Deev-Kazanov" sizes="(min-width: 880px) 240px, 80px" className="hsd-portrait" />
           </div>
 
-          <h1 id="hero-title" className="hsd-title">I design how people decide, delegate work, and recover when things go wrong.</h1>
+          <h1 id="hero-title" className="hsd-title">I design how people decide, delegate, and recover.</h1>
 
           <div className="hsd-hero-copy-col">
-            <p className="hsd-hero-desc">
-              Senior Product Designer, 7+ years. Sole designer of Semrush’s Google Business Profile AI Agent; before that, self-service banking for entrepreneurs at Raiffeisen Bank. Based in Cyprus.
-            </p>
+            <p className="hsd-hero-desc">7+ years designing products at Semrush and Raiffeisen Bank.</p>
 
             <div className="hsd-hero-actions">
               <a href="#work" className="hsd-cta-primary">
